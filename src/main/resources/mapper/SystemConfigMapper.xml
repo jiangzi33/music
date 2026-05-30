@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.music.mapper.SystemConfigMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.music.entity.SystemConfig">
+        <id column="id" property="id"/>
+        <result column="value" property="value"/>
+        <result column="code" property="code"/>
+
+    </resultMap>
+
+
+    <insert id="addSystemConfig">
+        INSERT INTO `system_config`(code,value)
+        VALUES(#{code}, #{value})
+    </insert>
+
+    <update id="modifySystemConfig">
+        update `system_config`
+        set
+        value = #{value}
+        where code = #{code}
+    </update>
+
+
+    <select id="queryConfigByCode" resultMap="BaseResultMap">
+        select *
+        from
+        `system_config`
+        where code = #{code}
+    </select>
+
+    <delete id="deleteSystemConfig">
+        delete
+        from
+        `system_config`
+        where code = #{code}
+    </delete>
+
+    <select id="queryAllConfig" resultMap="BaseResultMap">
+        select *
+        from
+        `system_config`
+    </select>
+
+</mapper>
