@@ -7,6 +7,7 @@ import com.example.music.controller.vo.MusicVO;
 import com.example.music.controller.vo.SingleMusicVO;
 import com.example.music.entity.Music;
 import com.example.music.exception.*;
+import com.example.music.service.MusicRankService;
 import com.example.music.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 public class MusicController {
     @Autowired
     private MusicService musicService;
+    @Autowired
+    private MusicRankService musicRankService;
 
     @PostMapping("/add")
     public BaseVO addMusic(@RequestBody MusicCmd cmd){
@@ -81,6 +84,7 @@ public class MusicController {
             Music music = musicService.queryByTitle(title);
             endTime = System.currentTimeMillis();
             MusicVO musicVO = MusicVOConverter.convert(music);
+            musicVO.setHotScore(musicRankService.queryHotScore(musicVO.getId()));
             BaseVO baseVO = BaseVO.buildBaseVO(200, true, endTime - startTime, null);
             singleMusicVO.setMusicVO(musicVO);
             singleMusicVO.setBaseVO(baseVO);

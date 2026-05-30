@@ -9,6 +9,15 @@ public class MusicVO {
     private String author;
     private String tags;
     private Date publishTime;
+    private Double hotScore;
+
+    public Double getHotScore() {
+        return hotScore;
+    }
+
+    public void setHotScore(Double hotScore) {
+        this.hotScore = hotScore;
+    }
 
     public int getId() {
         return id;

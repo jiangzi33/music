@@ -34,6 +34,11 @@ public class MusicRankRepository {
         return integerList;
     }
 
+    public double getScore(int musicId){
+       double res = redisTemplate.opsForZSet().score(buildKey(),musicId);
+       return res;
+    }
+
     private String buildKey(){
         return"music_rank";
     }

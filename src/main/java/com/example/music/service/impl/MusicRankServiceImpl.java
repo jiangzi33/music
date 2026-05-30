@@ -30,4 +30,9 @@ public class MusicRankServiceImpl implements MusicRankService {
         List<Music> musicList = musicMapper.queryByIds(musicIdList);
         return musicList;
     }
+
+    @Override
+    public double queryHotScore(int musicId) {
+      return musicRankRepository.getScore(musicId);
+    }
 }
