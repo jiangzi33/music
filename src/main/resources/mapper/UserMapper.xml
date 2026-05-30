@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.music.mapper.UserMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.music.entity.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+        <result column="age" property="age"/>
+        <result column="interests" property="interests"/>
+        <result column="email" property="email"/>
+        <result column="status" property="status"/>
+        <result column="register_time" property="registerTime"/>
+
+    </resultMap>
+
+
+    <insert id="addUser">
+        INSERT INTO user(name, password, age, interests, email, status, register_time)
+        VALUES(#{name}, #{password}, #{age}, #{interests}, #{email}, #{status}, now())
+    </insert>
+
+    <update id="modifyUser">
+        update user
+        set
+        password = #{password},
+        age = #{age},
+        interests = #{interests},
+        email = #{email},
+        status = #{status}
+        where name = #{name}
+    </update>
+
+    <select id="queryById" resultMap="BaseResultMap">
+        select *
+        from
+        user
+        where id = #{id}
+    </select>
+
+    <select id="queryByIds" resultMap="BaseResultMap">
+        select *
+        from user
+        where id in
+        <foreach collection="ids" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        ORDER BY FIELD(id,
+        <foreach collection="ids" item="item" separator=",">
+            #{item}
+        </foreach> )
+    </select>
+
+    <select id="queryByName" resultMap="BaseResultMap">
+        select *
+        from
+        user
+        where name = #{name}
+    </select>
+
+    <delete id="deleteUser">
+        delete
+        from
+        user
+        where id = #{id}
+    </delete>
+
+    <select id="queryAllUser" resultMap="BaseResultMap">
+        select *
+        from
+        user
+    </select>
+
+</mapper>

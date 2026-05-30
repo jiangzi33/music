@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.music.mapper.MusicMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.example.music.entity.Music">
+
+        <id column="id" property="id"/>
+
+        <result column="title" property="title"/>
+
+        <result column="content" property="content"/>
+
+        <result column="author" property="author"/>
+
+        <result column="tags" property="tags"/>
+
+        <result column="publish_time" property="publishTime"/>
+
+    </resultMap>
+
+
+    <!-- 添加音乐 -->
+    <insert id="addMusic">
+
+        INSERT INTO music(title, content, author, tags, publish_time)
+
+        VALUES(#{title}, #{content}, #{author}, #{tags}, now())
+
+    </insert>
+
+
+    <!-- 修改音乐 -->
+    <update id="modifyMusic">
+
+        update music
+
+        set
+        title = #{title},
+        content = #{content},
+        author = #{author},
+        tags = #{tags}
+
+        where id = #{id}
+
+    </update>
+
+
+    <!-- 根据ID查询 -->
+    <select id="queryById" resultMap="BaseResultMap">
+
+        select *
+
+        from music
+
+        where id = #{id}
+
+    </select>
+
+    <select id="queryByIds" resultMap="BaseResultMap">
+        select *
+        from music
+        where id in
+        <foreach collection="ids" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        ORDER BY FIELD(id,
+        <foreach collection="ids" item="item" separator=",">
+            #{item}
+        </foreach> )
+    </select>
+
+
+    <!-- 根据标题查询 -->
+    <select id="queryByTitle" resultMap="BaseResultMap">
+
+        select *
+
+        from music
+
+        where title = #{title}
+
+    </select>
+
+
+    <!-- 删除音乐 -->
+    <delete id="deleteMusic">
+
+        delete from music
+
+        where id = #{id}
+
+    </delete>
+
+</mapper>
