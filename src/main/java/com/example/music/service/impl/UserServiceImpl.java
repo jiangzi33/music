@@ -8,6 +8,7 @@ import com.example.music.enums.UserStatusEnum;
 import com.example.music.exception.*;
 import com.example.music.intergration.EmailUtil;
 import com.example.music.mapper.UserMapper;
+import com.example.music.repository.MusicInterestsRepository;
 import com.example.music.repository.UserActivationRepository;
 import com.example.music.repository.UserRepository;
 import com.example.music.repository.UserTokenRepository;
@@ -34,6 +35,8 @@ public class UserServiceImpl implements UserService {
     private UserTokenRepository userTokenRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private MusicInterestsRepository musicInterestsRepository;
     @Override
     @Transactional
     public void register(RegisterCmd cmd) {
@@ -139,6 +142,22 @@ public class UserServiceImpl implements UserService {
         }
         userMapper.deleteUser(id);
         userRepository.delete(user);
+    }
+
+    @Transactional
+    @Override
+    public void updateInterests(int id, String interests) {
+        User user = userMapper.queryById(id);
+        if(user==null){
+            throw new UserNotExistException("user is not existed");
+        }
+        user.setInterests(interests);
+        userMapper.modifyUser(user);
+        userRepository.delete(user);
+        String[] interestsArray = interests.split(",");
+        for (int i = 0; i < interestsArray.length; i++) {
+            musicInterestsRepository.addItem(interestsArray[i],id);
+        }
     }
 
     private User buildUser(RegisterCmd cmd){

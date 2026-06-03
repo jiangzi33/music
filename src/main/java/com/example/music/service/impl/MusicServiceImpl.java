@@ -4,10 +4,12 @@ import com.example.music.controller.cmd.MusicCmd;
 import com.example.music.entity.Music;
 import com.example.music.exception.MusicNotExistException;
 import com.example.music.mapper.MusicMapper;
+import com.example.music.producer.MusicProducer;
 import com.example.music.repository.MusicRankRepository;
 import com.example.music.repository.MusicRepository;
 import com.example.music.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,12 +21,15 @@ public class MusicServiceImpl implements MusicService {
     private MusicRepository musicRepository;
     @Autowired
     private MusicRankRepository musicRankRepository;
+    @Autowired
+    private MusicProducer musicProducer;
     @Override
     public void addMusic(MusicCmd cmd) {
         Music music = buildMusic(cmd);
         musicMapper.addMusic(music);
         Music musicInDB = musicMapper.queryByTitle(cmd.getTitle());
         musicRankRepository.addItem(musicInDB.getId());
+        musicProducer.addTags("add-music",musicInDB.getId());
     }
 
     @Override

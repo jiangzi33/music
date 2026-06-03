@@ -14,7 +14,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public BaseVO register(@RequestBody RegisterCmd cmd){
+    public BaseVO register(@RequestBody RegisterCmd cmd) {
         long startTime = System.currentTimeMillis();
         long endTime;
         try {
@@ -76,22 +76,42 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/delete")
-    public BaseVO delete(int id){
+    @PutMapping("/update")
+    public BaseVO updateInterests(int userId, String interests) {
         long startTime = System.currentTimeMillis();
         long endTime;
-        try{
-            userService.deleteUser(id);
+        try {
+            userService.updateInterests(userId, interests);
             endTime = System.currentTimeMillis();
-            BaseVO baseVO = BaseVO.buildBaseVO(200,true,endTime-startTime,null);
+            BaseVO baseVO = BaseVO.buildBaseVO(200, true, endTime - startTime, null);
             return baseVO;
-        } catch (UserNotExistException e){
+        } catch (UserNotExistException e) {
             endTime = System.currentTimeMillis();
-            BaseVO baseVO = BaseVO.buildBaseVO(500,false,endTime-startTime,e.getMessage());
+            BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, e.getMessage());
             return baseVO;
         } catch (Exception e) {
             endTime = System.currentTimeMillis();
-            BaseVO baseVO = BaseVO.buildBaseVO(500,false,endTime-startTime,"删除用户失败");
+            BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, "删除用户失败");
+            return baseVO;
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public BaseVO delete(int id) {
+        long startTime = System.currentTimeMillis();
+        long endTime;
+        try {
+            userService.deleteUser(id);
+            endTime = System.currentTimeMillis();
+            BaseVO baseVO = BaseVO.buildBaseVO(200, true, endTime - startTime, null);
+            return baseVO;
+        } catch (UserNotExistException e) {
+            endTime = System.currentTimeMillis();
+            BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, e.getMessage());
+            return baseVO;
+        } catch (Exception e) {
+            endTime = System.currentTimeMillis();
+            BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, "删除用户失败");
             return baseVO;
         }
     }

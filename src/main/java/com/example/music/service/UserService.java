@@ -12,4 +12,5 @@ public interface UserService {
     User queryById(int id);
     void modifyUser(UserCmd cmd);
     void deleteUser(int id);
+    void updateInterests(int id, String interests);
 }
