@@ -45,7 +45,10 @@ public class MusicConsumer {
         List<User> userList = userMapper.queryByIds(userIds);
         for(User user : userList){
             try {
-                emailUtil.sendHtmlMail(user.getEmail(),"recommend",MusicConstant.RECOMMEND_EMAIL_HTML);
+                String contents = MusicConstant.RECOMMEND_EMAIL_HTML;
+                String replace = contents.replace("{{musicTitle}}", music.getTitle());
+                String finalContent = replace.replace("{{musicAuthor}}", music.getAuthor());
+                emailUtil.sendHtmlMail(user.getEmail(),"recommend",finalContent);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

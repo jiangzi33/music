@@ -9,7 +9,7 @@ public class MusicProducer {
     @Autowired
     private KafkaTemplate<String,String> kafkaTemplate;
 
-    public void addTags(String topic, int musicId){
+    public void send(String topic, int musicId){
       String val = String.valueOf(musicId);
       kafkaTemplate.send(topic,val);
     }

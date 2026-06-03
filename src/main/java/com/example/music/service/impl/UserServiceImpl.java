@@ -20,6 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static com.example.music.enums.UserStatusEnum.INIT;
 
 
@@ -148,15 +151,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateInterests(int id, String interests) {
         User user = userMapper.queryById(id);
-        if(user==null){
+        if(user==null) {
             throw new UserNotExistException("user is not existed");
         }
+        String oldInterests = user.getInterests();
+        Set<String> oldSet = convertToInterestToSet(oldInterests);
+        Set<String> newSet = convertToInterestToSet(interests);
+        Set<String> tempOldSet = new HashSet<>(oldSet);
+        Set<String> tempNewSet = new HashSet<>(newSet);
+        //现在的tempOldSet就是我们要删的
+        tempOldSet.removeAll(tempNewSet);
+        //这是要更新的
+        tempNewSet.removeAll(oldSet);
         user.setInterests(interests);
         userMapper.modifyUser(user);
         userRepository.delete(user);
-        String[] interestsArray = interests.split(",");
-        for (int i = 0; i < interestsArray.length; i++) {
-            musicInterestsRepository.addItem(interestsArray[i],id);
+        for (String delete : tempOldSet){
+            musicInterestsRepository.deleteItem(delete, user.getId());
+        }
+        for(String insert : tempNewSet){
+            musicInterestsRepository.addItem(insert, user.getId());
         }
     }
 
@@ -177,5 +191,14 @@ public class UserServiceImpl implements UserService {
         userToken.setUserId(user.getId());
         userToken.setName(user.getName());
         return userToken;
+    }
+
+    private Set<String> convertToInterestToSet(String interest){
+        String[] interestsArray = interest.split(",");
+        Set<String> interestSet = new HashSet<>();
+        for (int i = 0; i < interestsArray.length; i++) {
+            interestSet.add(interestsArray[i]);
+        }
+        return interestSet;
     }
 }

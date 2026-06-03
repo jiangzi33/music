@@ -9,7 +9,6 @@ import com.example.music.repository.MusicRankRepository;
 import com.example.music.repository.MusicRepository;
 import com.example.music.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +28,7 @@ public class MusicServiceImpl implements MusicService {
         musicMapper.addMusic(music);
         Music musicInDB = musicMapper.queryByTitle(cmd.getTitle());
         musicRankRepository.addItem(musicInDB.getId());
-        musicProducer.addTags("add-music",musicInDB.getId());
+        musicProducer.send("add-music",musicInDB.getId());
     }
 
     @Override

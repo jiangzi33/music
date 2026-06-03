@@ -47,8 +47,8 @@ public class MusicConstant {
             "\n" +
             "        <!-- 循环开始 -->\n" +
             "        <tr>\n" +
-            "            <td style=\"padding:10px;\">${music.title}</td>\n" +
-            "            <td style=\"padding:10px;\">${music.author}</td>\n" +
+            "            <td style=\"padding:10px;\">{{musicTitle}}</td>\n" +
+            "            <td style=\"padding:10px;\">{{musicAuthor}}</td>\n" +
             "        </tr>\n" +
             "        <!-- 循环结束 -->\n" +
             "\n" +
