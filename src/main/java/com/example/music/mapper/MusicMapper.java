@@ -13,4 +13,5 @@ public interface MusicMapper{
     List<Music> queryByIds(List<Integer> ids);
     void modifyMusic(Music music);
     void deleteMusic(int id);
+    List<Music> queryAll(int start, int pageSize);
 }

@@ -3,15 +3,20 @@ package com.example.music.controller;
 import com.example.music.controller.cmd.MusicCmd;
 import com.example.music.controller.converter.MusicVOConverter;
 import com.example.music.controller.vo.BaseVO;
+import com.example.music.controller.vo.MultiMusicVO;
 import com.example.music.controller.vo.MusicVO;
 import com.example.music.controller.vo.SingleMusicVO;
 import com.example.music.entity.Music;
 import com.example.music.exception.*;
 import com.example.music.service.MusicRankService;
 import com.example.music.service.MusicService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@Slf4j
 @RestController
 @RequestMapping("/music")
 public class MusicController {
@@ -30,6 +35,7 @@ public class MusicController {
             return BaseVO.buildBaseVO(200, true, endTime - startTime, null);
         } catch (Exception e) {
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             return BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
         }
     }
@@ -45,10 +51,12 @@ public class MusicController {
             return baseVO;
         } catch (MusicNotExistException e){
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             BaseVO baseVO = BaseVO.buildBaseVO(500,false,endTime-startTime,e.getMessage());
             return baseVO;
         } catch (Exception e) {
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             BaseVO baseVO = BaseVO.buildBaseVO(500,false,endTime-startTime,"删除用户失败");
             return baseVO;
         }
@@ -69,6 +77,7 @@ public class MusicController {
             return singleMusicVO;
         } catch (Exception e){
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
             singleMusicVO.setBaseVO(baseVO);
             return singleMusicVO;
@@ -91,6 +100,7 @@ public class MusicController {
             return singleMusicVO;
         } catch (Exception e){
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
             singleMusicVO.setBaseVO(baseVO);
             return singleMusicVO;
@@ -108,12 +118,36 @@ public class MusicController {
             return baseVO;
         } catch (MusicNotExistException e){
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             BaseVO baseVO = BaseVO.buildBaseVO(500,false,endTime-startTime,e.getMessage());
             return baseVO;
         } catch (Exception e) {
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             BaseVO baseVO = BaseVO.buildBaseVO(500,false,endTime-startTime,"删除用户失败");
             return baseVO;
+        }
+    }
+
+    @GetMapping("/query-all")
+    public MultiMusicVO queryAll(int start, int pageSize){
+        long startTime = System.currentTimeMillis();
+        long endTime;
+        MultiMusicVO multiMusicVO = new MultiMusicVO();
+        try{
+            List<Music> musicList = musicService.queryAll(start,pageSize);
+            endTime = System.currentTimeMillis();
+            List<MusicVO> musicVOList = MusicVOConverter.convertList(musicList);
+            BaseVO baseVO = BaseVO.buildBaseVO(200, true, endTime - startTime, null);
+            multiMusicVO.setMusicVOList(musicVOList);
+            multiMusicVO.setBaseVO(baseVO);
+            return multiMusicVO;
+        } catch (Exception e){
+            endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
+            BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
+            multiMusicVO.setBaseVO(baseVO);
+            return multiMusicVO;
         }
     }
 }

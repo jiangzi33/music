@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Music</title>
+    <title>Sign In - Music</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -21,7 +21,7 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             padding: 40px;
             width: 100%;
-            max-width: 460px;
+            max-width: 420px;
         }
         h1 {
             font-size: 28px;
@@ -45,7 +45,7 @@
             color: #4a5568;
             margin-bottom: 6px;
         }
-        input, select {
+        input {
             width: 100%;
             padding: 11px 14px;
             font-size: 14px;
@@ -54,17 +54,10 @@
             background: #f7fafc;
             transition: border-color 0.15s, background 0.15s;
         }
-        input:focus, select:focus {
+        input:focus {
             outline: none;
             border-color: #667eea;
             background: #fff;
-        }
-        .row {
-            display: flex;
-            gap: 12px;
-        }
-        .row > .field {
-            flex: 1;
         }
         button {
             width: 100%;
@@ -110,58 +103,43 @@
             color: #2f855a;
             border: 1px solid #9ae6b4;
         }
-        .hint {
-            font-size: 12px;
-            color: #a0aec0;
-            margin-top: 4px;
-        }
     </style>
 </head>
 <body>
 <div class="card">
-    <h1>Create your account</h1>
-    <p class="subtitle">Join Music and discover sounds you'll love.</p>
+    <h1>Welcome back</h1>
+    <p class="subtitle">Sign in to keep listening.</p>
 
     <div id="alert" class="alert"></div>
 
-    <form id="registerForm" novalidate>
+    <form id="loginForm" novalidate>
         <div class="field">
             <label for="name">Username</label>
-            <input type="text" id="name" name="name" placeholder="Choose a username" required minlength="3" maxlength="32">
+            <input type="text" id="name" name="name" placeholder="Your username" required>
         </div>
 
         <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Your password" required>
         </div>
 
-        <div class="row">
-            <div class="field">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="At least 8 characters" required minlength="8">
-            </div>
-            <div class="field">
-                <label for="age">Age</label>
-                <input type="number" id="age" name="age" min="1" max="120" placeholder="e.g. 25" required>
-            </div>
-        </div>
-
-        <div class="field">
-            <label for="interests">Musical interests</label>
-            <input type="text" id="interests" name="interests" placeholder="e.g. Pop, Jazz, Classical">
-            <div class="hint">Separate multiple genres with commas.</div>
-        </div>
-
-        <button type="submit" id="submitBtn">Sign Up</button>
+        <button type="submit" id="submitBtn">Sign In</button>
     </form>
 
-    <p class="footer">Already have an account? <a href="/login.html">Sign in</a></p>
+    <p class="footer">New here? <a href="/register.html">Create an account</a></p>
 </div>
 
 <script>
-    const form = document.getElementById('registerForm');
+    const form = document.getElementById('loginForm');
     const alertBox = document.getElementById('alert');
     const submitBtn = document.getElementById('submitBtn');
+    const nameInput = document.getElementById('name');
+
+    const params = new URLSearchParams(window.location.search);
+    const prefillName = params.get('name');
+    if (prefillName) {
+        nameInput.value = prefillName;
+    }
 
     function showAlert(message, type) {
         alertBox.textContent = message;
@@ -173,38 +151,32 @@
         e.preventDefault();
         alertBox.style.display = 'none';
 
-        const payload = {
-            name: document.getElementById('name').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            password: document.getElementById('password').value,
-            age: parseInt(document.getElementById('age').value, 10),
-            interests: document.getElementById('interests').value.trim()
-        };
+        const name = nameInput.value.trim();
+        const password = document.getElementById('password').value;
 
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Creating account...';
+        submitBtn.textContent = 'Signing in...';
 
         try {
-            const res = await fetch('/user/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+            const query = 'name=' + encodeURIComponent(name) + '&password=' + encodeURIComponent(password);
+            const res = await fetch('/user/login?' + query, {
+                method: 'GET'
             });
             const data = await res.json();
 
             if (data.code === 200 && data.success) {
-                showAlert('Account created! Redirecting to activation...', 'success');
+                showAlert('Signed in! Redirecting...', 'success');
                 setTimeout(() => {
-                    window.location.href = '/activate.html?name=' + encodeURIComponent(payload.name);
+                    window.location.href = '/music.html?name=' + encodeURIComponent(name);
                 }, 800);
             } else {
-                showAlert(data.message || 'Registration failed. Please try again.', 'error');
+                showAlert(data.message || 'Sign in failed. Please try again.', 'error');
             }
         } catch (err) {
             showAlert('Network error. Please check your connection and try again.', 'error');
         } finally {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Sign Up';
+            submitBtn.textContent = 'Sign In';
         }
     });
 </script>

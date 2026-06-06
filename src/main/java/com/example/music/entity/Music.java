@@ -9,6 +9,7 @@ public class Music {
     private String author;
     private String tags;
     private Date publishTime;
+    private String pictureUrl;
 
     public int getId() {
         return id;
@@ -56,5 +57,13 @@ public class Music {
 
     public void setPublishTime(Date publishTime) {
         this.publishTime = publishTime;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 }

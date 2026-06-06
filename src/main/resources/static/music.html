@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Search</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .header .user {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .header .user a {
+            color: #fff;
+            margin-left: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 32px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 18px;
+            color: #2d3748;
+            margin-bottom: 16px;
+        }
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .tab {
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #718096;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        .search-row {
+            display: flex;
+            gap: 10px;
+        }
+        input {
+            flex: 1;
+            padding: 11px 14px;
+            font-size: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f7fafc;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #fff;
+        }
+        button {
+            padding: 11px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.15s;
+        }
+        button:hover { transform: translateY(-1px); }
+        button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .alert {
+            padding: 11px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-top: 16px;
+            display: none;
+        }
+        .alert.error {
+            background: #fff5f5;
+            color: #c53030;
+            border: 1px solid #feb2b2;
+        }
+        .alert.info {
+            background: #ebf8ff;
+            color: #2c5282;
+            border: 1px solid #90cdf4;
+        }
+        .result {
+            margin-top: 20px;
+            display: none;
+        }
+        .result-title {
+            font-size: 22px;
+            color: #2d3748;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .result-author {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 16px;
+        }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 24px;
+            margin-bottom: 16px;
+        }
+        .meta-item {
+            font-size: 13px;
+        }
+        .meta-label {
+            color: #a0aec0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+        .meta-value {
+            color: #2d3748;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            font-size: 12px;
+            color: #667eea;
+            background: #ebf4ff;
+            border-radius: 12px;
+            margin-right: 6px;
+            margin-bottom: 4px;
+        }
+        .content-box {
+            padding: 14px;
+            background: #f7fafc;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        .hot-score {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+            color: #fff;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .list { margin-top: 20px; }
+        .list-item {
+            padding: 14px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: border-color 0.15s, transform 0.1s;
+            cursor: pointer;
+        }
+        .list-item:hover {
+            border-color: #667eea;
+            transform: translateY(-1px);
+        }
+        .list-item-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 2px;
+        }
+        .list-item-meta {
+            font-size: 12px;
+            color: #718096;
+        }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+        }
+        .pager .info {
+            font-size: 13px;
+            color: #718096;
+        }
+        .pager .nav {
+            display: flex;
+            gap: 8px;
+        }
+        .pager button {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        .empty {
+            text-align: center;
+            color: #a0aec0;
+            font-size: 14px;
+            padding: 24px 0;
+        }
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .btn-secondary {
+            padding: 9px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.15s;
+        }
+        .btn-secondary:hover { transform: translateY(-1px); }
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 100;
+        }
+        .modal-backdrop.open { display: flex; }
+        .modal {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+            padding: 28px;
+            width: 100%;
+            max-width: 520px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        .modal-header h3 {
+            font-size: 18px;
+            color: #2d3748;
+        }
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: #a0aec0;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+        .modal-close:hover { color: #2d3748; transform: none; }
+        .modal .field { margin-bottom: 14px; }
+        .modal label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 6px;
+        }
+        .modal input, .modal textarea {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f7fafc;
+            font-family: inherit;
+        }
+        .modal input:focus, .modal textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #fff;
+        }
+        .modal textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .btn-cancel {
+            padding: 10px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5568;
+            background: #edf2f7;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .btn-cancel:hover { background: #e2e8f0; transform: none; }
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .list-item-body { flex: 1; min-width: 0; }
+        .list-item-actions {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .btn-icon {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+        .btn-icon.edit {
+            color: #667eea;
+        }
+        .btn-icon.edit:hover {
+            background: #ebf4ff;
+            border-color: #667eea;
+        }
+        .btn-icon.delete {
+            color: #c53030;
+        }
+        .btn-icon.delete:hover {
+            background: #fff5f5;
+            border-color: #fc8181;
+        }
+        .btn-icon:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .input-readonly {
+            background: #edf2f7 !important;
+            color: #718096;
+            cursor: not-allowed;
+        }
+        .list-item-thumb {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            background: #edf2f7 center / cover no-repeat;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .result-cover {
+            width: 100%;
+            max-width: 240px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Music Search</h1>
+        <div class="user">
+            <span id="welcome"></span>
+            <a id="logoutBtn">Sign out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="toolbar">
+            <h2 style="margin-bottom:0;">Find a track</h2>
+            <button type="button" class="btn-secondary" id="openAddBtn">+ Add Music</button>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-mode="title">By Title</div>
+            <div class="tab" data-mode="id">By ID</div>
+        </div>
+
+        <form id="searchForm">
+            <div class="search-row">
+                <input type="text" id="query" placeholder="Enter a song title (leave blank to browse all)">
+                <button type="submit" id="searchBtn">Search</button>
+            </div>
+        </form>
+
+        <div id="alert" class="alert"></div>
+
+        <div id="list" class="list"></div>
+        <div id="pager" class="pager" style="display:none;">
+            <div class="info" id="pagerInfo"></div>
+            <div class="nav">
+                <button type="button" id="prevBtn">Prev</button>
+                <button type="button" id="nextBtn">Next</button>
+            </div>
+        </div>
+
+        <div id="result" class="result">
+            <img id="rCover" class="result-cover" style="display:none;" alt="Cover">
+            <div class="result-title" id="rTitle"></div>
+            <div class="result-author" id="rAuthor"></div>
+
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="meta-label">ID</div>
+                    <div class="meta-value" id="rId"></div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Published</div>
+                    <div class="meta-value" id="rPublish"></div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tags</div>
+                    <div class="meta-value" id="rTags"></div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Hot Score</div>
+                    <div class="meta-value" id="rHot"></div>
+                </div>
+            </div>
+
+            <div class="meta-label" style="margin-bottom: 6px;">Content</div>
+            <div class="content-box" id="rContent"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-backdrop" id="editModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Edit track</h3>
+            <button type="button" class="modal-close" id="closeEditBtn" aria-label="Close">&times;</button>
+        </div>
+        <div id="editAlert" class="alert" style="margin-top:0;"></div>
+        <form id="editForm" novalidate>
+            <div class="field">
+                <label for="editTitle">Title</label>
+                <input type="text" id="editTitle" class="input-readonly" readonly>
+                <div class="hint" style="font-size:11px; color:#a0aec0; margin-top:4px;">Title is the lookup key and cannot be changed.</div>
+            </div>
+            <div class="field">
+                <label for="editAuthor">Author</label>
+                <input type="text" id="editAuthor" required maxlength="100">
+            </div>
+            <div class="field">
+                <label for="editTags">Tags</label>
+                <input type="text" id="editTags" placeholder="e.g. Pop, Jazz">
+            </div>
+            <div class="field">
+                <label for="editPicture">Picture URL</label>
+                <input type="url" id="editPicture" placeholder="https://example.com/cover.jpg">
+            </div>
+            <div class="field">
+                <label for="editContent">Content</label>
+                <textarea id="editContent" placeholder="Lyrics, description, or notes"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" id="cancelEditBtn">Cancel</button>
+                <button type="submit" id="submitEditBtn">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal-backdrop" id="addModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Add a new track</h3>
+            <button type="button" class="modal-close" id="closeAddBtn" aria-label="Close">&times;</button>
+        </div>
+        <div id="addAlert" class="alert" style="margin-top:0;"></div>
+        <form id="addForm" novalidate>
+            <div class="field">
+                <label for="addTitle">Title</label>
+                <input type="text" id="addTitle" required maxlength="200">
+            </div>
+            <div class="field">
+                <label for="addAuthor">Author</label>
+                <input type="text" id="addAuthor" required maxlength="100">
+            </div>
+            <div class="field">
+                <label for="addTags">Tags</label>
+                <input type="text" id="addTags" placeholder="e.g. Pop, Jazz">
+            </div>
+            <div class="field">
+                <label for="addPicture">Picture URL</label>
+                <input type="url" id="addPicture" placeholder="https://example.com/cover.jpg">
+            </div>
+            <div class="field">
+                <label for="addContent">Content</label>
+                <textarea id="addContent" placeholder="Lyrics, description, or notes"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" id="cancelAddBtn">Cancel</button>
+                <button type="submit" id="submitAddBtn">Submit &amp; Publish</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const PAGE_SIZE = 5;
+    const tabs = document.querySelectorAll('.tab');
+    const queryInput = document.getElementById('query');
+    const searchForm = document.getElementById('searchForm');
+    const searchBtn = document.getElementById('searchBtn');
+    const alertBox = document.getElementById('alert');
+    const resultBox = document.getElementById('result');
+    const listBox = document.getElementById('list');
+    const pagerBox = document.getElementById('pager');
+    const pagerInfo = document.getElementById('pagerInfo');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const welcome = document.getElementById('welcome');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    let currentPage = 1;
+    let lastPageHadFullSize = true;
+
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('name');
+    if (username) {
+        welcome.textContent = 'Signed in as ' + username;
+    }
+
+    logoutBtn.addEventListener('click', () => {
+        window.location.href = '/login.html';
+    });
+
+    let mode = 'title';
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            mode = tab.dataset.mode;
+            queryInput.value = '';
+            queryInput.placeholder = mode === 'title'
+                ? 'Enter a song title (leave blank to browse all)'
+                : 'Enter a song ID (leave blank to browse all)';
+            queryInput.type = mode === 'id' ? 'number' : 'text';
+            alertBox.style.display = 'none';
+            resultBox.style.display = 'none';
+            currentPage = 1;
+            loadPage();
+        });
+    });
+
+    function showAlert(message, type) {
+        alertBox.textContent = message;
+        alertBox.className = 'alert ' + type;
+        alertBox.style.display = 'block';
+    }
+
+    function formatDate(value) {
+        if (!value) return '—';
+        const d = new Date(value);
+        if (isNaN(d.getTime())) return value;
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    function renderResult(music) {
+        const cover = document.getElementById('rCover');
+        if (music.pictureUrl) {
+            cover.src = music.pictureUrl;
+            cover.style.display = 'block';
+        } else {
+            cover.removeAttribute('src');
+            cover.style.display = 'none';
+        }
+        document.getElementById('rTitle').textContent = music.title || 'Untitled';
+        document.getElementById('rAuthor').textContent = music.author ? 'by ' + music.author : '';
+        document.getElementById('rId').textContent = music.id != null ? music.id : '—';
+        document.getElementById('rPublish').textContent = formatDate(music.publishTime);
+
+        const tagsEl = document.getElementById('rTags');
+        tagsEl.innerHTML = '';
+        if (music.tags) {
+            music.tags.split(',').map(t => t.trim()).filter(Boolean).forEach(t => {
+                const span = document.createElement('span');
+                span.className = 'tag';
+                span.textContent = t;
+                tagsEl.appendChild(span);
+            });
+        } else {
+            tagsEl.textContent = '—';
+        }
+
+        const hotEl = document.getElementById('rHot');
+        if (music.hotScore != null) {
+            hotEl.innerHTML = '<span class="hot-score">' + music.hotScore.toFixed(2) + '</span>';
+        } else {
+            hotEl.textContent = '—';
+        }
+
+        document.getElementById('rContent').textContent = music.content || 'No content available.';
+        resultBox.style.display = 'block';
+    }
+
+    function hideList() {
+        listBox.innerHTML = '';
+        pagerBox.style.display = 'none';
+    }
+
+    function renderList(items) {
+        listBox.innerHTML = '';
+        if (!items || items.length === 0) {
+            if (currentPage === 1) {
+                listBox.innerHTML = '<div class="empty">No tracks available.</div>';
+            } else {
+                listBox.innerHTML = '<div class="empty">No more tracks.</div>';
+            }
+            return;
+        }
+        items.forEach(m => {
+            const item = document.createElement('div');
+            item.className = 'list-item';
+
+            const thumb = document.createElement('div');
+            thumb.className = 'list-item-thumb';
+            if (m.pictureUrl) {
+                thumb.style.backgroundImage = "url('" + m.pictureUrl.replace(/'/g, "\\'") + "')";
+            } else {
+                thumb.textContent = (m.title || '?').charAt(0).toUpperCase();
+            }
+            item.appendChild(thumb);
+
+            const body = document.createElement('div');
+            body.className = 'list-item-body';
+            const title = document.createElement('div');
+            title.className = 'list-item-title';
+            title.textContent = m.title || 'Untitled';
+            const meta = document.createElement('div');
+            meta.className = 'list-item-meta';
+            const parts = [];
+            if (m.author) parts.push('by ' + m.author);
+            if (m.id != null) parts.push('#' + m.id);
+            if (m.publishTime) parts.push(formatDate(m.publishTime));
+            meta.textContent = parts.join(' · ');
+            body.appendChild(title);
+            body.appendChild(meta);
+            body.addEventListener('click', () => {
+                queryInput.value = m.title || '';
+                if (mode !== 'title') {
+                    tabs.forEach(t => t.classList.toggle('active', t.dataset.mode === 'title'));
+                    mode = 'title';
+                    queryInput.type = 'text';
+                }
+                runSearch(m.title);
+            });
+
+            const actions = document.createElement('div');
+            actions.className = 'list-item-actions';
+
+            const editBtn = document.createElement('button');
+            editBtn.type = 'button';
+            editBtn.className = 'btn-icon edit';
+            editBtn.textContent = 'Edit';
+            editBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openEditModal(m);
+            });
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.type = 'button';
+            deleteBtn.className = 'btn-icon delete';
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                deleteMusic(m, deleteBtn);
+            });
+
+            actions.appendChild(editBtn);
+            actions.appendChild(deleteBtn);
+
+            item.appendChild(body);
+            item.appendChild(actions);
+            listBox.appendChild(item);
+        });
+    }
+
+    async function loadPage() {
+        alertBox.style.display = 'none';
+        resultBox.style.display = 'none';
+        const start = (currentPage - 1) * PAGE_SIZE;
+        try {
+            const res = await fetch('/music/query-all?start=' + start + '&pageSize=' + PAGE_SIZE, { method: 'GET' });
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success) {
+                const items = data.musicVOList || [];
+                lastPageHadFullSize = items.length === PAGE_SIZE;
+                renderList(items);
+                pagerBox.style.display = 'flex';
+                pagerInfo.textContent = 'Page ' + currentPage;
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = !lastPageHadFullSize;
+            } else {
+                hideList();
+                showAlert((data.baseVO && data.baseVO.message) || 'Failed to load tracks.', 'error');
+            }
+        } catch (err) {
+            hideList();
+            showAlert('Network error. Please try again.', 'error');
+        }
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            loadPage();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (lastPageHadFullSize) {
+            currentPage++;
+            loadPage();
+        }
+    });
+
+    async function runSearch(value) {
+        alertBox.style.display = 'none';
+        resultBox.style.display = 'none';
+
+        const endpoint = mode === 'id'
+            ? '/music/id?id=' + encodeURIComponent(value)
+            : '/music/title?title=' + encodeURIComponent(value);
+
+        searchBtn.disabled = true;
+        searchBtn.textContent = 'Searching...';
+
+        try {
+            const res = await fetch(endpoint, { method: 'GET' });
+            const data = await res.json();
+
+            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success && data.musicVO) {
+                hideList();
+                renderResult(data.musicVO);
+            } else {
+                const msg = (data.baseVO && data.baseVO.message) || 'No matching track found.';
+                showAlert(msg, 'error');
+            }
+        } catch (err) {
+            showAlert('Network error. Please try again.', 'error');
+        } finally {
+            searchBtn.disabled = false;
+            searchBtn.textContent = 'Search';
+        }
+    }
+
+    searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const value = queryInput.value.trim();
+        if (!value) {
+            currentPage = 1;
+            loadPage();
+            return;
+        }
+        runSearch(value);
+    });
+
+    const addModal = document.getElementById('addModal');
+    const openAddBtn = document.getElementById('openAddBtn');
+    const closeAddBtn = document.getElementById('closeAddBtn');
+    const cancelAddBtn = document.getElementById('cancelAddBtn');
+    const addForm = document.getElementById('addForm');
+    const addAlert = document.getElementById('addAlert');
+    const submitAddBtn = document.getElementById('submitAddBtn');
+
+    function openAddModal() {
+        addForm.reset();
+        addAlert.style.display = 'none';
+        addModal.classList.add('open');
+        document.getElementById('addTitle').focus();
+    }
+
+    function closeAddModal() {
+        addModal.classList.remove('open');
+    }
+
+    function showAddAlert(message, type) {
+        addAlert.textContent = message;
+        addAlert.className = 'alert ' + type;
+        addAlert.style.display = 'block';
+    }
+
+    openAddBtn.addEventListener('click', openAddModal);
+    closeAddBtn.addEventListener('click', closeAddModal);
+    cancelAddBtn.addEventListener('click', closeAddModal);
+    addModal.addEventListener('click', (e) => {
+        if (e.target === addModal) closeAddModal();
+    });
+
+    addForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        addAlert.style.display = 'none';
+
+        const payload = {
+            title: document.getElementById('addTitle').value.trim(),
+            author: document.getElementById('addAuthor').value.trim(),
+            tags: document.getElementById('addTags').value.trim(),
+            pictureUrl: document.getElementById('addPicture').value.trim(),
+            content: document.getElementById('addContent').value.trim()
+        };
+
+        if (!payload.title || !payload.author) {
+            showAddAlert('Title and author are required.', 'error');
+            return;
+        }
+
+        submitAddBtn.disabled = true;
+        submitAddBtn.textContent = 'Publishing...';
+
+        try {
+            const res = await fetch('/music/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (data.code === 200 && data.success) {
+                showAddAlert('Track published!', 'info');
+                setTimeout(() => {
+                    closeAddModal();
+                    currentPage = 1;
+                    queryInput.value = '';
+                    loadPage();
+                }, 600);
+            } else {
+                showAddAlert(data.message || 'Failed to publish.', 'error');
+            }
+        } catch (err) {
+            showAddAlert('Network error. Please try again.', 'error');
+        } finally {
+            submitAddBtn.disabled = false;
+            submitAddBtn.textContent = 'Submit & Publish';
+        }
+    });
+
+    const editModal = document.getElementById('editModal');
+    const closeEditBtn = document.getElementById('closeEditBtn');
+    const cancelEditBtn = document.getElementById('cancelEditBtn');
+    const editForm = document.getElementById('editForm');
+    const editAlert = document.getElementById('editAlert');
+    const submitEditBtn = document.getElementById('submitEditBtn');
+    const editTitleInput = document.getElementById('editTitle');
+    const editAuthorInput = document.getElementById('editAuthor');
+    const editTagsInput = document.getElementById('editTags');
+    const editPictureInput = document.getElementById('editPicture');
+    const editContentInput = document.getElementById('editContent');
+
+    function openEditModal(music) {
+        editAlert.style.display = 'none';
+        editTitleInput.value = music.title || '';
+        editAuthorInput.value = music.author || '';
+        editTagsInput.value = music.tags || '';
+        editPictureInput.value = music.pictureUrl || '';
+        editContentInput.value = music.content || '';
+        editModal.classList.add('open');
+        editAuthorInput.focus();
+    }
+
+    function closeEditModal() {
+        editModal.classList.remove('open');
+    }
+
+    function showEditAlert(message, type) {
+        editAlert.textContent = message;
+        editAlert.className = 'alert ' + type;
+        editAlert.style.display = 'block';
+    }
+
+    closeEditBtn.addEventListener('click', closeEditModal);
+    cancelEditBtn.addEventListener('click', closeEditModal);
+    editModal.addEventListener('click', (e) => {
+        if (e.target === editModal) closeEditModal();
+    });
+
+    editForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        editAlert.style.display = 'none';
+
+        const payload = {
+            title: editTitleInput.value.trim(),
+            author: editAuthorInput.value.trim(),
+            tags: editTagsInput.value.trim(),
+            pictureUrl: editPictureInput.value.trim(),
+            content: editContentInput.value.trim()
+        };
+
+        if (!payload.author) {
+            showEditAlert('Author is required.', 'error');
+            return;
+        }
+
+        submitEditBtn.disabled = true;
+        submitEditBtn.textContent = 'Saving...';
+
+        try {
+            const res = await fetch('/music/modify', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (data.code === 200 && data.success) {
+                showEditAlert('Saved!', 'info');
+                setTimeout(() => {
+                    closeEditModal();
+                    loadPage();
+                }, 500);
+            } else {
+                showEditAlert(data.message || 'Failed to save changes.', 'error');
+            }
+        } catch (err) {
+            showEditAlert('Network error. Please try again.', 'error');
+        } finally {
+            submitEditBtn.disabled = false;
+            submitEditBtn.textContent = 'Save changes';
+        }
+    });
+
+    async function deleteMusic(music, btn) {
+        if (music.id == null) {
+            showAlert('Cannot delete: missing ID.', 'error');
+            return;
+        }
+        const label = music.title ? '"' + music.title + '"' : 'this track';
+        if (!confirm('Delete ' + label + '? This cannot be undone.')) return;
+
+        btn.disabled = true;
+        const originalText = btn.textContent;
+        btn.textContent = '...';
+
+        try {
+            const res = await fetch('/music/delete?id=' + encodeURIComponent(music.id), {
+                method: 'DELETE'
+            });
+            const data = await res.json();
+            if (data.code === 200 && data.success) {
+                loadPage();
+            } else {
+                showAlert(data.message || 'Failed to delete.', 'error');
+                btn.disabled = false;
+                btn.textContent = originalText;
+            }
+        } catch (err) {
+            showAlert('Network error. Please try again.', 'error');
+            btn.disabled = false;
+            btn.textContent = originalText;
+        }
+    }
+
+    loadPage();
+</script>
+</body>
+</html>

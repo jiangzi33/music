@@ -9,6 +9,7 @@ public class MusicVO {
     private String author;
     private String tags;
     private Date publishTime;
+    private String pictureUrl;
     private Double hotScore;
 
     public Double getHotScore() {
@@ -65,5 +66,13 @@ public class MusicVO {
 
     public void setTags(String tags) {
         this.tags = tags;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 }

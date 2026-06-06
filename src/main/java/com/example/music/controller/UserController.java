@@ -4,9 +4,11 @@ import com.example.music.controller.cmd.RegisterCmd;
 import com.example.music.controller.vo.BaseVO;
 import com.example.music.exception.*;
 import com.example.music.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -23,12 +25,15 @@ public class UserController {
             return BaseVO.buildBaseVO(200, true, endTime - startTime, null);
         } catch (UserDuplicatedRegisterException e) {
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             return BaseVO.buildBaseVO(500, false, endTime - startTime, e.getMessage());
         } catch (UserNotAllowedException e) {
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             return BaseVO.buildBaseVO(500, false, endTime - startTime, e.getMessage());
         } catch (Exception e) {
             endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
             return BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
         }
     }

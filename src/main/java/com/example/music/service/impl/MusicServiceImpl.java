@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class MusicServiceImpl implements MusicService {
     @Autowired
@@ -62,6 +64,7 @@ public class MusicServiceImpl implements MusicService {
         music.setContent(cmd.getContent());
         music.setTitle(cmd.getTitle());
         music.setTags(cmd.getTags());
+        music.setPictureUrl(cmd.getPictureUrl());
         musicRepository.delete(music);
         musicMapper.modifyMusic(music);
     }
@@ -78,12 +81,18 @@ public class MusicServiceImpl implements MusicService {
         musicRankRepository.removeItem(id);
     }
 
+    @Override
+    public List<Music> queryAll(int start, int pageSize) {
+        return musicMapper.queryAll(start,pageSize);
+    }
+
     private Music buildMusic(MusicCmd cmd){
         Music music = new Music();
         music.setTitle(cmd.getTitle());
         music.setContent(cmd.getContent());
         music.setAuthor(cmd.getAuthor());
         music.setTags(cmd.getTags());
+        music.setPictureUrl(cmd.getPictureUrl());
         return music;
     }
 }

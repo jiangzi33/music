@@ -16,6 +16,7 @@ import com.example.music.service.UserService;
 import com.example.music.util.ActivateUtil;
 import com.example.music.util.MD5Util;
 import constant.MusicConstant;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,7 @@ import static com.example.music.enums.UserStatusEnum.INIT;
 
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
@@ -45,6 +47,7 @@ public class UserServiceImpl implements UserService {
     public void register(RegisterCmd cmd) {
         User user = userMapper.queryByName(cmd.getName());
         if(user!=null){
+            log.warn("{} is registered",cmd.getName());
             throw new UserDuplicatedRegisterException("username is registered");
         }
         userMapper.addUser(buildUser(cmd));
@@ -54,6 +57,7 @@ public class UserServiceImpl implements UserService {
         try {
             emailUtil.sendHtmlMail(cmd.getEmail(), "activate", finalContent);
         } catch (Exception e) {
+            log.error(e.getMessage());
             throw new EmailFailActivatedException("mail is fail to send");
         }
         userActivationRepository.setActivationCode(cmd.getName(),code);

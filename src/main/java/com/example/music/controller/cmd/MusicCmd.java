@@ -5,6 +5,7 @@ public class MusicCmd {
     private String title;
     private String author;
     private String tags;
+    private String pictureUrl;
 
     public String getContent() {
         return content;
@@ -36,5 +37,13 @@ public class MusicCmd {
 
     public void setTags(String tags) {
         this.tags = tags;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 }
