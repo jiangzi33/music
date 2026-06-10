@@ -1,7 +1,10 @@
 package com.example.music.controller;
 
 import com.example.music.controller.cmd.RegisterCmd;
+import com.example.music.controller.converter.UserVOConverter;
 import com.example.music.controller.vo.BaseVO;
+import com.example.music.controller.vo.SingleUserVO;
+import com.example.music.entity.User;
 import com.example.music.exception.*;
 import com.example.music.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -98,6 +101,28 @@ public class UserController {
             endTime = System.currentTimeMillis();
             BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, "删除用户失败");
             return baseVO;
+        }
+    }
+
+    @GetMapping("/info")
+    public SingleUserVO info(String name) {
+        long startTime = System.currentTimeMillis();
+        long endTime;
+        SingleUserVO singleUserVO = new SingleUserVO();
+        try {
+            User user = userService.queryByName(name);
+            endTime = System.currentTimeMillis();
+            if (user == null) {
+                singleUserVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "user not found"));
+                return singleUserVO;
+            }
+            singleUserVO.setUserVO(UserVOConverter.convert(user));
+            singleUserVO.setBaseVO(BaseVO.buildBaseVO(200, true, endTime - startTime, null));
+            return singleUserVO;
+        } catch (Exception e) {
+            endTime = System.currentTimeMillis();
+            singleUserVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常"));
+            return singleUserVO;
         }
     }
 

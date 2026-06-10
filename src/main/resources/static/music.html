@@ -391,6 +391,34 @@
             margin-bottom: 16px;
             display: block;
         }
+        .btn-like {
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #fff;
+            color: #718096;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+        .btn-like:hover { background: #fff5f5; border-color: #fc8181; color: #e53e3e; }
+        .btn-like.liked {
+            background: linear-gradient(135deg, #fc8181 0%, #e53e3e 100%);
+            color: #fff;
+            border-color: transparent;
+        }
+        .btn-like.liked:hover { opacity: 0.92; }
+        .btn-like:disabled { opacity: 0.6; cursor: not-allowed; }
+        .result-like-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 <body>
@@ -399,6 +427,7 @@
         <h1>Music Search</h1>
         <div class="user">
             <span id="welcome"></span>
+            <a id="rankBtn">Leaderboard</a>
             <a id="logoutBtn">Sign out</a>
         </div>
     </div>
@@ -436,6 +465,13 @@
             <img id="rCover" class="result-cover" style="display:none;" alt="Cover">
             <div class="result-title" id="rTitle"></div>
             <div class="result-author" id="rAuthor"></div>
+
+            <div class="result-like-row">
+                <button type="button" class="btn-like" id="rLikeBtn">
+                    <span id="rLikeIcon">&#9825;</span>
+                    <span id="rLikeText">Like</span>
+                </button>
+            </div>
 
             <div class="meta-grid">
                 <div class="meta-item">
@@ -553,6 +589,9 @@
 
     let currentPage = 1;
     let lastPageHadFullSize = true;
+    let currentUserId = null;
+    let likedIds = new Set();
+    let currentDetailMusic = null;
 
     const params = new URLSearchParams(window.location.search);
     const username = params.get('name');
@@ -562,6 +601,11 @@
 
     logoutBtn.addEventListener('click', () => {
         window.location.href = '/login.html';
+    });
+
+    document.getElementById('rankBtn').addEventListener('click', () => {
+        const target = '/rank.html' + (username ? '?name=' + encodeURIComponent(username) : '');
+        window.location.href = target;
     });
 
     let mode = 'title';
@@ -597,6 +641,8 @@
     }
 
     function renderResult(music) {
+        currentDetailMusic = music;
+        updateDetailLikeButton();
         const cover = document.getElementById('rCover');
         if (music.pictureUrl) {
             cover.src = music.pictureUrl;
@@ -707,6 +753,15 @@
                 deleteMusic(m, deleteBtn);
             });
 
+            const likeBtn = document.createElement('button');
+            likeBtn.type = 'button';
+            applyLikeButtonState(likeBtn, m.id);
+            likeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleLike(m.id, likeBtn);
+            });
+
+            actions.appendChild(likeBtn);
             actions.appendChild(editBtn);
             actions.appendChild(deleteBtn);
 
@@ -957,6 +1012,99 @@
         }
     });
 
+    function applyLikeButtonState(btn, musicId) {
+        const liked = musicId != null && likedIds.has(musicId);
+        btn.className = 'btn-icon btn-like' + (liked ? ' liked' : '');
+        btn.dataset.musicId = musicId != null ? String(musicId) : '';
+        btn.innerHTML = (liked ? '&#9829;' : '&#9825;') + ' ' + (liked ? 'Liked' : 'Like');
+    }
+
+    function updateDetailLikeButton() {
+        const btn = document.getElementById('rLikeBtn');
+        const icon = document.getElementById('rLikeIcon');
+        const text = document.getElementById('rLikeText');
+        if (!currentDetailMusic || currentDetailMusic.id == null) {
+            btn.className = 'btn-like';
+            icon.innerHTML = '&#9825;';
+            text.textContent = 'Like';
+            return;
+        }
+        const liked = likedIds.has(currentDetailMusic.id);
+        btn.className = 'btn-like' + (liked ? ' liked' : '');
+        icon.innerHTML = liked ? '&#9829;' : '&#9825;';
+        text.textContent = liked ? 'Liked' : 'Like';
+    }
+
+    function refreshAllLikeButtons() {
+        document.querySelectorAll('.list-item-actions .btn-like').forEach(btn => {
+            const id = parseInt(btn.dataset.musicId, 10);
+            if (!isNaN(id)) applyLikeButtonState(btn, id);
+        });
+        updateDetailLikeButton();
+    }
+
+    async function toggleLike(musicId, btn) {
+        if (musicId == null) return;
+        if (currentUserId == null) {
+            showAlert('Please sign in to like tracks.', 'error');
+            return;
+        }
+        const wasLiked = likedIds.has(musicId);
+        const endpoint = wasLiked
+            ? { url: '/music-like/cancel', method: 'PUT' }
+            : { url: '/music-like/add', method: 'POST' };
+        const url = endpoint.url + '?musicId=' + encodeURIComponent(musicId) + '&userId=' + encodeURIComponent(currentUserId);
+
+        if (btn) btn.disabled = true;
+        try {
+            const res = await fetch(url, { method: endpoint.method });
+            const data = await res.json();
+            if (data.code === 200 && data.success) {
+                if (wasLiked) likedIds.delete(musicId); else likedIds.add(musicId);
+                refreshAllLikeButtons();
+            } else {
+                showAlert(data.message || 'Failed to update like.', 'error');
+            }
+        } catch (err) {
+            showAlert('Network error. Please try again.', 'error');
+        } finally {
+            if (btn) btn.disabled = false;
+        }
+    }
+
+    document.getElementById('rLikeBtn').addEventListener('click', () => {
+        if (!currentDetailMusic || currentDetailMusic.id == null) return;
+        toggleLike(currentDetailMusic.id, document.getElementById('rLikeBtn'));
+    });
+
+    async function bootstrapUser() {
+        if (!username) return;
+        try {
+            const res = await fetch('/user/info?name=' + encodeURIComponent(username));
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.userVO) {
+                currentUserId = data.userVO.id;
+                await loadLikedIds();
+            }
+        } catch (err) {
+            /* ignore; like buttons will warn on use */
+        }
+    }
+
+    async function loadLikedIds() {
+        if (currentUserId == null) return;
+        try {
+            const res = await fetch('/music-like/get-user-like?userId=' + encodeURIComponent(currentUserId));
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.musicVOList) {
+                likedIds = new Set(data.musicVOList.map(m => m.id));
+                refreshAllLikeButtons();
+            }
+        } catch (err) {
+            /* ignore */
+        }
+    }
+
     async function deleteMusic(music, btn) {
         if (music.id == null) {
             showAlert('Cannot delete: missing ID.', 'error');
@@ -988,7 +1136,10 @@
         }
     }
 
-    loadPage();
+    (async () => {
+        await bootstrapUser();
+        loadPage();
+    })();
 </script>
 </body>
 </html>
