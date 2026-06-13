@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Configuration</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 920px; margin: 0 auto; }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+        .header h1 { font-size: 24px; font-weight: 700; }
+        .header .sub { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+        .header a.back {
+            color: #fff;
+            font-size: 14px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 28px 32px;
+            margin-bottom: 20px;
+        }
+        h2 { font-size: 18px; color: #2d3748; margin-bottom: 16px; }
+        .tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .tab {
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #718096;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .tab.active { color: #667eea; border-bottom-color: #667eea; }
+        .panel { display: none; }
+        .panel.active { display: block; }
+        .field { margin-bottom: 16px; }
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 6px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 11px 14px;
+            font-size: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f7fafc;
+            font-family: inherit;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #fff;
+        }
+        textarea { min-height: 90px; resize: vertical; }
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+        .row .field { flex: 1; margin-bottom: 0; }
+        button {
+            padding: 11px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.15s;
+        }
+        button:hover { transform: translateY(-1px); }
+        button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-danger { background: linear-gradient(135deg, #f56565 0%, #c53030 100%); }
+        .btn-success { background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); }
+        .actions { display: flex; gap: 10px; margin-top: 8px; }
+        .alert {
+            padding: 11px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-top: 16px;
+            display: none;
+        }
+        .alert.error {
+            background: #fff5f5;
+            color: #c53030;
+            border: 1px solid #feb2b2;
+        }
+        .alert.success {
+            background: #f0fff4;
+            color: #276749;
+            border: 1px solid #9ae6b4;
+        }
+        .alert.info {
+            background: #ebf8ff;
+            color: #2c5282;
+            border: 1px solid #90cdf4;
+        }
+        .result-card {
+            margin-top: 18px;
+            padding: 16px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            display: none;
+        }
+        .result-row {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 8px;
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .result-row:last-child { border-bottom: none; }
+        .result-label {
+            color: #a0aec0;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            align-self: center;
+        }
+        .result-value { color: #2d3748; word-break: break-all; }
+        .duration-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 11px;
+            color: #667eea;
+            background: #ebf4ff;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+        .hint { font-size: 12px; color: #a0aec0; margin-top: 6px; }
+        table.list-table {
+            margin-top: 18px;
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            display: none;
+        }
+        table.list-table th, table.list-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        table.list-table th {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #a0aec0;
+            letter-spacing: 0.5px;
+            background: #f7fafc;
+        }
+        table.list-table td.col-id { width: 60px; color: #718096; }
+        table.list-table td.col-code { width: 240px; font-weight: 600; color: #2d3748; word-break: break-all; }
+        table.list-table td.col-value { color: #4a5568; white-space: pre-wrap; word-break: break-all; }
+        table.list-table tr:hover td { background: #fafbfd; }
+        .count-info {
+            margin-top: 14px;
+            font-size: 13px;
+            color: #4a5568;
+            display: none;
+        }
+        .empty {
+            text-align: center;
+            padding: 24px 0;
+            color: #a0aec0;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div>
+            <h1>Rule Configuration</h1>
+            <div class="sub">Manage key/value rules backed by SystemConfig</div>
+        </div>
+        <a class="back" href="/music.html">&larr; Back to Music</a>
+    </div>
+
+    <div class="card">
+        <div class="tabs">
+            <div class="tab active" data-tab="query">Query</div>
+            <div class="tab" data-tab="add">Add</div>
+            <div class="tab" data-tab="modify">Modify</div>
+            <div class="tab" data-tab="delete">Delete</div>
+        </div>
+
+        <!-- Query -->
+        <div class="panel active" id="panel-query">
+            <h2>Query Rules</h2>
+            <div class="row">
+                <div class="field">
+                    <label for="q-code">Search</label>
+                    <input id="q-code" type="text" placeholder="Type to filter by code or value...">
+                </div>
+                <button class="btn-success" id="btn-refresh" type="button">Refresh</button>
+            </div>
+            <div class="hint">All rules are listed by default. Type in the box to filter.</div>
+            <div class="alert" id="alert-query"></div>
+
+            <!-- List result -->
+            <div class="count-info" id="count-info"></div>
+            <table class="list-table" id="list-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody id="list-body"></tbody>
+            </table>
+            <div class="empty" id="empty-state">No rules found.</div>
+        </div>
+
+        <!-- Add -->
+        <div class="panel" id="panel-add">
+            <h2>Add Rule</h2>
+            <div class="field">
+                <label for="a-code">Rule Code</label>
+                <input id="a-code" type="text" placeholder="Unique identifier, e.g. rule.search.pageSize">
+                <div class="hint">Dot-separated naming is recommended.</div>
+            </div>
+            <div class="field">
+                <label for="a-value">Rule Value</label>
+                <textarea id="a-value" placeholder="Rule content: plain text, JSON, or expression"></textarea>
+            </div>
+            <div class="actions">
+                <button id="btn-add">Submit</button>
+            </div>
+            <div class="alert" id="alert-add"></div>
+        </div>
+
+        <!-- Modify -->
+        <div class="panel" id="panel-modify">
+            <h2>Modify Rule</h2>
+            <div class="field">
+                <label for="m-code">Rule Code</label>
+                <input id="m-code" type="text" placeholder="Code of the rule to modify">
+            </div>
+            <div class="field">
+                <label for="m-value">New Rule Value</label>
+                <textarea id="m-value" placeholder="New rule content"></textarea>
+            </div>
+            <div class="actions">
+                <button id="btn-modify">Submit</button>
+                <button class="btn-success" id="btn-load-current" type="button">Load Current Value</button>
+            </div>
+            <div class="alert" id="alert-modify"></div>
+        </div>
+
+        <!-- Delete -->
+        <div class="panel" id="panel-delete">
+            <h2>Delete Rule</h2>
+            <div class="row">
+                <div class="field">
+                    <label for="d-code">Rule Code</label>
+                    <input id="d-code" type="text" placeholder="Code of the rule to delete">
+                </div>
+                <button class="btn-danger" id="btn-delete">Delete</button>
+            </div>
+            <div class="hint">Deletion is irreversible. Please confirm before proceeding.</div>
+            <div class="alert" id="alert-delete"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const BASE = '/systemConfig';
+
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+            if (tab.dataset.tab === 'query') {
+                loadAllRules();
+            }
+        });
+    });
+
+    function showAlert(id, type, msg, duration) {
+        const el = document.getElementById(id);
+        el.className = 'alert ' + type;
+        el.style.display = 'block';
+        el.innerHTML = escapeHtml(msg) + (duration != null ? '<span class="duration-badge">' + duration + 'ms</span>' : '');
+    }
+    function hideAlert(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+    function escapeHtml(s) {
+        if (s == null) return '';
+        return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    let allRules = [];
+
+    function renderRules(rules) {
+        const body = document.getElementById('list-body');
+        body.innerHTML = '';
+        const table = document.getElementById('list-table');
+        const info = document.getElementById('count-info');
+        const empty = document.getElementById('empty-state');
+
+        if (!rules || rules.length === 0) {
+            table.style.display = 'none';
+            info.style.display = 'none';
+            empty.style.display = 'block';
+            return;
+        }
+        rules.forEach(cfg => {
+            const tr = document.createElement('tr');
+            tr.innerHTML =
+                '<td class="col-id">' + escapeHtml(cfg.id) + '</td>' +
+                '<td class="col-code">' + escapeHtml(cfg.code) + '</td>' +
+                '<td class="col-value">' + escapeHtml(cfg.value) + '</td>';
+            body.appendChild(tr);
+        });
+        table.style.display = 'table';
+        const total = allRules.length;
+        info.textContent = rules.length === total
+            ? 'Total: ' + total + ' rule(s)'
+            : 'Showing ' + rules.length + ' of ' + total + ' rule(s)';
+        info.style.display = 'block';
+        empty.style.display = 'none';
+    }
+
+    function applyFilter() {
+        const keyword = document.getElementById('q-code').value.trim().toLowerCase();
+        if (keyword === '') {
+            renderRules(allRules);
+            return;
+        }
+        const filtered = allRules.filter(cfg =>
+            (cfg.code != null && String(cfg.code).toLowerCase().includes(keyword)) ||
+            (cfg.value != null && String(cfg.value).toLowerCase().includes(keyword))
+        );
+        renderRules(filtered);
+    }
+
+    async function loadAllRules() {
+        hideAlert('alert-query');
+        try {
+            const resp = await fetch(BASE + '/queryAll');
+            const data = await resp.json();
+            const base = data.baseVO || {};
+            if (base.success) {
+                allRules = data.systemConfigVOList || [];
+                applyFilter();
+                showAlert('alert-query', 'success', 'Loaded ' + allRules.length + ' rule(s)', base.duration);
+            } else {
+                allRules = [];
+                renderRules([]);
+                showAlert('alert-query', 'error', (base.errorCode || 'Query failed') + (base.code ? ' (code=' + base.code + ')' : ''), base.duration);
+            }
+        } catch (e) {
+            showAlert('alert-query', 'error', 'Network error: ' + e.message);
+        }
+    }
+
+    document.getElementById('q-code').addEventListener('input', applyFilter);
+    document.getElementById('btn-refresh').addEventListener('click', loadAllRules);
+
+    // Initial load
+    loadAllRules();
+
+    // Add
+    document.getElementById('btn-add').addEventListener('click', async () => {
+        const code = document.getElementById('a-code').value.trim();
+        const value = document.getElementById('a-value').value;
+        hideAlert('alert-add');
+        if (!code) {
+            showAlert('alert-add', 'error', 'Rule code is required');
+            return;
+        }
+        try {
+            const resp = await fetch(BASE + '/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code, value })
+            });
+            const data = await resp.json();
+            if (data.success) {
+                showAlert('alert-add', 'success', 'Rule added', data.duration);
+                document.getElementById('a-code').value = '';
+                document.getElementById('a-value').value = '';
+            } else {
+                showAlert('alert-add', 'error', (data.errorCode || 'Add failed') + ' (code=' + data.code + ')', data.duration);
+            }
+        } catch (e) {
+            showAlert('alert-add', 'error', 'Network error: ' + e.message);
+        }
+    });
+
+    // Modify
+    document.getElementById('btn-modify').addEventListener('click', async () => {
+        const code = document.getElementById('m-code').value.trim();
+        const value = document.getElementById('m-value').value;
+        hideAlert('alert-modify');
+        if (!code) {
+            showAlert('alert-modify', 'error', 'Rule code is required');
+            return;
+        }
+        try {
+            const url = BASE + '/modify?code=' + encodeURIComponent(code) + '&value=' + encodeURIComponent(value);
+            const resp = await fetch(url, { method: 'GET' });
+            const data = await resp.json();
+            if (data.success) {
+                showAlert('alert-modify', 'success', 'Rule modified', data.duration);
+            } else {
+                showAlert('alert-modify', 'error', (data.errorCode || 'Modify failed') + ' (code=' + data.code + ')', data.duration);
+            }
+        } catch (e) {
+            showAlert('alert-modify', 'error', 'Network error: ' + e.message);
+        }
+    });
+
+    // Load current value (for modify)
+    document.getElementById('btn-load-current').addEventListener('click', async () => {
+        const code = document.getElementById('m-code').value.trim();
+        hideAlert('alert-modify');
+        if (!code) {
+            showAlert('alert-modify', 'error', 'Enter a rule code first');
+            return;
+        }
+        try {
+            const resp = await fetch(BASE + '/query?code=' + encodeURIComponent(code));
+            const data = await resp.json();
+            const base = data.baseVO || {};
+            if (base.success && data.systemConfigVO) {
+                document.getElementById('m-value').value = data.systemConfigVO.value || '';
+                showAlert('alert-modify', 'info', 'Current value loaded', base.duration);
+            } else {
+                showAlert('alert-modify', 'error', 'Rule not found', base.duration);
+            }
+        } catch (e) {
+            showAlert('alert-modify', 'error', 'Network error: ' + e.message);
+        }
+    });
+
+    // Delete
+    document.getElementById('btn-delete').addEventListener('click', async () => {
+        const code = document.getElementById('d-code').value.trim();
+        hideAlert('alert-delete');
+        if (!code) {
+            showAlert('alert-delete', 'error', 'Rule code is required');
+            return;
+        }
+        if (!confirm('Delete rule "' + code + '"? This cannot be undone.')) return;
+        try {
+            const resp = await fetch(BASE + '/delete?code=' + encodeURIComponent(code), { method: 'DELETE' });
+            const data = await resp.json();
+            if (data.success) {
+                showAlert('alert-delete', 'success', 'Rule deleted', data.duration);
+                document.getElementById('d-code').value = '';
+            } else {
+                showAlert('alert-delete', 'error', (data.errorCode || 'Delete failed') + ' (code=' + data.code + ')', data.duration);
+            }
+        } catch (e) {
+            showAlert('alert-delete', 'error', 'Network error: ' + e.message);
+        }
+    });
+</script>
+</body>
+</html>

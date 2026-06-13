@@ -7,6 +7,8 @@ import com.example.music.service.SystemConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SystemConfigServiceImpl implements SystemConfigService {
     @Autowired
@@ -31,6 +33,11 @@ public class SystemConfigServiceImpl implements SystemConfigService {
     @Override
     public void deleteSystemConfig(String code) {
         systemConfigMapper.deleteSystemConfig(code);
+    }
+
+    @Override
+    public List<SystemConfig> queryAllConfig() {
+        return systemConfigMapper.queryAllConfig();
     }
 
     private SystemConfig buildSystemConfig(SystemConfigCmd cmd){

@@ -3,6 +3,7 @@ package com.example.music.controller;
 import com.example.music.controller.cmd.SystemConfigCmd;
 import com.example.music.controller.converter.SystemConfigVOConverter;
 import com.example.music.controller.vo.BaseVO;
+import com.example.music.controller.vo.MultiSystemConfigVO;
 import com.example.music.controller.vo.SingleSystemConfigVO;
 import com.example.music.controller.vo.SystemConfigVO;
 import com.example.music.entity.SystemConfig;
@@ -10,9 +11,14 @@ import com.example.music.service.SystemConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/systemConfig")
-public class SystemConfigController {
+public class
+SystemConfigController {
     @Autowired
     private SystemConfigService systemConfigService;
 
@@ -66,6 +72,29 @@ public class SystemConfigController {
             BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
             singleSystemConfigVO.setBaseVO(baseVO);
             return singleSystemConfigVO;
+        }
+    }
+
+    @GetMapping("/queryAll")
+    public MultiSystemConfigVO queryAllConfig() {
+        long startTime = System.currentTimeMillis();
+        long endTime;
+        MultiSystemConfigVO multiSystemConfigVO = new MultiSystemConfigVO();
+        try {
+            List<SystemConfig> list = systemConfigService.queryAllConfig();
+            List<SystemConfigVO> voList = list == null
+                    ? new ArrayList<>()
+                    : list.stream().map(SystemConfigVOConverter::convertToVO).collect(Collectors.toList());
+            endTime = System.currentTimeMillis();
+            BaseVO baseVO = BaseVO.buildBaseVO(200, true, endTime - startTime, null);
+            multiSystemConfigVO.setSystemConfigVOList(voList);
+            multiSystemConfigVO.setBaseVO(baseVO);
+            return multiSystemConfigVO;
+        } catch (Exception e) {
+            endTime = System.currentTimeMillis();
+            BaseVO baseVO = BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
+            multiSystemConfigVO.setBaseVO(baseVO);
+            return multiSystemConfigVO;
         }
     }
 
