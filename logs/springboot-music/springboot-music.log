@@ -1,18 +1,30 @@
-2026-06-13 10:27:06 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 25.0.1 with PID 17962 (/Users/jiangzi/Downloads/music/target/classes started by jiangzi in /Users/jiangzi/Downloads/music)
-2026-06-13 10:27:06 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
-2026-06-13 10:27:06 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-13 10:27:07 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-13 10:27:07 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-13 10:27:07 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-2026-06-13 10:27:07 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
-2026-06-13 10:27:07 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
-2026-06-13 10:27:07 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-13 10:27:07 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
-2026-06-13 10:27:07 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 799 ms
-2026-06-13 10:27:07 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
-2026-06-13 10:27:08 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
-2026-06-13 10:27:08 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
-2026-06-13 10:27:08 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+2026-06-10 14:02:49 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 25.0.1 with PID 23263 (/Users/jiangzi/Downloads/music/target/classes started by jiangzi in /Users/jiangzi/Downloads/music)
+2026-06-10 14:02:49 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-10 14:02:49 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-10 14:02:49 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-10 14:02:49 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-10 14:02:49 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-06-10 14:02:50 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 25.0.1 with PID 23266 (/Users/jiangzi/Downloads/music/target/classes started by jiangzi in /Users/jiangzi/Downloads/music)
+2026-06-10 14:02:50 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-10 14:02:50 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-10 14:02:50 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-06-10 14:02:50 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-06-10 14:02:50 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-10 14:02:50 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-10 14:02:50 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1048 ms
+2026-06-10 14:02:50 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-06-10 14:02:50 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-10 14:02:50 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-10 14:02:50 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2026-06-10 14:02:50 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-06-10 14:02:50 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-06-10 14:02:50 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-10 14:02:50 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-10 14:02:50 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 817 ms
+2026-06-10 14:02:50 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-06-10 14:02:50 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-06-10 14:02:50 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-06-10 14:02:50 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = latest
@@ -129,12 +141,12 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2026-06-13 10:27:08 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-06-13 10:27:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
-2026-06-13 10:27:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
-2026-06-13 10:27:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781339228514
-2026-06-13 10:27:08 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
-2026-06-13 10:27:08 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+2026-06-10 14:02:51 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-10 14:02:51 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-06-10 14:02:51 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-06-10 14:02:51 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781092971124
+2026-06-10 14:02:51 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
+2026-06-10 14:02:51 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = latest
@@ -251,127 +263,102 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2026-06-13 10:27:08 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-06-13 10:27:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
-2026-06-13 10:27:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
-2026-06-13 10:27:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781339228523
-2026-06-13 10:27:08 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
-2026-06-13 10:27:08 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 1.918 seconds (process running for 2.305)
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-6cf94e22-0822-470f-89da-8d493f3a2b0d
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-c57aaa79-df0a-4d4d-83fd-135b55a77e91
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
-2026-06-13 10:27:08 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=57, memberId='consumer-test-group-2-6cf94e22-0822-470f-89da-8d493f3a2b0d', protocol='range'}
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=57, memberId='consumer-test-group-1-c57aaa79-df0a-4d4d-83fd-135b55a77e91', protocol='range'}
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Finished assignment for group at generation 57: {consumer-test-group-1-c57aaa79-df0a-4d4d-83fd-135b55a77e91=Assignment(partitions=[add-music-0]), consumer-test-group-2-6cf94e22-0822-470f-89da-8d493f3a2b0d=Assignment(partitions=[test-topic-0])}
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=57, memberId='consumer-test-group-2-6cf94e22-0822-470f-89da-8d493f3a2b0d', protocol='range'}
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=57, memberId='consumer-test-group-1-c57aaa79-df0a-4d4d-83fd-135b55a77e91', protocol='range'}
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=10}}
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=6}}
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
-2026-06-13 10:27:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
-2026-06-13 10:28:23 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-13 10:28:23 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-13 10:28:23 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
-2026-06-13 10:28:49 [http-nio-8082-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-13 10:28:49 [http-nio-8082-exec-4] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@273adb06
-2026-06-13 10:28:49 [http-nio-8082-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-13 10:28:49 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.UserMapper.queryByName - ==>  Preparing: select * from user where name = ?
-2026-06-13 10:28:49 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.UserMapper.queryByName - ==> Parameters: zhangsan(String)
-2026-06-13 10:28:49 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.UserMapper.queryByName - <==      Total: 1
-2026-06-13 10:28:50 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? , ? , ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? , ? , ? , ? , ? )
-2026-06-13 10:28:50 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 1(Integer), 1(Integer), 4(Integer), 4(Integer), 4(Integer), 9(Integer), 16(Integer), 1(Integer), 1(Integer), 4(Integer), 4(Integer), 4(Integer), 9(Integer), 16(Integer)
-2026-06-13 10:28:50 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 4
-2026-06-13 10:28:50 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:28:50 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:28:50 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:28:56 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )
-2026-06-13 10:28:56 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 4(Integer), 1(Integer), 9(Integer), 16(Integer), 6(Integer), 5(Integer), 3(Integer), 2(Integer), 15(Integer), 13(Integer), 4(Integer), 1(Integer), 9(Integer), 16(Integer), 6(Integer), 5(Integer), 3(Integer), 2(Integer), 15(Integer), 13(Integer)
-2026-06-13 10:28:56 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 10
-2026-06-13 10:29:00 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? , ? , ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? , ? , ? , ? , ? )
-2026-06-13 10:29:00 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 1(Integer), 1(Integer), 4(Integer), 4(Integer), 4(Integer), 9(Integer), 16(Integer), 1(Integer), 1(Integer), 4(Integer), 4(Integer), 4(Integer), 9(Integer), 16(Integer)
-2026-06-13 10:29:00 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 4
-2026-06-13 10:29:00 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:29:00 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:29:00 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:29:11 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:29:11 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 5(Integer), 5(Integer)
-2026-06-13 10:29:11 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:29:11 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:29:11 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 10(Integer), 5(Integer)
-2026-06-13 10:29:11 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 2
-2026-06-13 10:29:33 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? , ? , ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? , ? , ? , ? , ? )
-2026-06-13 10:29:33 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 1(Integer), 1(Integer), 4(Integer), 4(Integer), 4(Integer), 9(Integer), 16(Integer), 1(Integer), 1(Integer), 4(Integer), 4(Integer), 4(Integer), 9(Integer), 16(Integer)
-2026-06-13 10:29:33 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 4
-2026-06-13 10:29:33 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:29:33 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:29:33 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:30:12 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - ==>  Preparing: INSERT INTO `system_config`(code,value) VALUES(?, ?)
-2026-06-13 10:30:12 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - ==> Parameters: test(String), eeeeee(String)
-2026-06-13 10:30:12 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - <==    Updates: 1
-2026-06-13 10:30:56 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 10:30:56 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: test(String)
-2026-06-13 10:30:56 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 10:31:10 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.SystemConfigMapper.modifySystemConfig - ==>  Preparing: update `system_config` set value = ? where code = ?
-2026-06-13 10:31:10 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.SystemConfigMapper.modifySystemConfig - ==> Parameters: wwww(String), test(String)
-2026-06-13 10:31:10 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.SystemConfigMapper.modifySystemConfig - <==    Updates: 1
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Revoke previously assigned partitions [add-music-0]
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Revoke previously assigned partitions [test-topic-0]
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [test-topic-0]
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [add-music-0]
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Member consumer-test-group-2-6cf94e22-0822-470f-89da-8d493f3a2b0d sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Member consumer-test-group-1-c57aaa79-df0a-4d4d-83fd-135b55a77e91 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-1 unregistered
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-2 unregistered
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
-2026-06-13 10:38:35 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
-2026-06-13 10:38:35 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-06-13 10:38:35 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-06-13 10:38:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-06-13 10:38:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-06-13 10:38:38 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 25.0.1 with PID 18941 (/Users/jiangzi/Downloads/music/target/classes started by jiangzi in /Users/jiangzi/Downloads/music)
-2026-06-13 10:38:38 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
-2026-06-13 10:38:38 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-13 10:38:39 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-13 10:38:39 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-13 10:38:39 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
-2026-06-13 10:38:39 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
-2026-06-13 10:38:39 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
-2026-06-13 10:38:39 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-13 10:38:39 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
-2026-06-13 10:38:39 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 644 ms
-2026-06-13 10:38:39 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
-2026-06-13 10:38:40 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
-2026-06-13 10:38:40 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
-2026-06-13 10:38:40 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+2026-06-10 14:02:51 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-10 14:02:51 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-06-10 14:02:51 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-06-10 14:02:51 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781092971138
+2026-06-10 14:02:51 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
+2026-06-10 14:02:51 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 2.306 seconds (process running for 2.822)
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-8774584b-3f53-45a1-a25e-ccbef25145c3
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-89a9154c-4ba6-46a8-ad85-283695a23744
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-06-10 14:02:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-06-10 14:02:51 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-06-10 14:02:51 [main] WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-06-10 14:02:51 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-06-10 14:02:51 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=51, memberId='consumer-test-group-2-89a9154c-4ba6-46a8-ad85-283695a23744', protocol='range'}
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=51, memberId='consumer-test-group-1-8774584b-3f53-45a1-a25e-ccbef25145c3', protocol='range'}
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Finished assignment for group at generation 51: {consumer-test-group-1-8774584b-3f53-45a1-a25e-ccbef25145c3=Assignment(partitions=[add-music-0]), consumer-test-group-2-89a9154c-4ba6-46a8-ad85-283695a23744=Assignment(partitions=[test-topic-0])}
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=51, memberId='consumer-test-group-1-8774584b-3f53-45a1-a25e-ccbef25145c3', protocol='range'}
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=51, memberId='consumer-test-group-2-89a9154c-4ba6-46a8-ad85-283695a23744', protocol='range'}
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=10}}
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=6}}
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
+2026-06-10 14:02:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
+2026-06-10 14:03:07 [http-nio-8082-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-10 14:03:07 [http-nio-8082-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-10 14:03:07 [http-nio-8082-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Revoke previously assigned partitions [add-music-0]
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Revoke previously assigned partitions [test-topic-0]
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [add-music-0]
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [test-topic-0]
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Member consumer-test-group-1-8774584b-3f53-45a1-a25e-ccbef25145c3 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Member consumer-test-group-2-89a9154c-4ba6-46a8-ad85-283695a23744 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-2 unregistered
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-1 unregistered
+2026-06-10 14:04:14 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-06-10 14:04:14 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-10 14:04:14 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-10 14:04:23 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 25.0.1 with PID 23787 (/Users/jiangzi/Downloads/music/target/classes started by jiangzi in /Users/jiangzi/Downloads/music)
+2026-06-10 14:04:23 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-10 14:04:23 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-10 14:04:23 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-10 14:04:23 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-10 14:04:23 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-06-10 14:04:23 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-06-10 14:04:23 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-06-10 14:04:23 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-10 14:04:23 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-10 14:04:23 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 557 ms
+2026-06-10 14:04:23 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-06-10 14:04:24 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-06-10 14:04:24 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-06-10 14:04:24 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = latest
@@ -488,12 +475,12 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2026-06-13 10:38:40 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-06-13 10:38:40 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
-2026-06-13 10:38:40 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
-2026-06-13 10:38:40 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781339920289
-2026-06-13 10:38:40 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
-2026-06-13 10:38:40 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+2026-06-10 14:04:24 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-10 14:04:24 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-06-10 14:04:24 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-06-10 14:04:24 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781093064332
+2026-06-10 14:04:24 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
+2026-06-10 14:04:24 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = latest
@@ -610,106 +597,84 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2026-06-13 10:38:40 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-06-13 10:38:40 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
-2026-06-13 10:38:40 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
-2026-06-13 10:38:40 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781339920298
-2026-06-13 10:38:40 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
-2026-06-13 10:38:40 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 1.56 seconds (process running for 1.956)
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-6e869823-8d8b-4c1a-8806-f5f879ca6b9d
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-f199111e-00ed-4f81-b240-e5295fe3c5e8
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
-2026-06-13 10:38:40 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=59, memberId='consumer-test-group-1-6e869823-8d8b-4c1a-8806-f5f879ca6b9d', protocol='range'}
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=59, memberId='consumer-test-group-2-f199111e-00ed-4f81-b240-e5295fe3c5e8', protocol='range'}
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Finished assignment for group at generation 59: {consumer-test-group-2-f199111e-00ed-4f81-b240-e5295fe3c5e8=Assignment(partitions=[test-topic-0]), consumer-test-group-1-6e869823-8d8b-4c1a-8806-f5f879ca6b9d=Assignment(partitions=[add-music-0])}
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=59, memberId='consumer-test-group-1-6e869823-8d8b-4c1a-8806-f5f879ca6b9d', protocol='range'}
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=59, memberId='consumer-test-group-2-f199111e-00ed-4f81-b240-e5295fe3c5e8', protocol='range'}
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=6}}
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=10}}
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
-2026-06-13 10:38:46 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
-2026-06-13 10:38:55 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-13 10:38:55 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-13 10:38:55 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-06-13 10:39:12 [http-nio-8082-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-13 10:39:13 [http-nio-8082-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@210c743d
-2026-06-13 10:39:13 [http-nio-8082-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-13 10:39:13 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.UserMapper.queryByName - ==>  Preparing: select * from user where name = ?
-2026-06-13 10:39:13 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.UserMapper.queryByName - ==> Parameters: zhangsan(String)
-2026-06-13 10:39:13 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.UserMapper.queryByName - <==      Total: 1
-2026-06-13 10:39:14 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? , ? , ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? , ? , ? , ? , ? )
-2026-06-13 10:39:14 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 1(Integer), 1(Integer), 4(Integer), 4(Integer), 4(Integer), 9(Integer), 16(Integer), 1(Integer), 1(Integer), 4(Integer), 4(Integer), 4(Integer), 9(Integer), 16(Integer)
-2026-06-13 10:39:14 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 4
-2026-06-13 10:39:14 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:39:14 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:39:14 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:39:24 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:39:24 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:39:24 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:39:47 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:39:47 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:39:47 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:41:21 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 10:41:21 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 10:41:21 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 2
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Revoke previously assigned partitions [add-music-0]
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Revoke previously assigned partitions [test-topic-0]
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [add-music-0]
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [test-topic-0]
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Member consumer-test-group-1-6e869823-8d8b-4c1a-8806-f5f879ca6b9d sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Member consumer-test-group-2-f199111e-00ed-4f81-b240-e5295fe3c5e8 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-1 unregistered
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-2 unregistered
-2026-06-13 10:45:05 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
-2026-06-13 10:45:05 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-06-13 10:45:05 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-06-13 10:45:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-06-13 10:45:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-06-13 10:45:07 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 25.0.1 with PID 19248 (/Users/jiangzi/Downloads/music/target/classes started by jiangzi in /Users/jiangzi/Downloads/music)
-2026-06-13 10:45:07 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
-2026-06-13 10:45:07 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
-2026-06-13 10:45:07 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-13 10:45:07 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-13 10:45:07 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-2026-06-13 10:45:08 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
-2026-06-13 10:45:08 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
-2026-06-13 10:45:08 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2026-06-13 10:45:08 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
-2026-06-13 10:45:08 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 682 ms
-2026-06-13 10:45:08 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
-2026-06-13 10:45:08 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
-2026-06-13 10:45:08 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
-2026-06-13 10:45:08 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+2026-06-10 14:04:24 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-10 14:04:24 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-06-10 14:04:24 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-06-10 14:04:24 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781093064340
+2026-06-10 14:04:24 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
+2026-06-10 14:04:24 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 1.401 seconds (process running for 1.716)
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-e64160fb-f24f-4c99-ab21-c3b83c1943ef
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-55359fda-1884-4190-8b30-2c391d29e702
+2026-06-10 14:04:24 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=53, memberId='consumer-test-group-2-e64160fb-f24f-4c99-ab21-c3b83c1943ef', protocol='range'}
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=53, memberId='consumer-test-group-1-55359fda-1884-4190-8b30-2c391d29e702', protocol='range'}
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Finished assignment for group at generation 53: {consumer-test-group-1-55359fda-1884-4190-8b30-2c391d29e702=Assignment(partitions=[add-music-0]), consumer-test-group-2-e64160fb-f24f-4c99-ab21-c3b83c1943ef=Assignment(partitions=[test-topic-0])}
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=53, memberId='consumer-test-group-1-55359fda-1884-4190-8b30-2c391d29e702', protocol='range'}
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=53, memberId='consumer-test-group-2-e64160fb-f24f-4c99-ab21-c3b83c1943ef', protocol='range'}
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=6}}
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=10}}
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
+2026-06-10 14:04:30 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
+2026-06-10 14:04:31 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-10 14:04:31 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-10 14:04:31 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-06-10 14:05:55 [http-nio-8082-exec-3] ERROR com.example.music.controller.PlayController - acrossing system is fail
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Revoke previously assigned partitions [test-topic-0]
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Revoke previously assigned partitions [add-music-0]
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [test-topic-0]
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [add-music-0]
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Member consumer-test-group-2-e64160fb-f24f-4c99-ab21-c3b83c1943ef sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Member consumer-test-group-1-55359fda-1884-4190-8b30-2c391d29e702 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-06-10 14:17:42 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-2 unregistered
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-1 unregistered
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-06-10 14:17:43 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-06-10 14:17:43 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-10 14:17:43 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-10 14:17:44 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 25.0.1 with PID 28231 (/Users/jiangzi/Downloads/music/target/classes started by jiangzi in /Users/jiangzi/Downloads/music)
+2026-06-10 14:17:44 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-06-10 14:17:44 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-10 14:17:44 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-10 14:17:44 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-10 14:17:44 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-06-10 14:17:44 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-06-10 14:17:44 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-06-10 14:17:44 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-10 14:17:44 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-10 14:17:44 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 543 ms
+2026-06-10 14:17:44 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-06-10 14:17:45 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-06-10 14:17:45 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-06-10 14:17:45 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = latest
@@ -826,12 +791,12 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2026-06-13 10:45:08 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-06-13 10:45:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
-2026-06-13 10:45:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
-2026-06-13 10:45:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781340308826
-2026-06-13 10:45:08 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
-2026-06-13 10:45:08 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+2026-06-10 14:17:45 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-10 14:17:45 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-06-10 14:17:45 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-06-10 14:17:45 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781093865459
+2026-06-10 14:17:45 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
+2026-06-10 14:17:45 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = latest
@@ -948,172 +913,68 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2026-06-13 10:45:08 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
-2026-06-13 10:45:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
-2026-06-13 10:45:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
-2026-06-13 10:45:08 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781340308835
-2026-06-13 10:45:08 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
-2026-06-13 10:45:08 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 1.666 seconds (process running for 2.101)
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-ee627df3-0c0b-46cd-afe3-c11fac672766
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-69e2e68c-071a-4f7b-b6fa-de04c36c40bf
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
-2026-06-13 10:45:09 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=61, memberId='consumer-test-group-1-ee627df3-0c0b-46cd-afe3-c11fac672766', protocol='range'}
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=61, memberId='consumer-test-group-2-69e2e68c-071a-4f7b-b6fa-de04c36c40bf', protocol='range'}
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Finished assignment for group at generation 61: {consumer-test-group-2-69e2e68c-071a-4f7b-b6fa-de04c36c40bf=Assignment(partitions=[test-topic-0]), consumer-test-group-1-ee627df3-0c0b-46cd-afe3-c11fac672766=Assignment(partitions=[add-music-0])}
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=61, memberId='consumer-test-group-2-69e2e68c-071a-4f7b-b6fa-de04c36c40bf', protocol='range'}
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=61, memberId='consumer-test-group-1-ee627df3-0c0b-46cd-afe3-c11fac672766', protocol='range'}
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=6}}
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=10}}
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
-2026-06-13 10:45:15 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
-2026-06-13 10:45:15 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-13 10:45:15 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-06-13 10:45:15 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-06-13 10:45:15 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-06-13 10:45:15 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a88451e
-2026-06-13 10:45:15 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-06-13 10:45:15 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 10:45:15 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 10:45:15 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 2
-2026-06-13 10:45:19 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 10:45:19 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 10:45:19 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 2
-2026-06-13 10:45:20 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:45:20 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:45:20 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:45:21 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 10:45:21 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 10:45:21 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 2
-2026-06-13 10:45:35 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - ==>  Preparing: INSERT INTO `system_config`(code,value) VALUES(?, ?)
-2026-06-13 10:45:35 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - ==> Parameters: rules(String), 23500(String)
-2026-06-13 10:45:35 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - <==    Updates: 1
-2026-06-13 10:45:37 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 10:45:37 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 10:45:37 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 3
-2026-06-13 10:45:50 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:45:50 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:45:50 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:46:33 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:46:33 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:46:33 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:46:34 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
-2026-06-13 10:46:34 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
-2026-06-13 10:46:34 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
-2026-06-13 10:57:31 [http-nio-8082-exec-6] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 10:57:31 [http-nio-8082-exec-6] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: test(String)
-2026-06-13 10:57:31 [http-nio-8082-exec-6] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:11:21 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 11:11:21 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 11:11:21 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 3
-2026-06-13 11:25:15 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 11:25:15 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 11:25:15 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 3
-2026-06-13 11:25:27 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - ==>  Preparing: INSERT INTO `system_config`(code,value) VALUES(?, ?)
-2026-06-13 11:25:27 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - ==> Parameters: stage(String), stage(String)
-2026-06-13 11:25:27 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - <==    Updates: 1
-2026-06-13 11:25:35 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - ==>  Preparing: INSERT INTO `system_config`(code,value) VALUES(?, ?)
-2026-06-13 11:25:35 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - ==> Parameters: amount(String), amount(String)
-2026-06-13 11:25:35 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.addSystemConfig - <==    Updates: 1
-2026-06-13 11:25:39 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 11:25:39 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 11:25:39 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 5
-2026-06-13 11:26:34 [http-nio-8082-exec-7] ERROR com.example.music.controller.PlayController - acrossing system is fail
-2026-06-13 11:28:48 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:28:48 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 11:28:48 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:28:48 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:28:48 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 11:28:48 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:29:09 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 11:29:09 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 11:29:09 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 5
-2026-06-13 11:29:56 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.SystemConfigMapper.modifySystemConfig - ==>  Preparing: update `system_config` set value = ? where code = ?
-2026-06-13 11:29:56 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.SystemConfigMapper.modifySystemConfig - ==> Parameters: ruleStage(String), stage(String)
-2026-06-13 11:29:56 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.SystemConfigMapper.modifySystemConfig - <==    Updates: 1
-2026-06-13 11:29:59 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 11:29:59 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 11:29:59 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 5
-2026-06-13 11:30:07 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:30:07 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 11:30:07 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:30:07 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:30:07 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 11:30:07 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:49:38 [http-nio-8082-exec-5] ERROR com.example.music.controller.PlayController - acrossing system is fail
-2026-06-13 11:51:41 [http-nio-8082-exec-7] ERROR com.example.music.controller.PlayController - I/O error on POST request for "http://127.0.0.1:8083/record/sync": Connection refused
-2026-06-13 11:51:51 [http-nio-8082-exec-8] ERROR com.example.music.controller.PlayController - acrossing system is fail
-2026-06-13 11:52:10 [http-nio-8082-exec-1] ERROR com.example.music.controller.PlayController - acrossing system is fail
-2026-06-13 11:53:20 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:53:20 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 11:53:20 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:53:20 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:53:20 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 11:53:20 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:53:29 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
-2026-06-13 11:53:29 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
-2026-06-13 11:53:29 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 5
-2026-06-13 11:54:52 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:54:52 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 11:54:52 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:54:52 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:54:52 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 11:54:52 [http-nio-8082-exec-2] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:55:20 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:55:20 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 11:55:20 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 11:55:20 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 11:55:20 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 11:55:20 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:05:09 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:05:09 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 12:05:09 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:05:09 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:05:09 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 12:05:09 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:05:30 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:05:30 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 12:05:30 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:05:30 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:05:30 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 12:05:30 [http-nio-8082-exec-10] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:08:45 [http-nio-8082-exec-6] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:08:45 [http-nio-8082-exec-6] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 12:08:45 [http-nio-8082-exec-6] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:08:45 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:08:45 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 12:08:45 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:08:59 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:08:59 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 12:08:59 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:08:59 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:08:59 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 12:08:59 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:09:48 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:09:48 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 12:09:48 [http-nio-8082-exec-3] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:09:48 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:09:48 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 12:09:48 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:09:58 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:09:58 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 12:09:58 [http-nio-8082-exec-8] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:09:58 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:09:58 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 12:09:58 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:10:09 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:10:09 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: stage(String)
-2026-06-13 12:10:09 [http-nio-8082-exec-1] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
-2026-06-13 12:10:09 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==>  Preparing: select * from `system_config` where code = ?
-2026-06-13 12:10:09 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - ==> Parameters: amount(String)
-2026-06-13 12:10:09 [http-nio-8082-exec-9] DEBUG c.e.m.mapper.SystemConfigMapper.queryConfigByCode - <==      Total: 1
+2026-06-10 14:17:45 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-06-10 14:17:45 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-06-10 14:17:45 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-06-10 14:17:45 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1781093865467
+2026-06-10 14:17:45 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
+2026-06-10 14:17:45 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 1.476 seconds (process running for 1.777)
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: X0R0SKXYRSmvrUokmkrjHw
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-a614a2e1-7027-43a8-b552-a2c633b21a12
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-095f7e65-3a3e-4e45-abaa-090544d4d877
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-06-10 14:17:45 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=55, memberId='consumer-test-group-1-095f7e65-3a3e-4e45-abaa-090544d4d877', protocol='range'}
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=55, memberId='consumer-test-group-2-a614a2e1-7027-43a8-b552-a2c633b21a12', protocol='range'}
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Finished assignment for group at generation 55: {consumer-test-group-1-095f7e65-3a3e-4e45-abaa-090544d4d877=Assignment(partitions=[add-music-0]), consumer-test-group-2-a614a2e1-7027-43a8-b552-a2c633b21a12=Assignment(partitions=[test-topic-0])}
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=55, memberId='consumer-test-group-2-a614a2e1-7027-43a8-b552-a2c633b21a12', protocol='range'}
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=55, memberId='consumer-test-group-1-095f7e65-3a3e-4e45-abaa-090544d4d877', protocol='range'}
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=6}}
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=10}}
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
+2026-06-10 14:17:51 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
+2026-06-10 14:18:00 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-10 14:18:00 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-10 14:18:00 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-06-10 15:29:37 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-06-10 15:29:37 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-06-10 15:29:37 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [kafka-coordinator-heartbeat-thread | test-group] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-test-group-2, groupId=test-group] Client requested disconnect from node 2147483646
+2026-06-10 15:29:37 [kafka-coordinator-heartbeat-thread | test-group] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-test-group-1, groupId=test-group] Client requested disconnect from node 2147483646
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 15:29:37 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 16:01:59 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-06-10 16:01:59 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-06-10 16:01:59 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 16:01:59 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 16:01:59 [kafka-coordinator-heartbeat-thread | test-group] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-test-group-2, groupId=test-group] Client requested disconnect from node 2147483646
+2026-06-10 16:01:59 [kafka-coordinator-heartbeat-thread | test-group] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-test-group-1, groupId=test-group] Client requested disconnect from node 2147483646
+2026-06-10 16:01:59 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 16:01:59 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 16:02:00 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 18:09:20 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-06-10 18:09:20 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2026-06-10 18:09:20 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 18:09:20 [kafka-coordinator-heartbeat-thread | test-group] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Requesting disconnect from last known coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 18:09:20 [kafka-coordinator-heartbeat-thread | test-group] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-test-group-1, groupId=test-group] Client requested disconnect from node 2147483646
+2026-06-10 18:09:20 [kafka-coordinator-heartbeat-thread | test-group] INFO  org.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-test-group-2, groupId=test-group] Client requested disconnect from node 2147483646
+2026-06-10 18:09:20 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-06-10 18:09:20 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
