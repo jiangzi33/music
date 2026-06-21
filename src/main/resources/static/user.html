@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Search</title>
+    <title>User Management</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -36,27 +36,6 @@
             margin-left: 12px;
             text-decoration: underline;
             cursor: pointer;
-        }
-        .header .user a.icon-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.18);
-            text-decoration: none;
-            transition: background 0.15s, transform 0.2s;
-            vertical-align: middle;
-        }
-        .header .user a.icon-link:hover {
-            background: rgba(255, 255, 255, 0.32);
-            transform: rotate(45deg);
-        }
-        .header .user a.icon-link svg {
-            width: 18px;
-            height: 18px;
-            fill: #fff;
         }
         .card {
             background: #fff;
@@ -93,7 +72,7 @@
             display: flex;
             gap: 10px;
         }
-        input {
+        input, select {
             flex: 1;
             padding: 11px 14px;
             font-size: 14px;
@@ -102,7 +81,7 @@
             background: #f7fafc;
             transition: border-color 0.15s, background 0.15s;
         }
-        input:focus {
+        input:focus, select:focus {
             outline: none;
             border-color: #667eea;
             background: #fff;
@@ -182,24 +161,16 @@
             margin-right: 6px;
             margin-bottom: 4px;
         }
-        .content-box {
-            padding: 14px;
-            background: #f7fafc;
-            border-radius: 8px;
-            font-size: 14px;
-            color: #4a5568;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-        .hot-score {
+        .badge {
             display: inline-block;
-            padding: 4px 12px;
-            background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
-            color: #fff;
-            border-radius: 12px;
+            padding: 3px 10px;
             font-size: 12px;
             font-weight: 600;
+            border-radius: 12px;
         }
+        .badge.NORMAL { color: #276749; background: #c6f6d5; }
+        .badge.INIT { color: #975a16; background: #fefcbf; }
+        .badge.ABNORMAL { color: #c53030; background: #fed7d7; }
         .list { margin-top: 20px; }
         .list-item {
             padding: 14px 16px;
@@ -208,6 +179,9 @@
             margin-bottom: 10px;
             transition: border-color 0.15s, transform 0.1s;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         .list-item:hover {
             border-color: #667eea;
@@ -222,6 +196,25 @@
         .list-item-meta {
             font-size: 12px;
             color: #718096;
+        }
+        .list-item-body { flex: 1; min-width: 0; }
+        .list-item-actions {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .list-item-thumb {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
         }
         .pager {
             display: flex;
@@ -313,7 +306,7 @@
             color: #4a5568;
             margin-bottom: 6px;
         }
-        .modal input, .modal textarea {
+        .modal input, .modal select {
             width: 100%;
             padding: 10px 12px;
             font-size: 14px;
@@ -322,14 +315,10 @@
             background: #f7fafc;
             font-family: inherit;
         }
-        .modal input:focus, .modal textarea:focus {
+        .modal input:focus, .modal select:focus {
             outline: none;
             border-color: #667eea;
             background: #fff;
-        }
-        .modal textarea {
-            min-height: 110px;
-            resize: vertical;
         }
         .modal-actions {
             display: flex;
@@ -348,17 +337,6 @@
             cursor: pointer;
         }
         .btn-cancel:hover { background: #e2e8f0; transform: none; }
-        .list-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .list-item-body { flex: 1; min-width: 0; }
-        .list-item-actions {
-            display: flex;
-            gap: 6px;
-            flex-shrink: 0;
-        }
         .btn-icon {
             padding: 6px 12px;
             font-size: 12px;
@@ -369,108 +347,112 @@
             cursor: pointer;
             transition: background 0.15s, border-color 0.15s, color 0.15s;
         }
-        .btn-icon.edit {
-            color: #667eea;
-        }
-        .btn-icon.edit:hover {
-            background: #ebf4ff;
-            border-color: #667eea;
-        }
-        .btn-icon.delete {
-            color: #c53030;
-        }
-        .btn-icon.delete:hover {
-            background: #fff5f5;
-            border-color: #fc8181;
-        }
-        .btn-icon:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+        .btn-icon.edit { color: #667eea; }
+        .btn-icon.edit:hover { background: #ebf4ff; border-color: #667eea; }
+        .btn-icon.delete { color: #c53030; }
+        .btn-icon.delete:hover { background: #fff5f5; border-color: #fc8181; }
+        .btn-icon:disabled { opacity: 0.5; cursor: not-allowed; }
         .input-readonly {
             background: #edf2f7 !important;
             color: #718096;
             cursor: not-allowed;
         }
-        .list-item-thumb {
-            width: 56px;
-            height: 56px;
-            border-radius: 8px;
-            background: #edf2f7 center / cover no-repeat;
-            flex-shrink: 0;
+        .btn-icon.tags { color: #38a169; }
+        .btn-icon.tags:hover { background: #f0fff4; border-color: #68d391; }
+        .tag-chips {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #a0aec0;
-            font-size: 20px;
-            font-weight: 700;
-        }
-        .result-cover {
-            width: 100%;
-            max-width: 240px;
-            border-radius: 10px;
-            margin-bottom: 16px;
-            display: block;
-        }
-        .btn-like {
-            padding: 6px 12px;
-            font-size: 13px;
-            font-weight: 600;
+            flex-wrap: wrap;
+            gap: 8px;
+            min-height: 40px;
+            padding: 10px;
             border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            background: #fff;
-            color: #718096;
-            cursor: pointer;
+            border-radius: 8px;
+            background: #f7fafc;
+            margin-bottom: 12px;
+        }
+        .tag-chips:empty::before {
+            content: "No tags yet — add some below.";
+            color: #a0aec0;
+            font-size: 13px;
+        }
+        .tag-chip {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            transition: background 0.15s, border-color 0.15s, color 0.15s;
-        }
-        .btn-like:hover { background: #fff5f5; border-color: #fc8181; color: #e53e3e; }
-        .btn-like.liked {
-            background: linear-gradient(135deg, #fc8181 0%, #e53e3e 100%);
+            gap: 6px;
+            padding: 4px 6px 4px 12px;
+            font-size: 13px;
+            font-weight: 600;
             color: #fff;
-            border-color: transparent;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 14px;
         }
-        .btn-like.liked:hover { opacity: 0.92; }
-        .btn-like:disabled { opacity: 0.6; cursor: not-allowed; }
-        .result-like-row {
-            display: flex;
+        .tag-chip .x {
+            display: inline-flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 1;
+        }
+        .tag-chip .x:hover { background: rgba(255, 255, 255, 0.45); }
+        .preset-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .preset-tag {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #667eea;
+            background: #ebf4ff;
+            border: 1px solid #c3dafe;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+        .preset-tag:hover { background: #667eea; color: #fff; border-color: #667eea; }
+        .preset-tag.added {
+            opacity: 0.45;
+            cursor: default;
+            pointer-events: none;
+        }
+        .tag-input-row {
+            display: flex;
+            gap: 10px;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <h1>Music Search</h1>
+        <h1>User Management</h1>
         <div class="user">
             <span id="welcome"></span>
-            <a id="rankBtn">Leaderboard</a>
-            <a id="userBtn">User Management</a>
+            <a id="musicBtn">Music Management</a>
             <a id="logoutBtn">Sign out</a>
-            <a class="icon-link" href="/rule-config.html" title="Rule Configuration" aria-label="Rule Configuration">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.14 12.94a7.49 7.49 0 0 0 .05-.94 7.49 7.49 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.03 7.03 0 0 0-1.62-.94l-.36-2.54A.5.5 0 0 0 13.9 2h-3.84a.5.5 0 0 0-.49.42l-.36 2.54c-.59.24-1.13.55-1.62.94l-2.39-.96a.5.5 0 0 0-.61.22L2.67 8.48a.5.5 0 0 0 .12.64l2.03 1.58c-.04.3-.06.62-.06.94s.02.64.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.14.24.43.34.61.22l2.39-.96c.49.39 1.03.7 1.62.94l.36 2.54c.05.24.25.42.49.42h3.84c.24 0 .44-.18.49-.42l.36-2.54c.59-.24 1.13-.55 1.62-.94l2.39.96c.18.12.47.02.61-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z"/></svg>
-            </a>
         </div>
     </div>
 
     <div class="card">
         <div class="toolbar">
-            <h2 style="margin-bottom:0;">Find a track</h2>
-            <button type="button" class="btn-secondary" id="openAddBtn">+ Add Music</button>
+            <h2 style="margin-bottom:0;">Manage users</h2>
+            <button type="button" class="btn-secondary" id="openAddBtn">+ Add User</button>
         </div>
 
         <div class="tabs">
-            <div class="tab active" data-mode="title">By Title</div>
+            <div class="tab active" data-mode="name">By Name</div>
             <div class="tab" data-mode="id">By ID</div>
         </div>
 
         <form id="searchForm">
             <div class="search-row">
-                <input type="text" id="query" placeholder="Enter a song title (leave blank to browse all)">
+                <input type="text" id="query" placeholder="Enter a username (leave blank to browse all)">
                 <button type="submit" id="searchBtn">Search</button>
             </div>
         </form>
@@ -487,16 +469,8 @@
         </div>
 
         <div id="result" class="result">
-            <img id="rCover" class="result-cover" style="display:none;" alt="Cover">
-            <div class="result-title" id="rTitle"></div>
-            <div class="result-author" id="rAuthor"></div>
-
-            <div class="result-like-row">
-                <button type="button" class="btn-like" id="rLikeBtn">
-                    <span id="rLikeIcon">&#9825;</span>
-                    <span id="rLikeText">Like</span>
-                </button>
-            </div>
+            <div class="result-title" id="rName"></div>
+            <div class="result-author" id="rEmail"></div>
 
             <div class="meta-grid">
                 <div class="meta-item">
@@ -504,21 +478,21 @@
                     <div class="meta-value" id="rId"></div>
                 </div>
                 <div class="meta-item">
-                    <div class="meta-label">Published</div>
-                    <div class="meta-value" id="rPublish"></div>
+                    <div class="meta-label">Status</div>
+                    <div class="meta-value" id="rStatus"></div>
                 </div>
                 <div class="meta-item">
-                    <div class="meta-label">Tags</div>
-                    <div class="meta-value" id="rTags"></div>
+                    <div class="meta-label">Age</div>
+                    <div class="meta-value" id="rAge"></div>
                 </div>
                 <div class="meta-item">
-                    <div class="meta-label">Hot Score</div>
-                    <div class="meta-value" id="rHot"></div>
+                    <div class="meta-label">Registered</div>
+                    <div class="meta-value" id="rRegister"></div>
                 </div>
             </div>
 
-            <div class="meta-label" style="margin-bottom: 6px;">Content</div>
-            <div class="content-box" id="rContent"></div>
+            <div class="meta-label" style="margin-bottom: 6px;">Interests</div>
+            <div class="meta-value" id="rInterests"></div>
         </div>
     </div>
 </div>
@@ -526,31 +500,35 @@
 <div class="modal-backdrop" id="editModal">
     <div class="modal">
         <div class="modal-header">
-            <h3>Edit track</h3>
+            <h3>Edit user</h3>
             <button type="button" class="modal-close" id="closeEditBtn" aria-label="Close">&times;</button>
         </div>
         <div id="editAlert" class="alert" style="margin-top:0;"></div>
         <form id="editForm" novalidate>
             <div class="field">
-                <label for="editTitle">Title</label>
-                <input type="text" id="editTitle" class="input-readonly" readonly>
-                <div class="hint" style="font-size:11px; color:#a0aec0; margin-top:4px;">Title is the lookup key and cannot be changed.</div>
+                <label for="editName">Name</label>
+                <input type="text" id="editName" class="input-readonly" readonly>
+                <div class="hint" style="font-size:11px; color:#a0aec0; margin-top:4px;">Name is the lookup key and cannot be changed.</div>
             </div>
             <div class="field">
-                <label for="editAuthor">Author</label>
-                <input type="text" id="editAuthor" required maxlength="100">
+                <label for="editEmail">Email</label>
+                <input type="email" id="editEmail" maxlength="255">
             </div>
             <div class="field">
-                <label for="editTags">Tags</label>
-                <input type="text" id="editTags" placeholder="e.g. Pop, Jazz">
+                <label for="editAge">Age</label>
+                <input type="number" id="editAge" min="0" max="200">
             </div>
             <div class="field">
-                <label for="editPicture">Picture URL</label>
-                <input type="url" id="editPicture" placeholder="https://example.com/cover.jpg">
+                <label for="editStatus">Status</label>
+                <select id="editStatus">
+                    <option value="INIT">INIT</option>
+                    <option value="NORMAL">NORMAL</option>
+                    <option value="ABNORMAL">ABNORMAL</option>
+                </select>
             </div>
             <div class="field">
-                <label for="editContent">Content</label>
-                <textarea id="editContent" placeholder="Lyrics, description, or notes"></textarea>
+                <label for="editInterests">Interests</label>
+                <input type="text" id="editInterests" placeholder="e.g. Pop, Jazz">
             </div>
             <div class="modal-actions">
                 <button type="button" class="btn-cancel" id="cancelEditBtn">Cancel</button>
@@ -560,37 +538,72 @@
     </div>
 </div>
 
+<div class="modal-backdrop" id="tagsModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 id="tagsTitle">Manage interest tags</h3>
+            <button type="button" class="modal-close" id="closeTagsBtn" aria-label="Close">&times;</button>
+        </div>
+        <div id="tagsAlert" class="alert" style="margin-top:0;"></div>
+
+        <label style="display:block; font-size:13px; font-weight:600; color:#4a5568; margin-bottom:6px;">Current tags</label>
+        <div id="tagChips" class="tag-chips"></div>
+
+        <label style="display:block; font-size:13px; font-weight:600; color:#4a5568; margin-bottom:6px;">Quick add</label>
+        <div id="presetRow" class="preset-row"></div>
+
+        <label for="tagInput" style="display:block; font-size:13px; font-weight:600; color:#4a5568; margin-bottom:6px;">Add a custom tag</label>
+        <div class="tag-input-row">
+            <input type="text" id="tagInput" placeholder="Type a tag and press Enter">
+            <button type="button" id="addTagBtn">Add</button>
+        </div>
+
+        <div class="modal-actions">
+            <button type="button" class="btn-cancel" id="cancelTagsBtn">Cancel</button>
+            <button type="button" id="saveTagsBtn">Save tags</button>
+        </div>
+    </div>
+</div>
+
 <div class="modal-backdrop" id="addModal">
     <div class="modal">
         <div class="modal-header">
-            <h3>Add a new track</h3>
+            <h3>Add a new user</h3>
             <button type="button" class="modal-close" id="closeAddBtn" aria-label="Close">&times;</button>
         </div>
         <div id="addAlert" class="alert" style="margin-top:0;"></div>
         <form id="addForm" novalidate>
             <div class="field">
-                <label for="addTitle">Title</label>
-                <input type="text" id="addTitle" required maxlength="200">
+                <label for="addName">Name</label>
+                <input type="text" id="addName" required maxlength="100">
             </div>
             <div class="field">
-                <label for="addAuthor">Author</label>
-                <input type="text" id="addAuthor" required maxlength="100">
+                <label for="addPassword">Password</label>
+                <input type="password" id="addPassword" required maxlength="100">
             </div>
             <div class="field">
-                <label for="addTags">Tags</label>
-                <input type="text" id="addTags" placeholder="e.g. Pop, Jazz">
+                <label for="addEmail">Email</label>
+                <input type="email" id="addEmail" maxlength="255">
             </div>
             <div class="field">
-                <label for="addPicture">Picture URL</label>
-                <input type="url" id="addPicture" placeholder="https://example.com/cover.jpg">
+                <label for="addAge">Age</label>
+                <input type="number" id="addAge" min="0" max="200">
             </div>
             <div class="field">
-                <label for="addContent">Content</label>
-                <textarea id="addContent" placeholder="Lyrics, description, or notes"></textarea>
+                <label for="addStatus">Status</label>
+                <select id="addStatus">
+                    <option value="NORMAL">NORMAL</option>
+                    <option value="INIT">INIT</option>
+                    <option value="ABNORMAL">ABNORMAL</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="addInterests">Interests</label>
+                <input type="text" id="addInterests" placeholder="e.g. Pop, Jazz">
             </div>
             <div class="modal-actions">
                 <button type="button" class="btn-cancel" id="cancelAddBtn">Cancel</button>
-                <button type="submit" id="submitAddBtn">Submit &amp; Publish</button>
+                <button type="submit" id="submitAddBtn">Create user</button>
             </div>
         </form>
     </div>
@@ -614,9 +627,8 @@
 
     let currentPage = 1;
     let lastPageHadFullSize = true;
-    let currentUserId = null;
-    let likedIds = new Set();
-    let currentDetailMusic = null;
+    // password is stored hashed; keep the loaded value so edits don't wipe it
+    let editOriginalPassword = '';
 
     const params = new URLSearchParams(window.location.search);
     const username = params.get('name');
@@ -628,17 +640,12 @@
         window.location.href = '/login.html';
     });
 
-    document.getElementById('rankBtn').addEventListener('click', () => {
-        const target = '/rank.html' + (username ? '?name=' + encodeURIComponent(username) : '');
+    document.getElementById('musicBtn').addEventListener('click', () => {
+        const target = '/music.html' + (username ? '?name=' + encodeURIComponent(username) : '');
         window.location.href = target;
     });
 
-    document.getElementById('userBtn').addEventListener('click', () => {
-        const target = '/user.html' + (username ? '?name=' + encodeURIComponent(username) : '');
-        window.location.href = target;
-    });
-
-    let mode = 'title';
+    let mode = 'name';
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -646,9 +653,9 @@
             tab.classList.add('active');
             mode = tab.dataset.mode;
             queryInput.value = '';
-            queryInput.placeholder = mode === 'title'
-                ? 'Enter a song title (leave blank to browse all)'
-                : 'Enter a song ID (leave blank to browse all)';
+            queryInput.placeholder = mode === 'name'
+                ? 'Enter a username (leave blank to browse all)'
+                : 'Enter a user ID (leave blank to browse all)';
             queryInput.type = mode === 'id' ? 'number' : 'text';
             alertBox.style.display = 'none';
             resultBox.style.display = 'none';
@@ -670,43 +677,19 @@
         return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
     }
 
-    function renderResult(music) {
-        currentDetailMusic = music;
-        updateDetailLikeButton();
-        const cover = document.getElementById('rCover');
-        if (music.pictureUrl) {
-            cover.src = music.pictureUrl;
-            cover.style.display = 'block';
-        } else {
-            cover.removeAttribute('src');
-            cover.style.display = 'none';
-        }
-        document.getElementById('rTitle').textContent = music.title || 'Untitled';
-        document.getElementById('rAuthor').textContent = music.author ? 'by ' + music.author : '';
-        document.getElementById('rId').textContent = music.id != null ? music.id : '—';
-        document.getElementById('rPublish').textContent = formatDate(music.publishTime);
+    function statusBadge(status) {
+        const s = status || '—';
+        return '<span class="badge ' + (status || '') + '">' + s + '</span>';
+    }
 
-        const tagsEl = document.getElementById('rTags');
-        tagsEl.innerHTML = '';
-        if (music.tags) {
-            music.tags.split(',').map(t => t.trim()).filter(Boolean).forEach(t => {
-                const span = document.createElement('span');
-                span.className = 'tag';
-                span.textContent = t;
-                tagsEl.appendChild(span);
-            });
-        } else {
-            tagsEl.textContent = '—';
-        }
-
-        const hotEl = document.getElementById('rHot');
-        if (music.hotScore != null) {
-            hotEl.innerHTML = '<span class="hot-score">' + music.hotScore.toFixed(2) + '</span>';
-        } else {
-            hotEl.textContent = '—';
-        }
-
-        document.getElementById('rContent').textContent = music.content || 'No content available.';
+    function renderResult(user) {
+        document.getElementById('rName').textContent = user.name || 'Unknown';
+        document.getElementById('rEmail').textContent = user.email || '';
+        document.getElementById('rId').textContent = user.id != null ? user.id : '—';
+        document.getElementById('rStatus').innerHTML = statusBadge(user.status);
+        document.getElementById('rAge').textContent = user.age != null ? user.age : '—';
+        document.getElementById('rRegister').textContent = formatDate(user.registerTime);
+        document.getElementById('rInterests').textContent = user.interests || '—';
         resultBox.style.display = 'block';
     }
 
@@ -718,52 +701,48 @@
     function renderList(items) {
         listBox.innerHTML = '';
         if (!items || items.length === 0) {
-            if (currentPage === 1) {
-                listBox.innerHTML = '<div class="empty">No tracks available.</div>';
-            } else {
-                listBox.innerHTML = '<div class="empty">No more tracks.</div>';
-            }
+            listBox.innerHTML = currentPage === 1
+                ? '<div class="empty">No users available.</div>'
+                : '<div class="empty">No more users.</div>';
             return;
         }
-        items.forEach(m => {
+        items.forEach(u => {
             const item = document.createElement('div');
             item.className = 'list-item';
 
             const thumb = document.createElement('div');
             thumb.className = 'list-item-thumb';
-            if (m.pictureUrl) {
-                thumb.style.backgroundImage = "url('" + m.pictureUrl.replace(/'/g, "\\'") + "')";
-            } else {
-                thumb.textContent = (m.title || '?').charAt(0).toUpperCase();
-            }
+            thumb.textContent = (u.name || '?').charAt(0).toUpperCase();
             item.appendChild(thumb);
 
             const body = document.createElement('div');
             body.className = 'list-item-body';
             const title = document.createElement('div');
             title.className = 'list-item-title';
-            title.textContent = m.title || 'Untitled';
+            title.textContent = u.name || 'Unknown';
             const meta = document.createElement('div');
             meta.className = 'list-item-meta';
             const parts = [];
-            if (m.author) parts.push('by ' + m.author);
-            if (m.id != null) parts.push('#' + m.id);
-            if (m.publishTime) parts.push(formatDate(m.publishTime));
+            if (u.id != null) parts.push('#' + u.id);
+            if (u.email) parts.push(u.email);
+            if (u.status) parts.push(u.status);
+            if (u.registerTime) parts.push(formatDate(u.registerTime));
             meta.textContent = parts.join(' · ');
             body.appendChild(title);
             body.appendChild(meta);
-            body.addEventListener('click', () => {
-                queryInput.value = m.title || '';
-                if (mode !== 'title') {
-                    tabs.forEach(t => t.classList.toggle('active', t.dataset.mode === 'title'));
-                    mode = 'title';
-                    queryInput.type = 'text';
-                }
-                runSearch(m.title);
-            });
+            body.addEventListener('click', () => renderResult(u));
 
             const actions = document.createElement('div');
             actions.className = 'list-item-actions';
+
+            const tagsBtn = document.createElement('button');
+            tagsBtn.type = 'button';
+            tagsBtn.className = 'btn-icon tags';
+            tagsBtn.textContent = 'Tags';
+            tagsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openTagsModal(u);
+            });
 
             const editBtn = document.createElement('button');
             editBtn.type = 'button';
@@ -771,7 +750,7 @@
             editBtn.textContent = 'Edit';
             editBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                openEditModal(m);
+                openEditModal(u);
             });
 
             const deleteBtn = document.createElement('button');
@@ -780,18 +759,10 @@
             deleteBtn.textContent = 'Delete';
             deleteBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                deleteMusic(m, deleteBtn);
+                deleteUser(u, deleteBtn);
             });
 
-            const likeBtn = document.createElement('button');
-            likeBtn.type = 'button';
-            applyLikeButtonState(likeBtn, m.id);
-            likeBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleLike(m.id, likeBtn);
-            });
-
-            actions.appendChild(likeBtn);
+            actions.appendChild(tagsBtn);
             actions.appendChild(editBtn);
             actions.appendChild(deleteBtn);
 
@@ -806,10 +777,10 @@
         resultBox.style.display = 'none';
         const start = (currentPage - 1) * PAGE_SIZE;
         try {
-            const res = await fetch('/music/query-all?start=' + start + '&pageSize=' + PAGE_SIZE, { method: 'GET' });
+            const res = await fetch('/user/query-all?start=' + start + '&pageSize=' + PAGE_SIZE, { method: 'GET' });
             const data = await res.json();
             if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success) {
-                const items = data.musicVOList || [];
+                const items = data.userVOList || [];
                 lastPageHadFullSize = items.length === PAGE_SIZE;
                 renderList(items);
                 pagerBox.style.display = 'flex';
@@ -818,7 +789,7 @@
                 nextBtn.disabled = !lastPageHadFullSize;
             } else {
                 hideList();
-                showAlert((data.baseVO && data.baseVO.message) || 'Failed to load tracks.', 'error');
+                showAlert((data.baseVO && data.baseVO.message) || 'Failed to load users.', 'error');
             }
         } catch (err) {
             hideList();
@@ -845,8 +816,8 @@
         resultBox.style.display = 'none';
 
         const endpoint = mode === 'id'
-            ? '/music/id?id=' + encodeURIComponent(value)
-            : '/music/title?title=' + encodeURIComponent(value);
+            ? '/user/id?id=' + encodeURIComponent(value)
+            : '/user/info?name=' + encodeURIComponent(value);
 
         searchBtn.disabled = true;
         searchBtn.textContent = 'Searching...';
@@ -855,12 +826,11 @@
             const res = await fetch(endpoint, { method: 'GET' });
             const data = await res.json();
 
-            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success && data.musicVO) {
+            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success && data.userVO) {
                 hideList();
-                renderResult(data.musicVO);
+                renderResult(data.userVO);
             } else {
-                const msg = (data.baseVO && data.baseVO.message) || 'No matching track found.';
-                showAlert(msg, 'error');
+                showAlert((data.baseVO && data.baseVO.message) || 'No matching user found.', 'error');
             }
         } catch (err) {
             showAlert('Network error. Please try again.', 'error');
@@ -893,7 +863,7 @@
         addForm.reset();
         addAlert.style.display = 'none';
         addModal.classList.add('open');
-        document.getElementById('addTitle').focus();
+        document.getElementById('addName').focus();
     }
 
     function closeAddModal() {
@@ -917,31 +887,33 @@
         e.preventDefault();
         addAlert.style.display = 'none';
 
+        const ageVal = document.getElementById('addAge').value.trim();
         const payload = {
-            title: document.getElementById('addTitle').value.trim(),
-            author: document.getElementById('addAuthor').value.trim(),
-            tags: document.getElementById('addTags').value.trim(),
-            pictureUrl: document.getElementById('addPicture').value.trim(),
-            content: document.getElementById('addContent').value.trim()
+            name: document.getElementById('addName').value.trim(),
+            password: document.getElementById('addPassword').value,
+            email: document.getElementById('addEmail').value.trim(),
+            age: ageVal ? parseInt(ageVal, 10) : 0,
+            status: document.getElementById('addStatus').value,
+            interests: document.getElementById('addInterests').value.trim()
         };
 
-        if (!payload.title || !payload.author) {
-            showAddAlert('Title and author are required.', 'error');
+        if (!payload.name || !payload.password) {
+            showAddAlert('Name and password are required.', 'error');
             return;
         }
 
         submitAddBtn.disabled = true;
-        submitAddBtn.textContent = 'Publishing...';
+        submitAddBtn.textContent = 'Creating...';
 
         try {
-            const res = await fetch('/music/add', {
+            const res = await fetch('/user/add', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
             const data = await res.json();
             if (data.code === 200 && data.success) {
-                showAddAlert('Track published!', 'info');
+                showAddAlert('User created!', 'info');
                 setTimeout(() => {
                     closeAddModal();
                     currentPage = 1;
@@ -949,13 +921,13 @@
                     loadPage();
                 }, 600);
             } else {
-                showAddAlert(data.message || 'Failed to publish.', 'error');
+                showAddAlert(data.message || 'Failed to create user.', 'error');
             }
         } catch (err) {
             showAddAlert('Network error. Please try again.', 'error');
         } finally {
             submitAddBtn.disabled = false;
-            submitAddBtn.textContent = 'Submit & Publish';
+            submitAddBtn.textContent = 'Create user';
         }
     });
 
@@ -965,21 +937,24 @@
     const editForm = document.getElementById('editForm');
     const editAlert = document.getElementById('editAlert');
     const submitEditBtn = document.getElementById('submitEditBtn');
-    const editTitleInput = document.getElementById('editTitle');
-    const editAuthorInput = document.getElementById('editAuthor');
-    const editTagsInput = document.getElementById('editTags');
-    const editPictureInput = document.getElementById('editPicture');
-    const editContentInput = document.getElementById('editContent');
+    const editNameInput = document.getElementById('editName');
+    const editEmailInput = document.getElementById('editEmail');
+    const editAgeInput = document.getElementById('editAge');
+    const editStatusInput = document.getElementById('editStatus');
+    const editInterestsInput = document.getElementById('editInterests');
+    let editUserId = null;
 
-    function openEditModal(music) {
+    function openEditModal(user) {
         editAlert.style.display = 'none';
-        editTitleInput.value = music.title || '';
-        editAuthorInput.value = music.author || '';
-        editTagsInput.value = music.tags || '';
-        editPictureInput.value = music.pictureUrl || '';
-        editContentInput.value = music.content || '';
+        editUserId = user.id;
+        editOriginalPassword = user.password || '';
+        editNameInput.value = user.name || '';
+        editEmailInput.value = user.email || '';
+        editAgeInput.value = user.age != null ? user.age : '';
+        editStatusInput.value = user.status || 'INIT';
+        editInterestsInput.value = user.interests || '';
         editModal.classList.add('open');
-        editAuthorInput.focus();
+        editEmailInput.focus();
     }
 
     function closeEditModal() {
@@ -1002,24 +977,22 @@
         e.preventDefault();
         editAlert.style.display = 'none';
 
+        const ageVal = editAgeInput.value.trim();
         const payload = {
-            title: editTitleInput.value.trim(),
-            author: editAuthorInput.value.trim(),
-            tags: editTagsInput.value.trim(),
-            pictureUrl: editPictureInput.value.trim(),
-            content: editContentInput.value.trim()
+            id: editUserId,
+            name: editNameInput.value.trim(),
+            password: editOriginalPassword,
+            email: editEmailInput.value.trim(),
+            age: ageVal ? parseInt(ageVal, 10) : 0,
+            status: editStatusInput.value,
+            interests: editInterestsInput.value.trim()
         };
-
-        if (!payload.author) {
-            showEditAlert('Author is required.', 'error');
-            return;
-        }
 
         submitEditBtn.disabled = true;
         submitEditBtn.textContent = 'Saving...';
 
         try {
-            const res = await fetch('/music/modify', {
+            const res = await fetch('/user/modify', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -1042,105 +1015,12 @@
         }
     });
 
-    function applyLikeButtonState(btn, musicId) {
-        const liked = musicId != null && likedIds.has(musicId);
-        btn.className = 'btn-icon btn-like' + (liked ? ' liked' : '');
-        btn.dataset.musicId = musicId != null ? String(musicId) : '';
-        btn.innerHTML = (liked ? '&#9829;' : '&#9825;') + ' ' + (liked ? 'Liked' : 'Like');
-    }
-
-    function updateDetailLikeButton() {
-        const btn = document.getElementById('rLikeBtn');
-        const icon = document.getElementById('rLikeIcon');
-        const text = document.getElementById('rLikeText');
-        if (!currentDetailMusic || currentDetailMusic.id == null) {
-            btn.className = 'btn-like';
-            icon.innerHTML = '&#9825;';
-            text.textContent = 'Like';
-            return;
-        }
-        const liked = likedIds.has(currentDetailMusic.id);
-        btn.className = 'btn-like' + (liked ? ' liked' : '');
-        icon.innerHTML = liked ? '&#9829;' : '&#9825;';
-        text.textContent = liked ? 'Liked' : 'Like';
-    }
-
-    function refreshAllLikeButtons() {
-        document.querySelectorAll('.list-item-actions .btn-like').forEach(btn => {
-            const id = parseInt(btn.dataset.musicId, 10);
-            if (!isNaN(id)) applyLikeButtonState(btn, id);
-        });
-        updateDetailLikeButton();
-    }
-
-    async function toggleLike(musicId, btn) {
-        if (musicId == null) return;
-        if (currentUserId == null) {
-            showAlert('Please sign in to like tracks.', 'error');
-            return;
-        }
-        const wasLiked = likedIds.has(musicId);
-        const endpoint = wasLiked
-            ? { url: '/music-like/cancel', method: 'PUT' }
-            : { url: '/music-like/add', method: 'POST' };
-        const url = endpoint.url + '?musicId=' + encodeURIComponent(musicId) + '&userId=' + encodeURIComponent(currentUserId);
-
-        if (btn) btn.disabled = true;
-        try {
-            const res = await fetch(url, { method: endpoint.method });
-            const data = await res.json();
-            if (data.code === 200 && data.success) {
-                if (wasLiked) likedIds.delete(musicId); else likedIds.add(musicId);
-                refreshAllLikeButtons();
-            } else {
-                showAlert(data.message || 'Failed to update like.', 'error');
-            }
-        } catch (err) {
-            showAlert('Network error. Please try again.', 'error');
-        } finally {
-            if (btn) btn.disabled = false;
-        }
-    }
-
-    document.getElementById('rLikeBtn').addEventListener('click', () => {
-        if (!currentDetailMusic || currentDetailMusic.id == null) return;
-        toggleLike(currentDetailMusic.id, document.getElementById('rLikeBtn'));
-    });
-
-    async function bootstrapUser() {
-        if (!username) return;
-        try {
-            const res = await fetch('/user/info?name=' + encodeURIComponent(username));
-            const data = await res.json();
-            if (data.baseVO && data.baseVO.code === 200 && data.userVO) {
-                currentUserId = data.userVO.id;
-                await loadLikedIds();
-            }
-        } catch (err) {
-            /* ignore; like buttons will warn on use */
-        }
-    }
-
-    async function loadLikedIds() {
-        if (currentUserId == null) return;
-        try {
-            const res = await fetch('/music-like/get-user-like?userId=' + encodeURIComponent(currentUserId));
-            const data = await res.json();
-            if (data.baseVO && data.baseVO.code === 200 && data.musicVOList) {
-                likedIds = new Set(data.musicVOList.map(m => m.id));
-                refreshAllLikeButtons();
-            }
-        } catch (err) {
-            /* ignore */
-        }
-    }
-
-    async function deleteMusic(music, btn) {
-        if (music.id == null) {
+    async function deleteUser(user, btn) {
+        if (user.id == null) {
             showAlert('Cannot delete: missing ID.', 'error');
             return;
         }
-        const label = music.title ? '"' + music.title + '"' : 'this track';
+        const label = user.name ? '"' + user.name + '"' : 'this user';
         if (!confirm('Delete ' + label + '? This cannot be undone.')) return;
 
         btn.disabled = true;
@@ -1148,7 +1028,7 @@
         btn.textContent = '...';
 
         try {
-            const res = await fetch('/music/delete?id=' + encodeURIComponent(music.id), {
+            const res = await fetch('/user/delete?id=' + encodeURIComponent(user.id), {
                 method: 'DELETE'
             });
             const data = await res.json();
@@ -1166,10 +1046,149 @@
         }
     }
 
-    (async () => {
-        await bootstrapUser();
-        loadPage();
-    })();
+    // ---- Interest tags modal (uses PUT /user/update -> updateInterests) ----
+    const PRESET_TAGS = ['Pop', 'Rock', 'Jazz', 'Classical', 'Hip-Hop', 'Electronic',
+        'Folk', 'Country', 'R&B', 'Blues', 'Metal', 'Indie'];
+    const tagsModal = document.getElementById('tagsModal');
+    const tagsTitle = document.getElementById('tagsTitle');
+    const tagsAlert = document.getElementById('tagsAlert');
+    const tagChips = document.getElementById('tagChips');
+    const presetRow = document.getElementById('presetRow');
+    const tagInput = document.getElementById('tagInput');
+    const addTagBtn = document.getElementById('addTagBtn');
+    const saveTagsBtn = document.getElementById('saveTagsBtn');
+    const closeTagsBtn = document.getElementById('closeTagsBtn');
+    const cancelTagsBtn = document.getElementById('cancelTagsBtn');
+
+    let tagsUserId = null;
+    let currentTags = [];
+
+    function showTagsAlert(message, type) {
+        tagsAlert.textContent = message;
+        tagsAlert.className = 'alert ' + type;
+        tagsAlert.style.display = 'block';
+    }
+
+    function renderTagChips() {
+        tagChips.innerHTML = '';
+        currentTags.forEach(tag => {
+            const chip = document.createElement('span');
+            chip.className = 'tag-chip';
+            chip.appendChild(document.createTextNode(tag));
+            const x = document.createElement('span');
+            x.className = 'x';
+            x.innerHTML = '&times;';
+            x.title = 'Remove';
+            x.addEventListener('click', () => removeTag(tag));
+            chip.appendChild(x);
+            tagChips.appendChild(chip);
+        });
+        // grey out presets already added
+        presetRow.querySelectorAll('.preset-tag').forEach(btn => {
+            const added = currentTags.some(t => t.toLowerCase() === btn.dataset.tag.toLowerCase());
+            btn.classList.toggle('added', added);
+        });
+    }
+
+    function addTag(raw) {
+        const tag = (raw || '').trim();
+        if (!tag) return;
+        if (currentTags.some(t => t.toLowerCase() === tag.toLowerCase())) return;
+        currentTags.push(tag);
+        renderTagChips();
+    }
+
+    function removeTag(tag) {
+        currentTags = currentTags.filter(t => t !== tag);
+        renderTagChips();
+    }
+
+    function renderPresets() {
+        presetRow.innerHTML = '';
+        PRESET_TAGS.forEach(tag => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'preset-tag';
+            btn.dataset.tag = tag;
+            btn.textContent = '+ ' + tag;
+            btn.addEventListener('click', () => addTag(tag));
+            presetRow.appendChild(btn);
+        });
+    }
+
+    function openTagsModal(user) {
+        if (user.id == null) {
+            showAlert('Cannot edit tags: missing user ID.', 'error');
+            return;
+        }
+        tagsUserId = user.id;
+        tagsTitle.textContent = 'Manage interest tags — ' + (user.name || '');
+        tagsAlert.style.display = 'none';
+        tagInput.value = '';
+        currentTags = (user.interests || '')
+            .split(',')
+            .map(t => t.trim())
+            .filter(Boolean);
+        renderPresets();
+        renderTagChips();
+        tagsModal.classList.add('open');
+        tagInput.focus();
+    }
+
+    function closeTagsModal() {
+        tagsModal.classList.remove('open');
+    }
+
+    addTagBtn.addEventListener('click', () => {
+        addTag(tagInput.value);
+        tagInput.value = '';
+        tagInput.focus();
+    });
+
+    tagInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            addTag(tagInput.value);
+            tagInput.value = '';
+        }
+    });
+
+    closeTagsBtn.addEventListener('click', closeTagsModal);
+    cancelTagsBtn.addEventListener('click', closeTagsModal);
+    tagsModal.addEventListener('click', (e) => {
+        if (e.target === tagsModal) closeTagsModal();
+    });
+
+    saveTagsBtn.addEventListener('click', async () => {
+        if (tagsUserId == null) return;
+        tagsAlert.style.display = 'none';
+        const interests = currentTags.join(',');
+
+        saveTagsBtn.disabled = true;
+        saveTagsBtn.textContent = 'Saving...';
+
+        try {
+            const res = await fetch('/user/update?userId=' + encodeURIComponent(tagsUserId)
+                + '&interests=' + encodeURIComponent(interests), { method: 'PUT' });
+            const data = await res.json();
+            if (data.code === 200 && data.success) {
+                showTagsAlert('Tags saved!', 'info');
+                setTimeout(() => {
+                    closeTagsModal();
+                    loadPage();
+                }, 500);
+            } else {
+                showTagsAlert(data.message || 'Failed to save tags.', 'error');
+            }
+        } catch (err) {
+            showTagsAlert('Network error. Please try again.', 'error');
+        } finally {
+            saveTagsBtn.disabled = false;
+            saveTagsBtn.textContent = 'Save tags';
+        }
+    });
+
+    loadPage();
 </script>
 </body>
 </html>

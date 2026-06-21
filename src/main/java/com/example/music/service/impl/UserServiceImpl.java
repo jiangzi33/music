@@ -22,9 +22,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static com.example.music.enums.UserStatusEnum.INIT;
+import static com.example.music.enums.UserStatusEnum.NORMAL;
 
 
 @Service
@@ -51,6 +53,7 @@ public class UserServiceImpl implements UserService {
             throw new UserDuplicatedRegisterException("username is registered");
         }
         userMapper.addUser(buildUser(cmd));
+        User userInDB = userMapper.queryByName(cmd.getName());
         String content = MusicConstant.EMAIL_HTML;
         String code = ActivateUtil.generate();
         String finalContent = content.replace("{{code}}", code);
@@ -61,6 +64,21 @@ public class UserServiceImpl implements UserService {
             throw new EmailFailActivatedException("mail is fail to send");
         }
         userActivationRepository.setActivationCode(cmd.getName(),code);
+
+        Set<String> oldSet = new HashSet<>();
+        Set<String> newSet = convertToInterestToSet(cmd.getInterests());
+        Set<String> tempOldSet = new HashSet<>(oldSet);
+        Set<String> tempNewSet = new HashSet<>(newSet);
+        //现在的tempOldSet就是我们要删的
+        tempOldSet.removeAll(tempNewSet);
+        //这是要更新的
+        tempNewSet.removeAll(oldSet);
+        for (String delete : tempOldSet){
+            musicInterestsRepository.deleteItem(delete, userInDB.getId());
+        }
+        for(String insert : tempNewSet){
+            musicInterestsRepository.addItem(insert, userInDB.getId());
+        }
     }
 
     @Override
@@ -138,6 +156,96 @@ public class UserServiceImpl implements UserService {
         user.setInterests(cmd.getInterests());
         userMapper.modifyUser(user);
         userRepository.delete(user);
+
+        String oldInterests = user.getInterests();
+        Set<String> oldSet = convertToInterestToSet(oldInterests);
+        Set<String> newSet = convertToInterestToSet( cmd.getInterests());
+        Set<String> tempOldSet = new HashSet<>(oldSet);
+        Set<String> tempNewSet = new HashSet<>(newSet);
+        //现在的tempOldSet就是我们要删的
+        tempOldSet.removeAll(tempNewSet);
+        //这是要更新的
+        tempNewSet.removeAll(oldSet);
+        for (String delete : tempOldSet){
+            musicInterestsRepository.deleteItem(delete, user.getId());
+        }
+        for(String insert : tempNewSet){
+            musicInterestsRepository.addItem(insert, user.getId());
+        }
+    }
+
+    @Transactional
+    @Override
+    public void modifyUserByAdmin(UserCmd cmd) {
+        User user = userMapper.queryByName(cmd.getName());
+        if (user == null) {
+            throw new UserNotExistException("user is not existed");
+        }
+        String oldInterests = user.getInterests();
+        user.setName(cmd.getName());
+        user.setAge(cmd.getAge());
+        user.setId(cmd.getId());
+        user.setEmail(cmd.getEmail());
+        user.setStatus(cmd.getStatus());
+        user.setPassword(cmd.getPassword());
+        user.setInterests(cmd.getInterests());
+        userMapper.modifyUser(user);
+        userRepository.delete(user);
+
+        Set<String> oldSet = convertToInterestToSet(oldInterests);
+        Set<String> newSet = convertToInterestToSet( cmd.getInterests());
+        Set<String> tempOldSet = new HashSet<>(oldSet);
+        Set<String> tempNewSet = new HashSet<>(newSet);
+        //现在的tempOldSet就是我们要删的
+        tempOldSet.removeAll(tempNewSet);
+        //这是要更新的
+        tempNewSet.removeAll(oldSet);
+        for (String delete : tempOldSet){
+            musicInterestsRepository.deleteItem(delete, user.getId());
+        }
+        for(String insert : tempNewSet){
+            musicInterestsRepository.addItem(insert, user.getId());
+        }
+    }
+
+    @Transactional
+    @Override
+    public void addUser(UserCmd cmd) {
+        User existing = userMapper.queryByName(cmd.getName());
+        if (existing != null) {
+            throw new UserDuplicatedRegisterException("username is registered");
+        }
+        User user = new User();
+        user.setName(cmd.getName());
+        user.setPassword(MD5Util.md5(cmd.getPassword()));
+        user.setAge(cmd.getAge());
+        user.setInterests(cmd.getInterests());
+        user.setEmail(cmd.getEmail());
+        user.setStatus(cmd.getStatus() == null || cmd.getStatus().isEmpty()
+                ? NORMAL.getCode() : cmd.getStatus());
+        userMapper.addUser(user);
+
+        User userInDB = userMapper.queryByName(cmd.getName());
+
+        Set<String> oldSet = new HashSet<>();
+        Set<String> newSet = convertToInterestToSet(cmd.getInterests());
+        Set<String> tempOldSet = new HashSet<>(oldSet);
+        Set<String> tempNewSet = new HashSet<>(newSet);
+        //现在的tempOldSet就是我们要删的
+        tempOldSet.removeAll(tempNewSet);
+        //这是要更新的
+        tempNewSet.removeAll(oldSet);
+        for (String delete : tempOldSet){
+            musicInterestsRepository.deleteItem(delete, userInDB.getId());
+        }
+        for(String insert : tempNewSet){
+            musicInterestsRepository.addItem(insert, userInDB.getId());
+        }
+    }
+
+    @Override
+    public List<User> queryAll(int start, int pageSize) {
+        return userMapper.queryAll(start, pageSize);
     }
 
     @Transactional

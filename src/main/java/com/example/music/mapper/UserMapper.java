@@ -13,4 +13,5 @@ public interface UserMapper {
     void modifyUser(User user);
     void deleteUser(int id);
     List<User> queryByIds(List<Integer> ids);
+    List<User> queryAll(int start, int pageSize);
 }

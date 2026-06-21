@@ -74,4 +74,11 @@
         user
     </select>
 
+    <select id="queryAll" resultMap="BaseResultMap">
+        select *
+        from user
+        order by register_time desc
+        limit #{start}, #{pageSize}
+    </select>
+
 </mapper>

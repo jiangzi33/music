@@ -1,8 +1,10 @@
 package com.example.music.controller;
 
 import com.example.music.controller.cmd.RegisterCmd;
+import com.example.music.controller.cmd.UserCmd;
 import com.example.music.controller.converter.UserVOConverter;
 import com.example.music.controller.vo.BaseVO;
+import com.example.music.controller.vo.MultiUserVO;
 import com.example.music.controller.vo.SingleUserVO;
 import com.example.music.entity.User;
 import com.example.music.exception.*;
@@ -10,6 +12,8 @@ import com.example.music.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -123,6 +127,86 @@ public class UserController {
             endTime = System.currentTimeMillis();
             singleUserVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常"));
             return singleUserVO;
+        }
+    }
+
+    @GetMapping("/id")
+    public SingleUserVO infoById(int id) {
+        long startTime = System.currentTimeMillis();
+        long endTime;
+        SingleUserVO singleUserVO = new SingleUserVO();
+        try {
+            User user = userService.queryById(id);
+            endTime = System.currentTimeMillis();
+            if (user == null) {
+                singleUserVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "user not found"));
+                return singleUserVO;
+            }
+            singleUserVO.setUserVO(UserVOConverter.convert(user));
+            singleUserVO.setBaseVO(BaseVO.buildBaseVO(200, true, endTime - startTime, null));
+            return singleUserVO;
+        } catch (Exception e) {
+            endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
+            singleUserVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常"));
+            return singleUserVO;
+        }
+    }
+
+    @GetMapping("/query-all")
+    public MultiUserVO queryAll(int start, int pageSize) {
+        long startTime = System.currentTimeMillis();
+        long endTime;
+        MultiUserVO multiUserVO = new MultiUserVO();
+        try {
+            List<User> userList = userService.queryAll(start, pageSize);
+            endTime = System.currentTimeMillis();
+            multiUserVO.setUserVOList(UserVOConverter.convert(userList));
+            multiUserVO.setBaseVO(BaseVO.buildBaseVO(200, true, endTime - startTime, null));
+            return multiUserVO;
+        } catch (Exception e) {
+            endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
+            multiUserVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常"));
+            return multiUserVO;
+        }
+    }
+
+    @PostMapping("/add")
+    public BaseVO add(@RequestBody UserCmd cmd) {
+        long startTime = System.currentTimeMillis();
+        long endTime;
+        try {
+            userService.addUser(cmd);
+            endTime = System.currentTimeMillis();
+            return BaseVO.buildBaseVO(200, true, endTime - startTime, null);
+        } catch (UserDuplicatedRegisterException e) {
+            endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
+            return BaseVO.buildBaseVO(500, false, endTime - startTime, e.getMessage());
+        } catch (Exception e) {
+            endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
+            return BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
+        }
+    }
+
+    @PutMapping("/modify")
+    public BaseVO modify(@RequestBody UserCmd cmd) {
+        long startTime = System.currentTimeMillis();
+        long endTime;
+        try {
+            userService.modifyUserByAdmin(cmd);
+            endTime = System.currentTimeMillis();
+            return BaseVO.buildBaseVO(200, true, endTime - startTime, null);
+        } catch (UserNotExistException e) {
+            endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
+            return BaseVO.buildBaseVO(500, false, endTime - startTime, e.getMessage());
+        } catch (Exception e) {
+            endTime = System.currentTimeMillis();
+            log.error(e.getMessage());
+            return BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常");
         }
     }
 
