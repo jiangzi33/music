@@ -440,6 +440,143 @@
             gap: 12px;
             margin-bottom: 16px;
         }
+        .comments-section {
+            margin-top: 28px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .comments-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 14px;
+        }
+        .comment-composer {
+            margin-bottom: 18px;
+        }
+        .comment-composer textarea {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f7fafc;
+            font-family: inherit;
+            min-height: 64px;
+            resize: vertical;
+        }
+        .comment-composer textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #fff;
+        }
+        .comment-composer-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+        .comment-composer-actions button {
+            padding: 8px 18px;
+            font-size: 13px;
+        }
+        .comment-signin-hint {
+            font-size: 13px;
+            color: #a0aec0;
+            background: #f7fafc;
+            border: 1px dashed #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+        }
+        .comment-item {
+            border: 1px solid #edf2f7;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+        }
+        .comment-replies {
+            margin-top: 10px;
+            margin-left: 18px;
+            padding-left: 12px;
+            border-left: 2px solid #edf2f7;
+        }
+        .comment-replies .comment-item {
+            background: #fafbfc;
+        }
+        .comment-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .comment-author {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        .comment-time {
+            font-size: 12px;
+            color: #a0aec0;
+            white-space: nowrap;
+        }
+        .comment-body {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.55;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .comment-actions {
+            display: flex;
+            gap: 14px;
+            margin-top: 8px;
+        }
+        .comment-link {
+            font-size: 12px;
+            font-weight: 600;
+            color: #718096;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: color 0.15s;
+        }
+        .comment-link:hover { color: #667eea; transform: none; }
+        .comment-link.danger:hover { color: #e53e3e; }
+        .comment-inline-box {
+            margin-top: 10px;
+        }
+        .comment-inline-box textarea {
+            width: 100%;
+            padding: 9px 11px;
+            font-size: 13px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #fff;
+            font-family: inherit;
+            min-height: 54px;
+            resize: vertical;
+        }
+        .comment-inline-box textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .comment-inline-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+        .comment-inline-actions button {
+            padding: 6px 14px;
+            font-size: 12px;
+        }
+        .comments-empty {
+            font-size: 13px;
+            color: #a0aec0;
+            padding: 12px 0;
+        }
     </style>
 </head>
 <body>
@@ -519,6 +656,20 @@
 
             <div class="meta-label" style="margin-bottom: 6px;">Content</div>
             <div class="content-box" id="rContent"></div>
+
+            <div class="comments-section">
+                <div class="comments-title">Comments</div>
+                <div id="commentComposer" class="comment-composer" style="display:none;">
+                    <textarea id="commentInput" placeholder="Share your thoughts about this track..."></textarea>
+                    <div class="comment-composer-actions">
+                        <button type="button" id="postCommentBtn">Post comment</button>
+                    </div>
+                </div>
+                <div id="commentSignInHint" class="comment-signin-hint" style="display:none;">
+                    Sign in to join the conversation.
+                </div>
+                <div id="commentList"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -708,6 +859,7 @@
 
         document.getElementById('rContent').textContent = music.content || 'No content available.';
         resultBox.style.display = 'block';
+        loadComments(music.id);
     }
 
     function hideList() {
@@ -1165,6 +1317,230 @@
             btn.textContent = originalText;
         }
     }
+
+    // ---------- Comments ----------
+    const commentComposer = document.getElementById('commentComposer');
+    const commentInput = document.getElementById('commentInput');
+    const postCommentBtn = document.getElementById('postCommentBtn');
+    const commentSignInHint = document.getElementById('commentSignInHint');
+    const commentList = document.getElementById('commentList');
+
+    function escapeHtml(value) {
+        const div = document.createElement('div');
+        div.textContent = value == null ? '' : String(value);
+        return div.innerHTML;
+    }
+
+    function formatDateTime(value) {
+        if (!value) return '';
+        const d = new Date(value);
+        if (isNaN(d.getTime())) return value;
+        return d.toLocaleString('en-US', {
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+    }
+
+    async function loadComments(musicId) {
+        if (musicId == null) return;
+        commentComposer.style.display = currentUserId != null ? 'block' : 'none';
+        commentSignInHint.style.display = currentUserId != null ? 'none' : 'block';
+        commentInput.value = '';
+        commentList.innerHTML = '<div class="comments-empty">Loading comments...</div>';
+
+        try {
+            const res = await fetch('/comment/query?musicId=' + encodeURIComponent(musicId), { method: 'GET' });
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success) {
+                renderComments(data.commentVOList || []);
+            } else {
+                commentList.innerHTML = '<div class="comments-empty">Failed to load comments.</div>';
+            }
+        } catch (err) {
+            commentList.innerHTML = '<div class="comments-empty">Network error while loading comments.</div>';
+        }
+    }
+
+    function renderComments(comments) {
+        commentList.innerHTML = '';
+        if (!comments.length) {
+            commentList.innerHTML = '<div class="comments-empty">No comments yet. Be the first to comment!</div>';
+            return;
+        }
+
+        const byParent = {};
+        comments.forEach(c => {
+            const pid = c.parentId || 0;
+            (byParent[pid] = byParent[pid] || []).push(c);
+        });
+
+        const topLevel = byParent[0] || [];
+        // Orphan replies (parent not in this list) are shown as top-level so nothing is hidden.
+        const knownIds = new Set(comments.map(c => c.id));
+        comments.forEach(c => {
+            if (c.parentId && !knownIds.has(c.parentId)) topLevel.push(c);
+        });
+
+        topLevel
+            .sort((a, b) => new Date(a.createTime) - new Date(b.createTime))
+            .forEach(c => commentList.appendChild(buildCommentNode(c, byParent)));
+    }
+
+    function buildCommentNode(comment, byParent) {
+        const item = document.createElement('div');
+        item.className = 'comment-item';
+
+        const isOwner = currentUserId != null && comment.userId === currentUserId;
+        const actions = [
+            currentUserId != null ? '<button type="button" class="comment-link" data-action="reply">Reply</button>' : '',
+            isOwner ? '<button type="button" class="comment-link" data-action="edit">Edit</button>' : '',
+            isOwner ? '<button type="button" class="comment-link danger" data-action="delete">Delete</button>' : ''
+        ].filter(Boolean).join('');
+
+        item.innerHTML =
+            '<div class="comment-head">' +
+                '<span class="comment-author">' + escapeHtml(comment.userName || ('User #' + comment.userId)) + '</span>' +
+                '<span class="comment-time">' + escapeHtml(formatDateTime(comment.createTime)) + '</span>' +
+            '</div>' +
+            '<div class="comment-body"></div>' +
+            (actions ? '<div class="comment-actions">' + actions + '</div>' : '');
+
+        item.querySelector('.comment-body').textContent = comment.content || '';
+
+        const replyBtn = item.querySelector('[data-action="reply"]');
+        if (replyBtn) replyBtn.addEventListener('click', () => openInlineBox(item, 'reply', comment));
+        const editBtn = item.querySelector('[data-action="edit"]');
+        if (editBtn) editBtn.addEventListener('click', () => openInlineBox(item, 'edit', comment));
+        const deleteBtn = item.querySelector('[data-action="delete"]');
+        if (deleteBtn) deleteBtn.addEventListener('click', () => removeComment(comment));
+
+        const children = byParent[comment.id];
+        if (children && children.length) {
+            const wrap = document.createElement('div');
+            wrap.className = 'comment-replies';
+            children
+                .sort((a, b) => new Date(a.createTime) - new Date(b.createTime))
+                .forEach(child => wrap.appendChild(buildCommentNode(child, byParent)));
+            item.appendChild(wrap);
+        }
+
+        return item;
+    }
+
+    function openInlineBox(item, kind, comment) {
+        const existing = item.querySelector(':scope > .comment-inline-box');
+        if (existing) { existing.remove(); return; }
+
+        const box = document.createElement('div');
+        box.className = 'comment-inline-box';
+        const textarea = document.createElement('textarea');
+        textarea.placeholder = kind === 'edit' ? 'Edit your comment...' : 'Write a reply...';
+        if (kind === 'edit') textarea.value = comment.content || '';
+
+        const actions = document.createElement('div');
+        actions.className = 'comment-inline-actions';
+        const cancel = document.createElement('button');
+        cancel.type = 'button';
+        cancel.className = 'btn-cancel';
+        cancel.textContent = 'Cancel';
+        cancel.addEventListener('click', () => box.remove());
+        const submit = document.createElement('button');
+        submit.type = 'button';
+        submit.textContent = kind === 'edit' ? 'Save' : 'Reply';
+        submit.addEventListener('click', async () => {
+            const text = textarea.value.trim();
+            if (!text) return;
+            submit.disabled = true;
+            const ok = kind === 'edit'
+                ? await editComment(comment.id, text)
+                : await postComment(text, comment.id);
+            if (ok) {
+                box.remove();
+                loadComments(currentDetailMusic.id);
+            } else {
+                submit.disabled = false;
+            }
+        });
+
+        actions.appendChild(cancel);
+        actions.appendChild(submit);
+        box.appendChild(textarea);
+        box.appendChild(actions);
+
+        const replies = item.querySelector(':scope > .comment-replies');
+        if (replies) item.insertBefore(box, replies); else item.appendChild(box);
+        textarea.focus();
+    }
+
+    async function postComment(content, parentId) {
+        if (currentUserId == null || !currentDetailMusic || currentDetailMusic.id == null) {
+            showAlert('Please sign in to comment.', 'error');
+            return false;
+        }
+        try {
+            const res = await fetch('/comment/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: currentUserId,
+                    musicId: currentDetailMusic.id,
+                    parentId: parentId || 0,
+                    content: content,
+                    leaf: true
+                })
+            });
+            const data = await res.json();
+            if (data.code === 200 && data.success) return true;
+            showAlert(data.errorCode || 'Failed to post comment.', 'error');
+            return false;
+        } catch (err) {
+            showAlert('Network error. Please try again.', 'error');
+            return false;
+        }
+    }
+
+    async function editComment(id, content) {
+        try {
+            const res = await fetch('/comment/modify?id=' + encodeURIComponent(id) +
+                '&content=' + encodeURIComponent(content), { method: 'PUT' });
+            const data = await res.json();
+            if (data.code === 200 && data.success) return true;
+            showAlert(data.errorCode || 'Failed to update comment.', 'error');
+            return false;
+        } catch (err) {
+            showAlert('Network error. Please try again.', 'error');
+            return false;
+        }
+    }
+
+    async function removeComment(comment) {
+        if (!confirm('Delete this comment? This cannot be undone.')) return;
+        try {
+            const res = await fetch('/comment/delete?id=' + encodeURIComponent(comment.id), { method: 'DELETE' });
+            const data = await res.json();
+            if (data.code === 200 && data.success) {
+                loadComments(currentDetailMusic.id);
+            } else {
+                showAlert(data.errorCode || 'Failed to delete comment.', 'error');
+            }
+        } catch (err) {
+            showAlert('Network error. Please try again.', 'error');
+        }
+    }
+
+    postCommentBtn.addEventListener('click', async () => {
+        const text = commentInput.value.trim();
+        if (!text) return;
+        postCommentBtn.disabled = true;
+        postCommentBtn.textContent = 'Posting...';
+        const ok = await postComment(text, 0);
+        postCommentBtn.disabled = false;
+        postCommentBtn.textContent = 'Post comment';
+        if (ok) {
+            commentInput.value = '';
+            loadComments(currentDetailMusic.id);
+        }
+    });
 
     (async () => {
         await bootstrapUser();
