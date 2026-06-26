@@ -10,6 +10,15 @@ public class Music {
     private String tags;
     private Date publishTime;
     private String pictureUrl;
+    private String audioUrl;
+
+    public String getAudioUrl() {
+        return audioUrl;
+    }
+
+    public void setAudioUrl(String audioUrl) {
+        this.audioUrl = audioUrl;
+    }
 
     public int getId() {
         return id;

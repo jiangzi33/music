@@ -6,6 +6,15 @@ public class MusicCmd {
     private String author;
     private String tags;
     private String pictureUrl;
+    private String audioUrl;
+
+    public String getAudioUrl() {
+        return audioUrl;
+    }
+
+    public void setAudioUrl(String audioUrl) {
+        this.audioUrl = audioUrl;
+    }
 
     public String getContent() {
         return content;

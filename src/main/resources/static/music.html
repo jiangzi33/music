@@ -736,6 +736,12 @@
                 <input type="url" id="addPicture" placeholder="https://example.com/cover.jpg">
             </div>
             <div class="field">
+                <label for="addAudioFile">Audio file</label>
+                <input type="file" id="addAudioFile" accept="audio/*">
+                <input type="hidden" id="addAudioUrl">
+                <small id="addAudioStatus" style="display:block;margin-top:6px;color:#718096;"></small>
+            </div>
+            <div class="field">
                 <label for="addContent">Content</label>
                 <textarea id="addContent" placeholder="Lyrics, description, or notes"></textarea>
             </div>
@@ -1040,13 +1046,49 @@
     const addForm = document.getElementById('addForm');
     const addAlert = document.getElementById('addAlert');
     const submitAddBtn = document.getElementById('submitAddBtn');
+    const addAudioFile = document.getElementById('addAudioFile');
+    const addAudioUrl = document.getElementById('addAudioUrl');
+    const addAudioStatus = document.getElementById('addAudioStatus');
 
     function openAddModal() {
         addForm.reset();
+        addAudioUrl.value = '';
+        addAudioStatus.textContent = '';
         addAlert.style.display = 'none';
         addModal.classList.add('open');
         document.getElementById('addTitle').focus();
     }
+
+    addAudioFile.addEventListener('change', async () => {
+        const file = addAudioFile.files[0];
+        addAudioUrl.value = '';
+        if (!file) {
+            addAudioStatus.textContent = '';
+            return;
+        }
+        addAudioStatus.style.color = '#718096';
+        addAudioStatus.textContent = 'Uploading ' + file.name + '...';
+        submitAddBtn.disabled = true;
+        try {
+            const fd = new FormData();
+            fd.append('file', file);
+            const res = await fetch('/music/upload/audio', { method: 'POST', body: fd });
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success) {
+                addAudioUrl.value = data.audioUrl;
+                addAudioStatus.style.color = '#38a169';
+                addAudioStatus.textContent = 'Uploaded: ' + data.audioUrl;
+            } else {
+                addAudioStatus.style.color = '#e53e3e';
+                addAudioStatus.textContent = (data.baseVO && data.baseVO.errorCode) || 'Upload failed.';
+            }
+        } catch (err) {
+            addAudioStatus.style.color = '#e53e3e';
+            addAudioStatus.textContent = 'Network error during upload.';
+        } finally {
+            submitAddBtn.disabled = false;
+        }
+    });
 
     function closeAddModal() {
         addModal.classList.remove('open');
@@ -1074,11 +1116,17 @@
             author: document.getElementById('addAuthor').value.trim(),
             tags: document.getElementById('addTags').value.trim(),
             pictureUrl: document.getElementById('addPicture').value.trim(),
+            audioUrl: addAudioUrl.value.trim(),
             content: document.getElementById('addContent').value.trim()
         };
 
         if (!payload.title || !payload.author) {
             showAddAlert('Title and author are required.', 'error');
+            return;
+        }
+
+        if (addAudioFile.files[0] && !payload.audioUrl) {
+            showAddAlert('Audio is still uploading or failed. Please wait or retry.', 'error');
             return;
         }
 

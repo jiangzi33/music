@@ -10,7 +10,16 @@ public class MusicVO {
     private String tags;
     private Date publishTime;
     private String pictureUrl;
+    private String audioUrl;
     private Double hotScore;
+
+    public String getAudioUrl() {
+        return audioUrl;
+    }
+
+    public void setAudioUrl(String audioUrl) {
+        this.audioUrl = audioUrl;
+    }
 
     public Double getHotScore() {
         return hotScore;

@@ -21,15 +21,17 @@
 
         <result column="picture_url" property="pictureUrl"/>
 
+        <result column="audio_url" property="audioUrl"/>
+
     </resultMap>
 
 
     <!-- 添加音乐 -->
     <insert id="addMusic">
 
-        INSERT INTO music(title, content, author, tags, publish_time,picture_url)
+        INSERT INTO music(title, content, author, tags, publish_time,picture_url,audio_url)
 
-        VALUES(#{title}, #{content}, #{author}, #{tags}, now(),#{pictureUrl})
+        VALUES(#{title}, #{content}, #{author}, #{tags}, now(),#{pictureUrl},#{audioUrl})
 
     </insert>
 
@@ -45,6 +47,7 @@
         author = #{author},
         tags = #{tags},
         picture_url = #{pictureUrl}
+        audio_url = #{audioUrl}
 
         where id = #{id}
 

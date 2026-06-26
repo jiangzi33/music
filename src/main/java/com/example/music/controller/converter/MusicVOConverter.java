@@ -23,6 +23,7 @@ public class MusicVOConverter {
         vo.setTags(music.getTags());
         vo.setPublishTime(music.getPublishTime());
         vo.setPictureUrl(music.getPictureUrl());
+        vo.setAudioUrl(music.getAudioUrl());
 
         return vo;
     }

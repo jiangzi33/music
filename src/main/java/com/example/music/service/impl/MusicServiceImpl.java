@@ -69,6 +69,7 @@ public class MusicServiceImpl implements MusicService {
         music.setTitle(cmd.getTitle());
         music.setTags(cmd.getTags());
         music.setPictureUrl(cmd.getPictureUrl());
+        music.setAudioUrl(cmd.getAudioUrl());
         musicRepository.delete(music);
         musicMapper.modifyMusic(music);
     }
@@ -104,6 +105,7 @@ public class MusicServiceImpl implements MusicService {
         music.setAuthor(cmd.getAuthor());
         music.setTags(cmd.getTags());
         music.setPictureUrl(cmd.getPictureUrl());
+        music.setAudioUrl(cmd.getAudioUrl());
         return music;
     }
 }
