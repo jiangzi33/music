@@ -5,17 +5,23 @@ import com.example.music.entity.Comment;
 import com.example.music.entity.Music;
 import com.example.music.exception.CommentNotExistException;
 import com.example.music.mapper.CommentMapper;
+import com.example.music.repository.MusicRankRepository;
 import com.example.music.service.CommentService;
+import constant.MusicConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 @Service
 public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentMapper commentMapper;
+    @Autowired
+    private MusicRankRepository musicRankRepository;
 
     @Transactional
     @Override
@@ -23,6 +29,7 @@ public class CommentServiceImpl implements CommentService {
         Comment comment = buildComment(cmd);
         commentMapper.addComment(comment);
         int parentId = cmd.getParentId();
+        musicRankRepository.updateScore(cmd.getMusicId(), MusicConstant.COMMENT_SCORE);
         if(parentId==0){
             return;
         }
@@ -56,9 +63,22 @@ public class CommentServiceImpl implements CommentService {
     public void deleteComment(int id) {
         Comment comment = commentMapper.queryById(id);
         if(comment==null){
-            throw new CommentNotExistException("comment not exist");
+            throw new CommentNotExistException("comment not existed");
         }
-        commentMapper.deleteComment(id);
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(id);
+        int count = 0;
+        while(!queue.isEmpty()){
+            int node = queue.remove();
+            count++;
+            commentMapper.deleteComment(node);
+            List<Comment> childComment = commentMapper.queryByParentId(node);
+            for (int i = 0; i < childComment.size(); i++) {
+                int childId = childComment.get(i).getId();
+                queue.offer(childId);
+            }
+        }
+        musicRankRepository.updateScore(comment.getMusicId(),-MusicConstant.COMMENT_SCORE*count);
     }
 
     @Override

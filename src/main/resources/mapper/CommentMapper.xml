@@ -120,4 +120,9 @@
 
     </delete>
 
+    <delete id="deleteCommentByMusicId">
+        DELETE from comment
+        where music_id = #{musicId}
+    </delete>
+
 </mapper>

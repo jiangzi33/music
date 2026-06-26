@@ -13,4 +13,5 @@ public interface CommentMapper {
     void modifyComment(Comment comment);
     void deleteComment(int id);
     List<Comment> queryByParentId(int parentId);
+    void deleteCommentByMusicId(int musicId);
 }

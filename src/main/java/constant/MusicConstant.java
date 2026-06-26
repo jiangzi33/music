@@ -2,6 +2,7 @@ package constant;
 
 public class MusicConstant {
     public final static double LIKE_SCORE = 1.0;
+    public final static double COMMENT_SCORE = 2.0;
     public final static String EMAIL_HTML = "<!DOCTYPE html>\n" +
             "<html lang=\"zh-CN\">\n" +
             "<head>\n" +

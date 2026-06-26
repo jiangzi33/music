@@ -1,8 +1,10 @@
 package com.example.music.service.impl;
 
 import com.example.music.controller.cmd.MusicCmd;
+import com.example.music.entity.Comment;
 import com.example.music.entity.Music;
 import com.example.music.exception.MusicNotExistException;
+import com.example.music.mapper.CommentMapper;
 import com.example.music.mapper.MusicMapper;
 import com.example.music.producer.MusicProducer;
 import com.example.music.repository.MusicRankRepository;
@@ -24,6 +26,8 @@ public class MusicServiceImpl implements MusicService {
     private MusicRankRepository musicRankRepository;
     @Autowired
     private MusicProducer musicProducer;
+    @Autowired
+    private CommentMapper commentMapper;
     @Override
     public void addMusic(MusicCmd cmd) {
         Music music = buildMusic(cmd);
@@ -79,6 +83,13 @@ public class MusicServiceImpl implements MusicService {
         musicMapper.deleteMusic(id);
         musicRepository.delete(music);
         musicRankRepository.removeItem(id);
+       /* List<Comment> commentList = commentMapper.queryByMusicId(id);
+        for (int i = 0; i < commentList.size(); i++) {
+            int commentId = commentList.get(i).getId();
+            commentMapper.deleteComment(commentId);
+        }*/
+
+        commentMapper.deleteCommentByMusicId(id);
     }
 
     @Override
