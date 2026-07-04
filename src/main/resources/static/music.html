@@ -577,6 +577,60 @@
             color: #a0aec0;
             padding: 12px 0;
         }
+        /* Audio uploader */
+        .audio-uploader input[type="file"] { display: none; }
+        .audio-drop {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            width: 100%;
+            padding: 18px;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            background: #f7fafc;
+            color: #718096;
+            cursor: pointer;
+            transition: border-color .15s, background .15s, color .15s;
+        }
+        .audio-drop:hover {
+            border-color: #667eea;
+            background: #f0f3ff;
+            color: #667eea;
+        }
+        .audio-drop.uploading { cursor: progress; opacity: .7; }
+        .audio-drop .plus { font-size: 26px; line-height: 1; font-weight: 400; }
+        .audio-drop .hint { font-size: 12px; }
+        .audio-uploader.has-audio .audio-drop { display: none; }
+        .audio-result { display: none; }
+        .audio-uploader.has-audio .audio-result { display: block; }
+        .audio-result audio { width: 100%; }
+        .audio-result .upload-img {
+            display: block;
+            max-width: 100%;
+            max-height: 180px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .audio-result-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .audio-result-bar .ok { font-size: 12px; color: #38a169; font-weight: 600; }
+        .audio-replace {
+            font-size: 12px;
+            color: #667eea;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            width: auto;
+        }
+        .audio-error { font-size: 12px; color: #e53e3e; margin-top: 6px; }
     </style>
 </head>
 <body>
@@ -627,6 +681,11 @@
             <img id="rCover" class="result-cover" style="display:none;" alt="Cover">
             <div class="result-title" id="rTitle"></div>
             <div class="result-author" id="rAuthor"></div>
+
+            <div id="rAudioWrap" style="display:none;margin:14px 0;">
+                <audio id="rAudio" controls preload="none" style="width:100%;"></audio>
+                <div id="rAudioHint" class="meta-label" style="margin-top:6px;color:#a0aec0;"></div>
+            </div>
 
             <div class="result-like-row">
                 <button type="button" class="btn-like" id="rLikeBtn">
@@ -696,8 +755,42 @@
                 <input type="text" id="editTags" placeholder="e.g. Pop, Jazz">
             </div>
             <div class="field">
-                <label for="editPicture">Picture URL</label>
-                <input type="url" id="editPicture" placeholder="https://example.com/cover.jpg">
+                <label>Cover image</label>
+                <div class="audio-uploader" id="editPicUploader">
+                    <input type="file" id="editPicFile" accept="image/*">
+                    <input type="hidden" id="editPicUrl">
+                    <div class="audio-drop" id="editPicDrop">
+                        <span class="plus">+</span>
+                        <span class="hint">Click to upload image</span>
+                    </div>
+                    <div class="audio-result">
+                        <img id="editPicPreview" class="upload-img" alt="Cover preview">
+                        <div class="audio-result-bar">
+                            <span class="ok">&#10003; Uploaded</span>
+                            <button type="button" class="audio-replace" id="editPicReplace">Replace</button>
+                        </div>
+                    </div>
+                    <div class="audio-error" id="editPicError" style="display:none;"></div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Audio file</label>
+                <div class="audio-uploader" id="editAudioUploader">
+                    <input type="file" id="editAudioFile" accept="audio/*">
+                    <input type="hidden" id="editAudioUrl">
+                    <div class="audio-drop" id="editAudioDrop">
+                        <span class="plus">+</span>
+                        <span class="hint">Click to upload audio</span>
+                    </div>
+                    <div class="audio-result">
+                        <audio id="editAudioPreview" controls preload="none"></audio>
+                        <div class="audio-result-bar">
+                            <span class="ok" id="editAudioOk">&#10003; Uploaded</span>
+                            <button type="button" class="audio-replace" id="editAudioReplace">Replace</button>
+                        </div>
+                    </div>
+                    <div class="audio-error" id="editAudioError" style="display:none;"></div>
+                </div>
             </div>
             <div class="field">
                 <label for="editContent">Content</label>
@@ -732,14 +825,42 @@
                 <input type="text" id="addTags" placeholder="e.g. Pop, Jazz">
             </div>
             <div class="field">
-                <label for="addPicture">Picture URL</label>
-                <input type="url" id="addPicture" placeholder="https://example.com/cover.jpg">
+                <label>Cover image</label>
+                <div class="audio-uploader" id="addPicUploader">
+                    <input type="file" id="addPicFile" accept="image/*">
+                    <input type="hidden" id="addPicUrl">
+                    <div class="audio-drop" id="addPicDrop">
+                        <span class="plus">+</span>
+                        <span class="hint">Click to upload image</span>
+                    </div>
+                    <div class="audio-result">
+                        <img id="addPicPreview" class="upload-img" alt="Cover preview">
+                        <div class="audio-result-bar">
+                            <span class="ok">&#10003; Uploaded</span>
+                            <button type="button" class="audio-replace" id="addPicReplace">Replace</button>
+                        </div>
+                    </div>
+                    <div class="audio-error" id="addPicError" style="display:none;"></div>
+                </div>
             </div>
             <div class="field">
-                <label for="addAudioFile">Audio file</label>
-                <input type="file" id="addAudioFile" accept="audio/*">
-                <input type="hidden" id="addAudioUrl">
-                <small id="addAudioStatus" style="display:block;margin-top:6px;color:#718096;"></small>
+                <label>Audio file</label>
+                <div class="audio-uploader" id="addAudioUploader">
+                    <input type="file" id="addAudioFile" accept="audio/*">
+                    <input type="hidden" id="addAudioUrl">
+                    <div class="audio-drop" id="addAudioDrop">
+                        <span class="plus">+</span>
+                        <span class="hint">Click to upload audio</span>
+                    </div>
+                    <div class="audio-result">
+                        <audio id="addAudioPreview" controls></audio>
+                        <div class="audio-result-bar">
+                            <span class="ok">&#10003; Uploaded</span>
+                            <button type="button" class="audio-replace" id="addAudioReplace">Replace</button>
+                        </div>
+                    </div>
+                    <div class="audio-error" id="addAudioError" style="display:none;"></div>
+                </div>
             </div>
             <div class="field">
                 <label for="addContent">Content</label>
@@ -809,6 +930,8 @@
             queryInput.type = mode === 'id' ? 'number' : 'text';
             alertBox.style.display = 'none';
             resultBox.style.display = 'none';
+        const rAudioEl = document.getElementById('rAudio');
+        if (rAudioEl) rAudioEl.pause();
             currentPage = 1;
             loadPage();
         });
@@ -840,6 +963,24 @@
         }
         document.getElementById('rTitle').textContent = music.title || 'Untitled';
         document.getElementById('rAuthor').textContent = music.author ? 'by ' + music.author : '';
+
+        const audioWrap = document.getElementById('rAudioWrap');
+        const audio = document.getElementById('rAudio');
+        const audioHint = document.getElementById('rAudioHint');
+        audio.pause();
+        if (music.audioUrl) {
+            audio.src = music.audioUrl;
+            audio.load();
+            audioHint.textContent = '';
+            audioWrap.style.display = 'block';
+        } else {
+            audio.removeAttribute('src');
+            audio.load();
+            audioWrap.style.display = 'none';
+        }
+        audio.onerror = function () {
+            audioHint.textContent = 'Unable to load audio.';
+        };
         document.getElementById('rId').textContent = music.id != null ? music.id : '—';
         document.getElementById('rPublish').textContent = formatDate(music.publishTime);
 
@@ -962,6 +1103,8 @@
     async function loadPage() {
         alertBox.style.display = 'none';
         resultBox.style.display = 'none';
+        const rAudioEl = document.getElementById('rAudio');
+        if (rAudioEl) rAudioEl.pause();
         const start = (currentPage - 1) * PAGE_SIZE;
         try {
             const res = await fetch('/music/query-all?start=' + start + '&pageSize=' + PAGE_SIZE, { method: 'GET' });
@@ -1001,6 +1144,8 @@
     async function runSearch(value) {
         alertBox.style.display = 'none';
         resultBox.style.display = 'none';
+        const rAudioEl = document.getElementById('rAudio');
+        if (rAudioEl) rAudioEl.pause();
 
         const endpoint = mode === 'id'
             ? '/music/id?id=' + encodeURIComponent(value)
@@ -1046,52 +1191,112 @@
     const addForm = document.getElementById('addForm');
     const addAlert = document.getElementById('addAlert');
     const submitAddBtn = document.getElementById('submitAddBtn');
-    const addAudioFile = document.getElementById('addAudioFile');
-    const addAudioUrl = document.getElementById('addAudioUrl');
-    const addAudioStatus = document.getElementById('addAudioStatus');
+    // Reusable "+" file uploader (audio or image): shows a plus dropzone,
+    // and on success hides the URL and shows only an inline preview.
+    function createFileUploader(cfg) {
+        const uploader = document.getElementById(cfg.uploader);
+        const fileInput = document.getElementById(cfg.file);
+        const urlInput = document.getElementById(cfg.url);
+        const drop = document.getElementById(cfg.drop);
+        const dropHint = drop.querySelector('.hint');
+        const preview = document.getElementById(cfg.preview);
+        const errorEl = document.getElementById(cfg.error);
+        const replaceBtn = document.getElementById(cfg.replace);
+        const submitBtn = document.getElementById(cfg.submit);
+        const endpoint = cfg.endpoint || '/music/upload/audio';
+        const idleHint = cfg.hint || 'Click to upload';
+        const isAudio = preview.tagName === 'AUDIO';
+
+        function showFile(url) {
+            urlInput.value = url;
+            preview.src = url;
+            errorEl.style.display = 'none';
+            uploader.classList.add('has-audio');
+        }
+        function clearFile() {
+            urlInput.value = '';
+            if (isAudio) preview.pause();
+            preview.removeAttribute('src');
+            if (isAudio) preview.load();
+            errorEl.style.display = 'none';
+            uploader.classList.remove('has-audio');
+        }
+        function showError(msg) {
+            errorEl.textContent = msg;
+            errorEl.style.display = 'block';
+        }
+
+        fileInput.addEventListener('change', async () => {
+            const file = fileInput.files[0];
+            if (!file) return;
+            errorEl.style.display = 'none';
+            drop.classList.add('uploading');
+            dropHint.textContent = 'Uploading ' + file.name + '...';
+            if (submitBtn) submitBtn.disabled = true;
+            try {
+                const fd = new FormData();
+                fd.append('file', file);
+                const res = await fetch(endpoint, { method: 'POST', body: fd });
+                const data = await res.json();
+                if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success) {
+                    showFile(data.url || data.audioUrl);
+                } else {
+                    showError((data.baseVO && data.baseVO.errorCode) || 'Upload failed.');
+                }
+            } catch (err) {
+                showError('Network error during upload.');
+            } finally {
+                drop.classList.remove('uploading');
+                dropHint.textContent = idleHint;
+                if (submitBtn) submitBtn.disabled = false;
+            }
+        });
+
+        drop.addEventListener('click', () => fileInput.click());
+        replaceBtn.addEventListener('click', () => {
+            clearFile();
+            fileInput.value = '';
+            fileInput.click();
+        });
+
+        return {
+            reset() { fileInput.value = ''; clearFile(); },
+            setExisting(url) {
+                fileInput.value = '';
+                if (url) showFile(url); else clearFile();
+            },
+            pause() { if (isAudio) preview.pause(); },
+            getUrl() { return urlInput.value.trim(); },
+            hasFile() { return !!fileInput.files[0]; }
+        };
+    }
+
+    const addUploader = createFileUploader({
+        uploader: 'addAudioUploader', file: 'addAudioFile', url: 'addAudioUrl',
+        drop: 'addAudioDrop', preview: 'addAudioPreview', error: 'addAudioError',
+        replace: 'addAudioReplace', submit: 'submitAddBtn',
+        endpoint: '/music/upload/audio', hint: 'Click to upload audio'
+    });
+
+    const addPicUploader = createFileUploader({
+        uploader: 'addPicUploader', file: 'addPicFile', url: 'addPicUrl',
+        drop: 'addPicDrop', preview: 'addPicPreview', error: 'addPicError',
+        replace: 'addPicReplace', submit: 'submitAddBtn',
+        endpoint: '/music/upload/image', hint: 'Click to upload image'
+    });
 
     function openAddModal() {
         addForm.reset();
-        addAudioUrl.value = '';
-        addAudioStatus.textContent = '';
+        addUploader.reset();
+        addPicUploader.reset();
         addAlert.style.display = 'none';
         addModal.classList.add('open');
         document.getElementById('addTitle').focus();
     }
 
-    addAudioFile.addEventListener('change', async () => {
-        const file = addAudioFile.files[0];
-        addAudioUrl.value = '';
-        if (!file) {
-            addAudioStatus.textContent = '';
-            return;
-        }
-        addAudioStatus.style.color = '#718096';
-        addAudioStatus.textContent = 'Uploading ' + file.name + '...';
-        submitAddBtn.disabled = true;
-        try {
-            const fd = new FormData();
-            fd.append('file', file);
-            const res = await fetch('/music/upload/audio', { method: 'POST', body: fd });
-            const data = await res.json();
-            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success) {
-                addAudioUrl.value = data.audioUrl;
-                addAudioStatus.style.color = '#38a169';
-                addAudioStatus.textContent = 'Uploaded: ' + data.audioUrl;
-            } else {
-                addAudioStatus.style.color = '#e53e3e';
-                addAudioStatus.textContent = (data.baseVO && data.baseVO.errorCode) || 'Upload failed.';
-            }
-        } catch (err) {
-            addAudioStatus.style.color = '#e53e3e';
-            addAudioStatus.textContent = 'Network error during upload.';
-        } finally {
-            submitAddBtn.disabled = false;
-        }
-    });
-
     function closeAddModal() {
         addModal.classList.remove('open');
+        addUploader.pause();
     }
 
     function showAddAlert(message, type) {
@@ -1115,8 +1320,8 @@
             title: document.getElementById('addTitle').value.trim(),
             author: document.getElementById('addAuthor').value.trim(),
             tags: document.getElementById('addTags').value.trim(),
-            pictureUrl: document.getElementById('addPicture').value.trim(),
-            audioUrl: addAudioUrl.value.trim(),
+            pictureUrl: addPicUploader.getUrl(),
+            audioUrl: addUploader.getUrl(),
             content: document.getElementById('addContent').value.trim()
         };
 
@@ -1125,7 +1330,7 @@
             return;
         }
 
-        if (addAudioFile.files[0] && !payload.audioUrl) {
+        if (addUploader.hasFile() && !payload.audioUrl) {
             showAddAlert('Audio is still uploading or failed. Please wait or retry.', 'error');
             return;
         }
@@ -1168,22 +1373,37 @@
     const editTitleInput = document.getElementById('editTitle');
     const editAuthorInput = document.getElementById('editAuthor');
     const editTagsInput = document.getElementById('editTags');
-    const editPictureInput = document.getElementById('editPicture');
     const editContentInput = document.getElementById('editContent');
+
+    const editUploader = createFileUploader({
+        uploader: 'editAudioUploader', file: 'editAudioFile', url: 'editAudioUrl',
+        drop: 'editAudioDrop', preview: 'editAudioPreview', error: 'editAudioError',
+        replace: 'editAudioReplace', submit: 'submitEditBtn',
+        endpoint: '/music/upload/audio', hint: 'Click to upload audio'
+    });
+
+    const editPicUploader = createFileUploader({
+        uploader: 'editPicUploader', file: 'editPicFile', url: 'editPicUrl',
+        drop: 'editPicDrop', preview: 'editPicPreview', error: 'editPicError',
+        replace: 'editPicReplace', submit: 'submitEditBtn',
+        endpoint: '/music/upload/image', hint: 'Click to upload image'
+    });
 
     function openEditModal(music) {
         editAlert.style.display = 'none';
         editTitleInput.value = music.title || '';
         editAuthorInput.value = music.author || '';
         editTagsInput.value = music.tags || '';
-        editPictureInput.value = music.pictureUrl || '';
         editContentInput.value = music.content || '';
+        editPicUploader.setExisting(music.pictureUrl);
+        editUploader.setExisting(music.audioUrl);
         editModal.classList.add('open');
         editAuthorInput.focus();
     }
 
     function closeEditModal() {
         editModal.classList.remove('open');
+        editUploader.pause();
     }
 
     function showEditAlert(message, type) {
@@ -1206,7 +1426,8 @@
             title: editTitleInput.value.trim(),
             author: editAuthorInput.value.trim(),
             tags: editTagsInput.value.trim(),
-            pictureUrl: editPictureInput.value.trim(),
+            pictureUrl: editPicUploader.getUrl(),
+            audioUrl: editUploader.getUrl(),
             content: editContentInput.value.trim()
         };
 

@@ -46,7 +46,7 @@
         content = #{content},
         author = #{author},
         tags = #{tags},
-        picture_url = #{pictureUrl}
+        picture_url = #{pictureUrl},
         audio_url = #{audioUrl}
 
         where id = #{id}

@@ -11,19 +11,13 @@ import com.example.music.entity.Music;
 import com.example.music.exception.*;
 import com.example.music.service.MusicRankService;
 import com.example.music.service.MusicService;
+import com.example.music.util.MinioUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -33,14 +27,26 @@ public class MusicController {
     private MusicService musicService;
     @Autowired
     private MusicRankService musicRankService;
-
-    @Value("${music.upload.audio-path:./uploads/audio/}")
-    private String audioPath;
-    @Value("${music.upload.audio-url-prefix:/audio/}")
-    private String audioUrlPrefix;
+    @Autowired
+    private MinioUtil minioUtil;
 
     @PostMapping("/upload/audio")
     public UploadVO uploadAudio(@RequestParam("file") MultipartFile file) {
+        return uploadToMinio(file, "audio");
+    }
+
+    @PostMapping("/upload/image")
+    public UploadVO uploadImage(@RequestParam("file") MultipartFile file) {
+        return uploadToMinio(file, "image");
+    }
+
+    /**
+     * 通用文件上传：将文件按分类存入 MinIO 对应文件夹（保留原始文件名），
+     * 返回可直接访问的 URL（供音频/图片等场景复用）。
+     *
+     * @param folder 目标文件夹（如 audio、image）
+     */
+    private UploadVO uploadToMinio(MultipartFile file, String folder) {
         long startTime = System.currentTimeMillis();
         long endTime;
         UploadVO uploadVO = new UploadVO();
@@ -50,31 +56,18 @@ public class MusicController {
                 uploadVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "上传文件为空"));
                 return uploadVO;
             }
-            String originalName = file.getOriginalFilename();
-            String suffix = "";
-            if (originalName != null && originalName.contains(".")) {
-                suffix = originalName.substring(originalName.lastIndexOf("."));
-            }
-            String fileName = UUID.randomUUID().toString().replace("-", "") + suffix;
-
-            Path dir = Paths.get(audioPath);
-            Files.createDirectories(dir);
-            File dest = dir.resolve(fileName).toFile();
-            file.transferTo(dest);
+            String url = minioUtil.uploadFile(file, folder);
 
             endTime = System.currentTimeMillis();
-            uploadVO.setAudioUrl(audioUrlPrefix + fileName);
+            uploadVO.setUrl(url);
+            // 兼容旧字段：前端音频上传仍可读取 audioUrl
+            uploadVO.setAudioUrl(url);
             uploadVO.setBaseVO(BaseVO.buildBaseVO(200, true, endTime - startTime, null));
-            return uploadVO;
-        } catch (IOException e) {
-            endTime = System.currentTimeMillis();
-            log.error(e.getMessage());
-            uploadVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "音频文件上传失败"));
             return uploadVO;
         } catch (Exception e) {
             endTime = System.currentTimeMillis();
-            log.error(e.getMessage());
-            uploadVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "其他未知异常"));
+            log.error("文件上传失败", e);
+            uploadVO.setBaseVO(BaseVO.buildBaseVO(500, false, endTime - startTime, "文件上传失败"));
             return uploadVO;
         }
     }
