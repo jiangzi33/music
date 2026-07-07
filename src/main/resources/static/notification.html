@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Music</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 760px; margin: 0 auto; }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+        .header h1 { font-size: 24px; font-weight: 700; }
+        .header .user { font-size: 14px; opacity: 0.9; }
+        .header .user a {
+            color: #fff;
+            margin-left: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 32px;
+            margin-bottom: 20px;
+        }
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .toolbar h2 { font-size: 18px; color: #2d3748; }
+        .btn-secondary {
+            padding: 9px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #667eea;
+            background: #ebf4ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+        .btn-secondary:hover { background: #667eea; color: #fff; }
+        .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+        .alert {
+            padding: 11px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .alert.error { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+        .alert.info { background: #ebf8ff; color: #2c5282; border: 1px solid #90cdf4; }
+        .list { margin-top: 8px; }
+        .notif-item {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .notif-item.unread {
+            background: #f5f8ff;
+            border-color: #c3dafe;
+        }
+        .notif-item.unread::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+        .notif-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .notif-icon.like { background: linear-gradient(135deg, #f56565, #c53030); }
+        .notif-icon.comment { background: linear-gradient(135deg, #4299e1, #2b6cb0); }
+        .notif-icon.reply { background: linear-gradient(135deg, #48bb78, #2f855a); }
+        .notif-body { flex: 1; min-width: 0; }
+        .notif-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 2px;
+        }
+        .notif-content {
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 4px;
+            word-break: break-word;
+        }
+        .notif-meta { font-size: 12px; color: #a0aec0; }
+        .notif-actions { flex-shrink: 0; }
+        .btn-icon {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            color: #c53030;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .btn-icon:hover { background: #fff5f5; border-color: #fc8181; }
+        .btn-icon:disabled { opacity: 0.5; cursor: not-allowed; }
+        .empty {
+            text-align: center;
+            color: #a0aec0;
+            font-size: 14px;
+            padding: 40px 0;
+        }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+        }
+        .pager .info { font-size: 13px; color: #718096; }
+        .pager .nav { display: flex; gap: 8px; }
+        .pager button {
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .pager button:disabled { opacity: 0.5; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Notifications</h1>
+        <div class="user">
+            <span id="welcome"></span>
+            <a id="backBtn">Back to music</a>
+            <a id="logoutBtn">Sign out</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="toolbar">
+            <h2>Your notifications</h2>
+            <button type="button" class="btn-secondary" id="markReadBtn">Mark all read</button>
+        </div>
+
+        <div id="alert" class="alert"></div>
+
+        <div id="list" class="list"></div>
+
+        <div id="pager" class="pager" style="display:none;">
+            <div class="info" id="pagerInfo"></div>
+            <div class="nav">
+                <button type="button" id="prevBtn">Prev</button>
+                <button type="button" id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const PAGE_SIZE = 10;
+    const listBox = document.getElementById('list');
+    const alertBox = document.getElementById('alert');
+    const pagerBox = document.getElementById('pager');
+    const pagerInfo = document.getElementById('pagerInfo');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const welcome = document.getElementById('welcome');
+
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('name');
+    if (username) welcome.textContent = 'Signed in as ' + username;
+
+    let currentUserId = null;
+    let currentPage = 1;
+    let lastPageHadFullSize = true;
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        window.location.href = '/login.html';
+    });
+    document.getElementById('backBtn').addEventListener('click', () => {
+        window.location.href = '/music.html' + (username ? '?name=' + encodeURIComponent(username) : '');
+    });
+
+    function showAlert(message, type) {
+        alertBox.textContent = message;
+        alertBox.className = 'alert ' + type;
+        alertBox.style.display = 'block';
+    }
+
+    function readKey() { return 'notifRead_' + currentUserId; }
+    function getLastRead() { return parseInt(localStorage.getItem(readKey()) || '0', 10); }
+    function setLastRead(id) {
+        if (id > getLastRead()) localStorage.setItem(readKey(), String(id));
+    }
+
+    function escapeHtml(value) {
+        const div = document.createElement('div');
+        div.textContent = value == null ? '' : String(value);
+        return div.innerHTML;
+    }
+
+    function formatDateTime(value) {
+        if (!value) return '';
+        const d = new Date(value);
+        if (isNaN(d.getTime())) return value;
+        return d.toLocaleString('en-US', {
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+    }
+
+    function iconFor(operation) {
+        const op = (operation || '').toLowerCase();
+        if (op.includes('like')) return { cls: 'like', glyph: '❤' };
+        if (op.includes('reply')) return { cls: 'reply', glyph: '↩' };
+        if (op.includes('comment')) return { cls: 'comment', glyph: '💬' };
+        return { cls: '', glyph: '🔔' };
+    }
+
+    function titleFor(n) {
+        const op = n.operation || 'update';
+        const target = n.targetType ? (' your ' + n.targetType) : '';
+        return 'User #' + n.from + ' ' + op + target;
+    }
+
+    async function bootstrap() {
+        if (!username) {
+            showAlert('Not signed in. Returning to login...', 'error');
+            setTimeout(() => window.location.href = '/login.html', 1200);
+            return;
+        }
+        try {
+            const res = await fetch('/user/info?name=' + encodeURIComponent(username));
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.userVO) {
+                currentUserId = data.userVO.id;
+                loadPage();
+                connectStream();
+            } else {
+                showAlert('Could not resolve your account.', 'error');
+            }
+        } catch (err) {
+            showAlert('Network error while loading your account.', 'error');
+        }
+    }
+
+    // 点击通知跳回评论所在的音乐详情页并定位到该评论
+    function goToComment(n) {
+        if (!n.targetId || (n.targetType || '').toUpperCase() !== 'COMMENT') return;
+        setLastRead(n.id);
+        const q = '?commentId=' + encodeURIComponent(n.targetId)
+            + (username ? '&name=' + encodeURIComponent(username) : '');
+        window.location.href = '/music.html' + q;
+    }
+
+    function buildItem(n, unread) {
+        const item = document.createElement('div');
+        item.className = 'notif-item' + (unread ? ' unread' : '');
+        item.dataset.id = n.id;
+
+        const clickable = n.targetId && (n.targetType || '').toUpperCase() === 'COMMENT';
+        if (clickable) {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => {
+                // 删除按钮的点击不触发跳转
+                if (e.target.closest('.notif-actions')) return;
+                goToComment(n);
+            });
+        }
+
+        const icon = iconFor(n.operation);
+        const iconEl = document.createElement('div');
+        iconEl.className = 'notif-icon ' + icon.cls;
+        iconEl.textContent = icon.glyph;
+
+        const body = document.createElement('div');
+        body.className = 'notif-body';
+        body.innerHTML =
+            '<div class="notif-title">' + escapeHtml(titleFor(n)) + '</div>' +
+            (n.content ? '<div class="notif-content">' + escapeHtml(n.content) + '</div>' : '') +
+            '<div class="notif-meta">' + escapeHtml(formatDateTime(n.operationTime)) + '</div>';
+
+        const actions = document.createElement('div');
+        actions.className = 'notif-actions';
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'btn-icon';
+        delBtn.textContent = 'Delete';
+        delBtn.addEventListener('click', () => deleteNotification(n.id, delBtn));
+        actions.appendChild(delBtn);
+
+        item.appendChild(iconEl);
+        item.appendChild(body);
+        item.appendChild(actions);
+        return item;
+    }
+
+    function renderList(items) {
+        listBox.innerHTML = '';
+        if (!items || items.length === 0) {
+            listBox.innerHTML = currentPage === 1
+                ? '<div class="empty">No notifications yet.</div>'
+                : '<div class="empty">No more notifications.</div>';
+            return;
+        }
+        const lastRead = getLastRead();
+        items.forEach(n => listBox.appendChild(buildItem(n, n.id > lastRead)));
+    }
+
+    // 处理 SSE 实时推送:在第 1 页时直接把新通知插到列表顶部并高亮为未读
+    function handleIncoming(n) {
+        if (currentPage !== 1) {
+            showAlert('You have a new notification. Go to page 1 to view it.', 'info');
+            return;
+        }
+        const empty = listBox.querySelector('.empty');
+        if (empty) listBox.innerHTML = '';
+        // 避免与已渲染的项重复
+        if (listBox.querySelector('[data-id="' + n.id + '"]')) return;
+        listBox.insertBefore(buildItem(n, true), listBox.firstChild);
+        showAlert('New notification received.', 'info');
+    }
+
+    function connectStream() {
+        if (currentUserId == null || typeof EventSource === 'undefined') return;
+        const es = new EventSource('/notification/subscribe?to=' + encodeURIComponent(currentUserId));
+        es.addEventListener('notification', (e) => {
+            try {
+                handleIncoming(JSON.parse(e.data));
+            } catch (err) { /* ignore malformed payload */ }
+        });
+        // 出错时浏览器会自动重连,无需手动处理
+    }
+
+    async function loadPage() {
+        alertBox.style.display = 'none';
+        const start = (currentPage - 1) * PAGE_SIZE;
+        try {
+            const res = await fetch('/notification/query?to=' + encodeURIComponent(currentUserId)
+                + '&start=' + start + '&size=' + PAGE_SIZE);
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success) {
+                const items = data.notificationVOList || [];
+                lastPageHadFullSize = items.length === PAGE_SIZE;
+                renderList(items);
+                pagerBox.style.display = 'flex';
+                pagerInfo.textContent = 'Page ' + currentPage;
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = !lastPageHadFullSize;
+                // Mark everything on this page as read (highest id seen).
+                items.forEach(n => setLastRead(n.id));
+            } else {
+                showAlert((data.baseVO && data.baseVO.message) || 'Failed to load notifications.', 'error');
+            }
+        } catch (err) {
+            showAlert('Network error. Please try again.', 'error');
+        }
+    }
+
+    async function deleteNotification(id, btn) {
+        if (!confirm('Delete this notification?')) return;
+        btn.disabled = true;
+        const original = btn.textContent;
+        btn.textContent = '...';
+        try {
+            const res = await fetch('/notification/delete?id=' + encodeURIComponent(id), { method: 'DELETE' });
+            const data = await res.json();
+            if (data.code === 200 && data.success) {
+                loadPage();
+            } else {
+                showAlert(data.message || 'Failed to delete.', 'error');
+                btn.disabled = false;
+                btn.textContent = original;
+            }
+        } catch (err) {
+            showAlert('Network error. Please try again.', 'error');
+            btn.disabled = false;
+            btn.textContent = original;
+        }
+    }
+
+    async function markAllRead() {
+        if (currentUserId == null) return;
+        try {
+            const res = await fetch('/notification/query?to=' + encodeURIComponent(currentUserId)
+                + '&start=0&size=100');
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200) {
+                (data.notificationVOList || []).forEach(n => setLastRead(n.id));
+                loadPage();
+            }
+        } catch (err) {
+            /* ignore */
+        }
+    }
+
+    document.getElementById('markReadBtn').addEventListener('click', markAllRead);
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) { currentPage--; loadPage(); }
+    });
+    nextBtn.addEventListener('click', () => {
+        if (lastPageHadFullSize) { currentPage++; loadPage(); }
+    });
+
+    bootstrap();
+</script>
+</body>
+</html>
