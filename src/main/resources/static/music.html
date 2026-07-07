@@ -575,6 +575,16 @@
             padding: 12px 14px;
             margin-bottom: 10px;
         }
+        .comment-item.comment-highlight {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+            background: #f5f8ff;
+            animation: commentFlash 1.2s ease-out;
+        }
+        @keyframes commentFlash {
+            0% { background: #dbe4ff; }
+            100% { background: #f5f8ff; }
+        }
         .comment-replies {
             margin-top: 10px;
             margin-left: 18px;
@@ -985,6 +995,7 @@
     let currentUserId = null;
     let likedIds = new Set();
     let currentDetailMusic = null;
+    let pendingCommentId = null;
 
     const params = new URLSearchParams(window.location.search);
     const username = params.get('name');
@@ -1636,6 +1647,7 @@
                 currentUserId = data.userVO.id;
                 await loadLikedIds();
                 loadUnreadCount();
+                connectNotifStream();
             }
         } catch (err) {
             /* ignore; like buttons will warn on use */
@@ -1663,6 +1675,17 @@
         } catch (err) {
             /* ignore; badge stays hidden */
         }
+    }
+
+    // 通过 SSE 实时接收系统通知,收到后即时更新未读角标,无需刷新页面
+    function connectNotifStream() {
+        if (currentUserId == null || typeof EventSource === 'undefined') return;
+        const es = new EventSource('/notification/subscribe?to=' + encodeURIComponent(currentUserId));
+        es.addEventListener('notification', () => {
+            // 重新计算未读数量(lastRead 存在 localStorage 中,查询会重新比对)
+            loadUnreadCount();
+        });
+        // 连接出错时浏览器会自动重连,无需手动处理
     }
 
     async function loadLikedIds() {
@@ -1823,11 +1846,23 @@
         topLevel
             .sort((a, b) => new Date(a.createTime) - new Date(b.createTime))
             .forEach(c => commentList.appendChild(buildCommentNode(c, byParent)));
+
+        // 从系统通知跳转过来时,定位并高亮对应评论
+        if (pendingCommentId != null) {
+            const target = commentList.querySelector('[data-comment-id="' + pendingCommentId + '"]');
+            pendingCommentId = null;
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                target.classList.add('comment-highlight');
+                setTimeout(() => target.classList.remove('comment-highlight'), 2500);
+            }
+        }
     }
 
     function buildCommentNode(comment, byParent) {
         const item = document.createElement('div');
         item.className = 'comment-item';
+        item.dataset.commentId = comment.id;
 
         const isOwner = currentUserId != null && comment.userId === currentUserId;
         const actions = [
@@ -1981,9 +2016,37 @@
         }
     });
 
+    // 从系统通知点击跳转过来:根据评论 id 打开对应音乐详情并定位该评论
+    async function openCommentDeepLink(commentId) {
+        try {
+            const cRes = await fetch('/comment/get?id=' + encodeURIComponent(commentId));
+            const comment = await cRes.json();
+            if (!comment || comment.musicId == null) {
+                showAlert('The comment no longer exists.', 'error');
+                return;
+            }
+            const mRes = await fetch('/music/id?id=' + encodeURIComponent(comment.musicId));
+            const mData = await mRes.json();
+            if (mData.baseVO && mData.baseVO.code === 200 && mData.musicVO) {
+                hideList();
+                pendingCommentId = commentId;   // renderComments 渲染完成后会定位并高亮
+                renderResult(mData.musicVO);
+            } else {
+                showAlert('The related track could not be found.', 'error');
+            }
+        } catch (err) {
+            showAlert('Network error while opening the comment.', 'error');
+        }
+    }
+
     (async () => {
         await bootstrapUser();
-        loadPage();
+        const commentId = params.get('commentId');
+        if (commentId) {
+            openCommentDeepLink(commentId);
+        } else {
+            loadPage();
+        }
     })();
 </script>
 </body>

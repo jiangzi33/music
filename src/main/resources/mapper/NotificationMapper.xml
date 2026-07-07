@@ -17,7 +17,7 @@
     </resultMap>
 
     <!-- 添加通知 -->
-    <insert id="addNotification">
+    <insert id="addNotification" useGeneratedKeys="true" keyProperty="id">
 
         INSERT INTO notification
         (`from`,`to`,target_type,target_id,operation,content,operation_time)

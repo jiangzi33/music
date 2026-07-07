@@ -5,10 +5,13 @@ import com.example.music.controller.vo.BaseVO;
 import com.example.music.controller.vo.MultiNotificationVO;
 import com.example.music.controller.vo.NotificationVO;
 import com.example.music.entity.Notification;
+import com.example.music.service.NotificationEmitterRegistry;
 import com.example.music.service.NotificationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import java.util.List;
 
 @RestController
@@ -17,6 +20,14 @@ import java.util.List;
 public class NotificationController {
     @Autowired
     private NotificationService notificationService;
+    @Autowired
+    private NotificationEmitterRegistry emitterRegistry;
+
+    /** 订阅实时通知流,前端用 EventSource 连接后即可无刷新收到新通知。 */
+    @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public SseEmitter subscribe(int to) {
+        return emitterRegistry.subscribe(to);
+    }
 
     @GetMapping("/query")
     public MultiNotificationVO queryByTO(int to, int start, int size){

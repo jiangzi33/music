@@ -1,32 +1,1639 @@
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Revoke previously assigned partitions [add-music-0]
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Revoke previously assigned partitions [test-topic-0]
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [test-topic-0]
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [add-music-0]
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Member consumer-test-group-2-abea7af1-b430-4183-a8e7-40604941b1d9 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Member consumer-test-group-1-178b4440-2d53-47c6-a28d-292fd0f8879b sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-1 unregistered
-2026-07-05 00:07:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
-2026-07-05 00:07:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
-2026-07-05 00:07:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2026-07-05 00:07:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
-2026-07-05 00:07:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
-2026-07-05 00:07:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-2 unregistered
-2026-07-05 00:07:57 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
-2026-07-05 00:07:57 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-07-05 00:07:57 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-07-05 00:07:57 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-07-05 00:07:57 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-07 13:22:48 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 21.0.11 with PID 59186 (/Users/jiangzi/IdeaProjects/music/target/classes started by jiangzi in /Users/jiangzi/IdeaProjects/music)
+2026-07-07 13:22:48 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-07 13:22:48 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-07 13:22:48 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-07 13:22:48 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-07 13:22:48 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2026-07-07 13:22:49 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-07-07 13:22:49 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-07-07 13:22:49 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-07 13:22:49 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-07 13:22:49 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 672 ms
+2026-07-07 13:22:49 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-07 13:22:49 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-07-07 13:22:49 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-07-07 13:22:50 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-test-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = test-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-07 13:22:50 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-07 13:22:50 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-07-07 13:22:50 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-07-07 13:22:50 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783423370078
+2026-07-07 13:22:50 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
+2026-07-07 13:22:50 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-test-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = test-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-07 13:22:50 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-07 13:22:50 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-07-07 13:22:50 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-07-07 13:22:50 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783423370087
+2026-07-07 13:22:50 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
+2026-07-07 13:22:50 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 1.837 seconds (process running for 2.359)
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: 9N4jIMq0QgmddqGm4Vp_ow
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: 9N4jIMq0QgmddqGm4Vp_ow
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-41520e4d-5bbf-4baf-8001-75623bc3de35
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-d05c404a-98c2-4d09-ae75-71e7de23d75e
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-07-07 13:22:50 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=110, memberId='consumer-test-group-2-41520e4d-5bbf-4baf-8001-75623bc3de35', protocol='range'}
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=110, memberId='consumer-test-group-1-d05c404a-98c2-4d09-ae75-71e7de23d75e', protocol='range'}
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Finished assignment for group at generation 110: {consumer-test-group-1-d05c404a-98c2-4d09-ae75-71e7de23d75e=Assignment(partitions=[add-music-0]), consumer-test-group-2-41520e4d-5bbf-4baf-8001-75623bc3de35=Assignment(partitions=[test-topic-0])}
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=110, memberId='consumer-test-group-1-d05c404a-98c2-4d09-ae75-71e7de23d75e', protocol='range'}
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=110, memberId='consumer-test-group-2-41520e4d-5bbf-4baf-8001-75623bc3de35', protocol='range'}
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=15, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
+2026-07-07 13:22:56 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
+2026-07-07 13:23:06 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-07 13:23:06 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-07-07 13:23:06 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-07-07 13:23:06 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-07 13:23:06 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b2a74a2
+2026-07-07 13:23:06 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-07 13:23:06 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.UserMapper.queryAll - ==>  Preparing: select * from user order by register_time desc limit ?, ?
+2026-07-07 13:23:06 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.UserMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:23:07 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.UserMapper.queryAll - <==      Total: 3
+2026-07-07 13:23:18 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
+2026-07-07 13:23:18 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
+2026-07-07 13:23:18 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 2
+2026-07-07 13:23:19 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==>  Preparing: select * from `system_config`
+2026-07-07 13:23:19 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - ==> Parameters: 
+2026-07-07 13:23:19 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.SystemConfigMapper.queryAllConfig - <==      Total: 2
+2026-07-07 13:23:21 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:23:21 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:23:21 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:23:32 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.UserMapper.queryAll - ==>  Preparing: select * from user order by register_time desc limit ?, ?
+2026-07-07 13:23:32 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.UserMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:23:32 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.UserMapper.queryAll - <==      Total: 3
+2026-07-07 13:23:35 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:23:35 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:23:35 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:23:39 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:23:39 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 15(Integer)
+2026-07-07 13:23:39 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ORDER BY FIELD(id, )
+2026-07-07 13:23:39 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 
+2026-07-07 13:23:39 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 0
+2026-07-07 13:23:54 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByName - ==>  Preparing: select * from user where name = ?
+2026-07-07 13:23:54 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByName - ==> Parameters: zhangsan(String)
+2026-07-07 13:23:54 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByName - <==      Total: 1
+2026-07-07 13:23:56 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:23:56 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 3(Integer), 3(Integer)
+2026-07-07 13:23:56 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 0
+2026-07-07 13:23:56 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:23:56 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:23:56 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:23:56 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:23:56 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:23:56 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 0
+2026-07-07 13:24:07 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.UserMapper.queryByName - ==>  Preparing: select * from user where name = ?
+2026-07-07 13:24:07 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.UserMapper.queryByName - ==> Parameters: rrr(String)
+2026-07-07 13:24:07 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.UserMapper.queryByName - <==      Total: 1
+2026-07-07 13:24:08 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:24:08 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:24:08 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:24:08 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:24:08 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:24:08 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:24:08 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:24:08 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:24:08 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:24:13 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:24:13 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 15(Integer)
+2026-07-07 13:24:13 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ORDER BY FIELD(id, )
+2026-07-07 13:24:13 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 
+2026-07-07 13:24:13 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 0
+2026-07-07 13:24:31 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:24:31 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:24:31 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:24:35 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:24:35 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:24:35 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 0
+2026-07-07 13:24:37 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:24:37 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 3(Integer), 3(Integer)
+2026-07-07 13:24:37 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 0
+2026-07-07 13:24:37 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:24:37 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:24:37 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:24:37 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:24:37 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 0
+2026-07-07 13:24:37 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:25:10 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:25:10 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:25:10 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:25:10 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:25:10 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:25:10 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:25:10 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:25:10 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:25:10 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:25:11 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:25:11 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 15(Integer)
+2026-07-07 13:25:11 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ORDER BY FIELD(id, )
+2026-07-07 13:25:11 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 
+2026-07-07 13:25:11 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 0
+2026-07-07 13:25:17 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.CommentMapper.addComment - ==>  Preparing: INSERT INTO comment ( user_id, content, music_id, parent_id, create_time, leaf ) VALUES ( ?, ?, ?, ?, now(), ? )
+2026-07-07 13:25:17 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.CommentMapper.addComment - ==> Parameters: 5(Integer), real(String), 15(Integer), 0(Integer), true(Boolean)
+2026-07-07 13:25:17 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.CommentMapper.addComment - <==    Updates: 1
+2026-07-07 13:25:17 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:25:17 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 15(Integer)
+2026-07-07 13:25:17 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 1
+2026-07-07 13:25:24 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? , ? , ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? , ? , ? , ? , ? )
+2026-07-07 13:25:24 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 9(Integer), 11(Integer), 15(Integer), 7(Integer), 12(Integer), 8(Integer), 14(Integer), 9(Integer), 11(Integer), 15(Integer), 7(Integer), 12(Integer), 8(Integer), 14(Integer)
+2026-07-07 13:25:24 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 7
+2026-07-07 13:25:26 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:25:26 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:25:26 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:25:26 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:25:26 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:25:26 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:25:26 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:25:26 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:25:26 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:25:37 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ORDER BY FIELD(id, )
+2026-07-07 13:25:37 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:25:37 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 
+2026-07-07 13:25:37 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 15(Integer)
+2026-07-07 13:25:37 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 1
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.addComment - ==>  Preparing: INSERT INTO comment ( user_id, content, music_id, parent_id, create_time, leaf ) VALUES ( ?, ?, ?, ?, now(), ? )
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.addComment - ==> Parameters: 2(Integer), answer(String), 15(Integer), 54(Integer), true(Boolean)
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.addComment - <==    Updates: 1
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.queryById - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE id = ?
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.queryById - ==> Parameters: 54(Integer)
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.queryById - <==      Total: 1
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG c.example.music.mapper.CommentMapper.modifyComment - ==>  Preparing: UPDATE comment SET content = ?, parent_id = ?, leaf = ? WHERE id = ?
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG c.example.music.mapper.CommentMapper.modifyComment - ==> Parameters: real(String), 0(Integer), false(Boolean), 54(Integer)
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG c.example.music.mapper.CommentMapper.modifyComment - <==    Updates: 1
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.NotificationMapper.addNotification - ==>  Preparing: INSERT INTO notification (`from`,`to`,target_type,target_id,operation,content,operation_time) VALUES (?, ?, ?, ?, ?, ?, now())
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.NotificationMapper.addNotification - ==> Parameters: 2(Integer), 5(Integer), COMMENT(String), 54(Integer), APPLY(String), answer(String)
+2026-07-07 13:25:47 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.NotificationMapper.addNotification - <==    Updates: 1
+2026-07-07 13:25:47 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:25:47 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 15(Integer)
+2026-07-07 13:25:47 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 2
+2026-07-07 13:25:53 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:25:53 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 15(Integer)
+2026-07-07 13:25:53 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ORDER BY FIELD(id, )
+2026-07-07 13:25:53 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 
+2026-07-07 13:25:53 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 2
+2026-07-07 13:26:03 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:26:03 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:26:03 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:26:03 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:26:03 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:26:03 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:26:03 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:26:03 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 2
+2026-07-07 13:26:03 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:26:04 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:26:04 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:26:04 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 2
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Revoke previously assigned partitions [add-music-0]
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Revoke previously assigned partitions [test-topic-0]
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [test-topic-0]
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [add-music-0]
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Member consumer-test-group-1-d05c404a-98c2-4d09-ae75-71e7de23d75e sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Member consumer-test-group-2-41520e4d-5bbf-4baf-8001-75623bc3de35 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-2 unregistered
+2026-07-07 13:31:54 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-07-07 13:31:55 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-07 13:31:55 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-07 13:31:55 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-07 13:31:55 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-07 13:31:55 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-1 unregistered
+2026-07-07 13:31:55 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-07-07 13:31:55 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-07 13:31:55 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-07 13:31:55 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-07 13:31:55 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-07 13:31:58 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 21.0.11 with PID 59559 (/Users/jiangzi/IdeaProjects/music/target/classes started by jiangzi in /Users/jiangzi/IdeaProjects/music)
+2026-07-07 13:31:58 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-07 13:31:58 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-07 13:31:58 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-07 13:31:58 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-07 13:31:58 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-07 13:31:59 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-07-07 13:31:59 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-07-07 13:31:59 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-07 13:31:59 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-07 13:31:59 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 777 ms
+2026-07-07 13:31:59 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-07 13:32:00 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-07-07 13:32:00 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-07-07 13:32:00 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-test-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = test-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-07 13:32:00 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-07 13:32:00 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-07-07 13:32:00 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-07-07 13:32:00 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783423920350
+2026-07-07 13:32:00 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
+2026-07-07 13:32:00 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-test-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = test-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-07 13:32:00 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-07 13:32:00 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-07-07 13:32:00 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-07-07 13:32:00 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783423920361
+2026-07-07 13:32:00 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
+2026-07-07 13:32:00 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 2.191 seconds (process running for 2.756)
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: 9N4jIMq0QgmddqGm4Vp_ow
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: 9N4jIMq0QgmddqGm4Vp_ow
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-cc024eeb-6a2b-4b8b-895f-e55e36acfb54
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-45154b62-f2a2-4ecd-8d42-6adae8c50fbe
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-07-07 13:32:00 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=112, memberId='consumer-test-group-2-cc024eeb-6a2b-4b8b-895f-e55e36acfb54', protocol='range'}
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=112, memberId='consumer-test-group-1-45154b62-f2a2-4ecd-8d42-6adae8c50fbe', protocol='range'}
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Finished assignment for group at generation 112: {consumer-test-group-1-45154b62-f2a2-4ecd-8d42-6adae8c50fbe=Assignment(partitions=[add-music-0]), consumer-test-group-2-cc024eeb-6a2b-4b8b-895f-e55e36acfb54=Assignment(partitions=[test-topic-0])}
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=112, memberId='consumer-test-group-2-cc024eeb-6a2b-4b8b-895f-e55e36acfb54', protocol='range'}
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=112, memberId='consumer-test-group-1-45154b62-f2a2-4ecd-8d42-6adae8c50fbe', protocol='range'}
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=15, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
+2026-07-07 13:32:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
+2026-07-07 13:32:23 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-07 13:32:23 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-07-07 13:32:23 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2026-07-07 13:32:23 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-07 13:32:23 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@515f5642
+2026-07-07 13:32:23 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-07 13:32:23 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:32:23 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:32:23 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:32:23 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:32:23 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:32:23 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:32:23 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:32:23 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:32:23 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 2
+2026-07-07 13:32:26 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:32:26 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:32:26 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:32:26 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:32:26 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:32:26 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:32:26 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:32:26 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:32:26 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 2
+2026-07-07 13:32:33 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:32:33 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:32:33 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:32:35 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:32:35 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 3(Integer), 3(Integer)
+2026-07-07 13:32:35 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 0
+2026-07-07 13:32:35 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:32:35 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:32:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:32:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:32:35 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 0
+2026-07-07 13:32:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:32:44 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryByTitle - ==>  Preparing: select * from music where title = ?
+2026-07-07 13:32:44 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryByTitle - ==> Parameters: Für Elise(String)
+2026-07-07 13:32:44 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryByTitle - <==      Total: 1
+2026-07-07 13:32:44 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:32:44 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 14(Integer)
+2026-07-07 13:32:44 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ORDER BY FIELD(id, )
+2026-07-07 13:32:44 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 
+2026-07-07 13:32:44 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 0
+2026-07-07 13:32:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.CommentMapper.addComment - ==>  Preparing: INSERT INTO comment ( user_id, content, music_id, parent_id, create_time, leaf ) VALUES ( ?, ?, ?, ?, now(), ? )
+2026-07-07 13:32:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.CommentMapper.addComment - ==> Parameters: 5(Integer), rrrr(String), 14(Integer), 0(Integer), true(Boolean)
+2026-07-07 13:32:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.CommentMapper.addComment - <==    Updates: 1
+2026-07-07 13:32:49 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:32:49 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 14(Integer)
+2026-07-07 13:32:49 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 1
+2026-07-07 13:33:04 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:33:04 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:33:04 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:33:11 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:33:11 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ORDER BY FIELD(id, )
+2026-07-07 13:33:11 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 
+2026-07-07 13:33:11 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 14(Integer)
+2026-07-07 13:33:11 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 1
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.addComment - ==>  Preparing: INSERT INTO comment ( user_id, content, music_id, parent_id, create_time, leaf ) VALUES ( ?, ?, ?, ?, now(), ? )
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.addComment - ==> Parameters: 2(Integer), ppp(String), 14(Integer), 56(Integer), true(Boolean)
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.addComment - <==    Updates: 1
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.queryById - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE id = ?
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.queryById - ==> Parameters: 56(Integer)
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.CommentMapper.queryById - <==      Total: 1
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG c.example.music.mapper.CommentMapper.modifyComment - ==>  Preparing: UPDATE comment SET content = ?, parent_id = ?, leaf = ? WHERE id = ?
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG c.example.music.mapper.CommentMapper.modifyComment - ==> Parameters: rrrr(String), 0(Integer), false(Boolean), 56(Integer)
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG c.example.music.mapper.CommentMapper.modifyComment - <==    Updates: 1
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.NotificationMapper.addNotification - ==>  Preparing: INSERT INTO notification (`from`,`to`,target_type,target_id,operation,content,operation_time) VALUES (?, ?, ?, ?, ?, ?, now())
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.NotificationMapper.addNotification - ==> Parameters: 2(Integer), 5(Integer), COMMENT(String), 56(Integer), APPLY(String), ppp(String)
+2026-07-07 13:33:17 [http-nio-8082-exec-7] DEBUG c.e.m.mapper.NotificationMapper.addNotification - <==    Updates: 1
+2026-07-07 13:33:17 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:33:17 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 14(Integer)
+2026-07-07 13:33:17 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 2
+2026-07-07 13:33:27 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:33:27 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ORDER BY FIELD(id, )
+2026-07-07 13:33:27 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 
+2026-07-07 13:33:27 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 14(Integer)
+2026-07-07 13:33:27 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 2
+2026-07-07 13:33:29 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:33:29 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:33:29 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:33:29 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:33:29 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:33:29 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:33:29 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:33:29 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 3
+2026-07-07 13:33:29 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:33:34 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:33:34 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:33:34 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 3
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Revoke previously assigned partitions [add-music-0]
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Revoke previously assigned partitions [test-topic-0]
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [add-music-0]
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [test-topic-0]
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Member consumer-test-group-1-45154b62-f2a2-4ecd-8d42-6adae8c50fbe sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Member consumer-test-group-2-cc024eeb-6a2b-4b8b-895f-e55e36acfb54 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-2 unregistered
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-1 unregistered
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-07-07 13:36:06 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-07-07 13:36:06 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-07 13:36:06 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-07-07 13:36:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-07 13:36:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-07 13:36:08 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 21.0.11 with PID 59617 (/Users/jiangzi/IdeaProjects/music/target/classes started by jiangzi in /Users/jiangzi/IdeaProjects/music)
+2026-07-07 13:36:08 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-07 13:36:08 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-07 13:36:08 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-07 13:36:08 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-07 13:36:08 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-07 13:36:09 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-07-07 13:36:09 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-07-07 13:36:09 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-07 13:36:09 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-07 13:36:09 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 624 ms
+2026-07-07 13:36:09 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-07 13:36:10 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-07-07 13:36:10 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-07-07 13:36:10 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-test-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = test-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-07 13:36:10 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-07 13:36:10 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-07-07 13:36:10 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-07-07 13:36:10 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783424170118
+2026-07-07 13:36:10 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
+2026-07-07 13:36:10 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-test-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = test-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-07 13:36:10 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-07 13:36:10 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-07-07 13:36:10 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-07-07 13:36:10 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783424170128
+2026-07-07 13:36:10 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
+2026-07-07 13:36:10 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 1.837 seconds (process running for 2.53)
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: 9N4jIMq0QgmddqGm4Vp_ow
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: 9N4jIMq0QgmddqGm4Vp_ow
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-6aaf4869-4a98-4cef-8496-26be1c9105b3
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-b3957c18-8f0b-48cc-8cb9-b934f5cd8c70
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-07-07 13:36:10 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-07-07 13:36:13 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-07 13:36:13 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-07-07 13:36:13 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-07-07 13:36:13 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-07 13:36:13 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48ac5c31
+2026-07-07 13:36:13 [http-nio-8082-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-07 13:36:13 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:36:13 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:36:13 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:36:13 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:36:13 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:36:13 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:36:13 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:13 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:36:14 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 3
+2026-07-07 13:36:14 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:36:14 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:36:14 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:36:14 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:14 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:36:14 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:36:14 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 3
+2026-07-07 13:36:14 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:36:14 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=114, memberId='consumer-test-group-1-6aaf4869-4a98-4cef-8496-26be1c9105b3', protocol='range'}
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=114, memberId='consumer-test-group-2-b3957c18-8f0b-48cc-8cb9-b934f5cd8c70', protocol='range'}
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Finished assignment for group at generation 114: {consumer-test-group-2-b3957c18-8f0b-48cc-8cb9-b934f5cd8c70=Assignment(partitions=[test-topic-0]), consumer-test-group-1-6aaf4869-4a98-4cef-8496-26be1c9105b3=Assignment(partitions=[add-music-0])}
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=114, memberId='consumer-test-group-2-b3957c18-8f0b-48cc-8cb9-b934f5cd8c70', protocol='range'}
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=114, memberId='consumer-test-group-1-6aaf4869-4a98-4cef-8496-26be1c9105b3', protocol='range'}
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=15, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
+2026-07-07 13:36:16 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
+2026-07-07 13:36:17 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:36:17 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 3(Integer), 3(Integer)
+2026-07-07 13:36:17 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 0
+2026-07-07 13:36:17 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:17 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:36:17 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 0
+2026-07-07 13:36:17 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:36:17 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:36:17 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:36:19 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:36:19 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 9(Integer)
+2026-07-07 13:36:19 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:36:19 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 5(Integer), 5(Integer)
+2026-07-07 13:36:19 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.UserMapper.queryByIds - <==      Total: 1
+2026-07-07 13:36:19 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 3
+2026-07-07 13:36:25 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.CommentMapper.addComment - ==>  Preparing: INSERT INTO comment ( user_id, content, music_id, parent_id, create_time, leaf ) VALUES ( ?, ?, ?, ?, now(), ? )
+2026-07-07 13:36:25 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.CommentMapper.addComment - ==> Parameters: 5(Integer), www(String), 9(Integer), 0(Integer), true(Boolean)
+2026-07-07 13:36:25 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.CommentMapper.addComment - <==    Updates: 1
+2026-07-07 13:36:25 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:36:25 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 9(Integer)
+2026-07-07 13:36:25 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 4
+2026-07-07 13:36:29 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:36:29 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 9(Integer)
+2026-07-07 13:36:29 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:36:29 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 5(Integer), 5(Integer)
+2026-07-07 13:36:29 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.UserMapper.queryByIds - <==      Total: 1
+2026-07-07 13:36:29 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 4
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.CommentMapper.addComment - ==>  Preparing: INSERT INTO comment ( user_id, content, music_id, parent_id, create_time, leaf ) VALUES ( ?, ?, ?, ?, now(), ? )
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.CommentMapper.addComment - ==> Parameters: 2(Integer), ooo(String), 9(Integer), 58(Integer), true(Boolean)
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.CommentMapper.addComment - <==    Updates: 1
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.CommentMapper.queryById - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE id = ?
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.CommentMapper.queryById - ==> Parameters: 58(Integer)
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.CommentMapper.queryById - <==      Total: 1
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG c.example.music.mapper.CommentMapper.modifyComment - ==>  Preparing: UPDATE comment SET content = ?, parent_id = ?, leaf = ? WHERE id = ?
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG c.example.music.mapper.CommentMapper.modifyComment - ==> Parameters: www(String), 0(Integer), false(Boolean), 58(Integer)
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG c.example.music.mapper.CommentMapper.modifyComment - <==    Updates: 1
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.NotificationMapper.addNotification - ==>  Preparing: INSERT INTO notification (`from`,`to`,target_type,target_id,operation,content,operation_time) VALUES (?, ?, ?, ?, ?, ?, now())
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.NotificationMapper.addNotification - ==> Parameters: 2(Integer), 5(Integer), COMMENT(String), 58(Integer), APPLY(String), ooo(String)
+2026-07-07 13:36:35 [http-nio-8082-exec-5] DEBUG c.e.m.mapper.NotificationMapper.addNotification - <==    Updates: 1
+2026-07-07 13:36:35 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:35 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:36:35 [http-nio-8082-exec-8] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 4
+2026-07-07 13:36:35 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:36:35 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 9(Integer)
+2026-07-07 13:36:35 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 5
+2026-07-07 13:36:45 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:45 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:36:45 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 4
+2026-07-07 13:36:47 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:47 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:36:47 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 4
+2026-07-07 13:36:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:36:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:36:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:36:49 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:36:49 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:36:49 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:49 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:36:49 [http-nio-8082-exec-6] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 4
+2026-07-07 13:36:49 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:36:50 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:36:50 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 9(Integer)
+2026-07-07 13:36:50 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:36:50 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 5(Integer), 5(Integer)
+2026-07-07 13:36:50 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByIds - <==      Total: 1
+2026-07-07 13:36:50 [http-nio-8082-exec-2] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 5
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.addComment - ==>  Preparing: INSERT INTO comment ( user_id, content, music_id, parent_id, create_time, leaf ) VALUES ( ?, ?, ?, ?, now(), ? )
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.addComment - ==> Parameters: 5(Integer), ttt(String), 9(Integer), 59(Integer), true(Boolean)
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.addComment - <==    Updates: 1
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.queryById - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE id = ?
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.queryById - ==> Parameters: 59(Integer)
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.queryById - <==      Total: 1
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG c.example.music.mapper.CommentMapper.modifyComment - ==>  Preparing: UPDATE comment SET content = ?, parent_id = ?, leaf = ? WHERE id = ?
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG c.example.music.mapper.CommentMapper.modifyComment - ==> Parameters: ooo(String), 58(Integer), false(Boolean), 59(Integer)
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG c.example.music.mapper.CommentMapper.modifyComment - <==    Updates: 1
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.NotificationMapper.addNotification - ==>  Preparing: INSERT INTO notification (`from`,`to`,target_type,target_id,operation,content,operation_time) VALUES (?, ?, ?, ?, ?, ?, now())
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.NotificationMapper.addNotification - ==> Parameters: 5(Integer), 2(Integer), COMMENT(String), 59(Integer), APPLY(String), ttt(String)
+2026-07-07 13:36:57 [http-nio-8082-exec-4] DEBUG c.e.m.mapper.NotificationMapper.addNotification - <==    Updates: 1
+2026-07-07 13:36:57 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:36:57 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:57 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:36:57 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 9(Integer)
+2026-07-07 13:36:57 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:36:57 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 6
+2026-07-07 13:36:59 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:36:59 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:36:59 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:37:02 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:37:02 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 3(Integer), 3(Integer)
+2026-07-07 13:37:02 [http-nio-8082-exec-1] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 0
+2026-07-07 13:37:02 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:37:02 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:37:02 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:37:02 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:37:02 [http-nio-8082-exec-7] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:37:02 [http-nio-8082-exec-2] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:37:10 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:37:10 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:37:10 [http-nio-8082-exec-3] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Revoke previously assigned partitions [add-music-0]
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Revoke previously assigned partitions [test-topic-0]
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [add-music-0]
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions revoked: [test-topic-0]
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Member consumer-test-group-1-6aaf4869-4a98-4cef-8496-26be1c9105b3 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Member consumer-test-group-2-b3957c18-8f0b-48cc-8cb9-b934f5cd8c70 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Unsubscribed all topics or patterns and assigned partitions
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: consumer pro-actively leaving the group
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-2 unregistered
+2026-07-07 13:48:27 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-07-07 13:48:28 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-07-07 13:48:28 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-07-07 13:48:28 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-07-07 13:48:28 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-07-07 13:48:28 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-test-group-1 unregistered
+2026-07-07 13:48:28 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: Consumer stopped
+2026-07-07 13:48:28 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-07 13:48:36 [main] INFO  com.example.music.MusicApplication - Starting MusicApplication using Java 21.0.11 with PID 60007 (/Users/jiangzi/IdeaProjects/music/target/classes started by jiangzi in /Users/jiangzi/IdeaProjects/music)
+2026-07-07 13:48:36 [main] DEBUG com.example.music.MusicApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-07-07 13:48:36 [main] INFO  com.example.music.MusicApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-07 13:48:36 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-07 13:48:36 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-07 13:48:36 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-07-07 13:48:37 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-07-07 13:48:37 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2026-07-07 13:48:37 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-07 13:48:37 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-07-07 13:48:37 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 630 ms
+2026-07-07 13:48:37 [main] WARN  i.n.resolver.dns.DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2026-07-07 13:48:37 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2026-07-07 13:48:38 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-07-07 13:48:38 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-test-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = test-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-07 13:48:38 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-07 13:48:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-07-07 13:48:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-07-07 13:48:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783424918089
+2026-07-07 13:48:38 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-1, groupId=test-group] Subscribed to topic(s): add-music
+2026-07-07 13:48:38 [main] INFO  org.apache.kafka.common.config.AbstractConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-test-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = test-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-07-07 13:48:38 [main] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2026-07-07 13:48:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 4.1.2
+2026-07-07 13:48:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: c82fd9b934b4c1e6
+2026-07-07 13:48:38 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1783424918099
+2026-07-07 13:48:38 [main] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-test-group-2, groupId=test-group] Subscribed to topic(s): test-topic
+2026-07-07 13:48:38 [main] INFO  com.example.music.MusicApplication - Started MusicApplication in 1.849 seconds (process running for 2.33)
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-1, groupId=test-group] Cluster ID: 9N4jIMq0QgmddqGm4Vp_ow
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-test-group-2, groupId=test-group] Cluster ID: 9N4jIMq0QgmddqGm4Vp_ow
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false)
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-2-0a84806e-e6d2-4620-998e-0b010ed74da4
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Request joining group due to: need to re-join with the given member-id: consumer-test-group-1-6a986db5-b1b1-47d7-bcd0-806cabeecfb1
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] (Re-)joining group
+2026-07-07 13:48:38 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] (Re-)joining group
+2026-07-07 13:48:40 [http-nio-8082-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-07 13:48:40 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-07-07 13:48:40 [http-nio-8082-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully joined group with generation Generation{generationId=116, memberId='consumer-test-group-2-0a84806e-e6d2-4620-998e-0b010ed74da4', protocol='range'}
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully joined group with generation Generation{generationId=116, memberId='consumer-test-group-1-6a986db5-b1b1-47d7-bcd0-806cabeecfb1', protocol='range'}
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Finished assignment for group at generation 116: {consumer-test-group-2-0a84806e-e6d2-4620-998e-0b010ed74da4=Assignment(partitions=[test-topic-0]), consumer-test-group-1-6a986db5-b1b1-47d7-bcd0-806cabeecfb1=Assignment(partitions=[add-music-0])}
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Successfully synced group in generation Generation{generationId=116, memberId='consumer-test-group-1-6a986db5-b1b1-47d7-bcd0-806cabeecfb1', protocol='range'}
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Successfully synced group in generation Generation{generationId=116, memberId='consumer-test-group-2-0a84806e-e6d2-4620-998e-0b010ed74da4', protocol='range'}
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-1, groupId=test-group] Notifying assignor about the new Assignment(partitions=[add-music-0])
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-test-group-2, groupId=test-group] Notifying assignor about the new Assignment(partitions=[test-topic-0])
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-2, groupId=test-group] Adding newly assigned partitions: [test-topic-0]
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-test-group-1, groupId=test-group] Adding newly assigned partitions: [add-music-0]
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition add-music-0 to the committed offset FetchPosition{offset=15, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition test-topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null isFenced: false)], epoch=0}}
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [add-music-0]
+2026-07-07 13:48:44 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - test-group: partitions assigned: [test-topic-0]
+2026-07-07 13:48:46 [http-nio-8082-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-07 13:48:46 [http-nio-8082-exec-4] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23379e7f
+2026-07-07 13:48:46 [http-nio-8082-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-07 13:48:46 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:48:46 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:48:46 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:48:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:48:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:48:49 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:48:49 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:48:49 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:48:49 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:48:49 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:48:49 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 4
+2026-07-07 13:48:49 [http-nio-8082-exec-10] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:48:49 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:48:49 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:48:49 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:48:49 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:48:49 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==>  Preparing: select * from music order by publish_time desc limit ?, ?
+2026-07-07 13:48:49 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:48:49 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryAll - ==> Parameters: 0(Integer), 5(Integer)
+2026-07-07 13:48:49 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 4
+2026-07-07 13:48:49 [http-nio-8082-exec-6] DEBUG com.example.music.mapper.MusicMapper.queryAll - <==      Total: 5
+2026-07-07 13:48:52 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:48:52 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 3(Integer), 3(Integer)
+2026-07-07 13:48:52 [http-nio-8082-exec-9] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 0
+2026-07-07 13:48:52 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:48:52 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 2(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:48:52 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.CommentMapper.queryById - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE id = ?
+2026-07-07 13:48:52 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.CommentMapper.queryById - ==> Parameters: 59(Integer)
+2026-07-07 13:48:52 [http-nio-8082-exec-10] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 1
+2026-07-07 13:48:52 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.CommentMapper.queryById - <==      Total: 1
+2026-07-07 13:48:52 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryById - ==>  Preparing: select * from music where id = ?
+2026-07-07 13:48:52 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryById - ==> Parameters: 9(Integer)
+2026-07-07 13:48:52 [http-nio-8082-exec-5] DEBUG com.example.music.mapper.MusicMapper.queryById - <==      Total: 1
+2026-07-07 13:48:52 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:48:52 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 9(Integer)
+2026-07-07 13:48:52 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:48:52 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 5(Integer), 5(Integer)
+2026-07-07 13:48:52 [http-nio-8082-exec-7] DEBUG com.example.music.mapper.UserMapper.queryByIds - <==      Total: 1
+2026-07-07 13:48:52 [http-nio-8082-exec-4] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 6
+2026-07-07 13:49:02 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:49:02 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 10(Integer)
+2026-07-07 13:49:02 [http-nio-8082-exec-1] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 4
+2026-07-07 13:49:03 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==>  Preparing: select * from music where id in ( ? , ? , ? ) ORDER BY FIELD(id, ? , ? , ? )
+2026-07-07 13:49:03 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - ==> Parameters: 12(Integer), 9(Integer), 7(Integer), 12(Integer), 9(Integer), 7(Integer)
+2026-07-07 13:49:03 [http-nio-8082-exec-3] DEBUG com.example.music.mapper.MusicMapper.queryByIds - <==      Total: 3
+2026-07-07 13:49:03 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==>  Preparing: SELECT * FROM notification WHERE `to` = ? ORDER BY operation_time DESC LIMIT ?,?
+2026-07-07 13:49:03 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - ==> Parameters: 5(Integer), 0(Integer), 100(Integer)
+2026-07-07 13:49:03 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.queryById - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE id = ?
+2026-07-07 13:49:03 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.queryById - ==> Parameters: 51(Integer)
+2026-07-07 13:49:03 [http-nio-8082-exec-4] DEBUG com.example.music.mapper.CommentMapper.queryById - <==      Total: 1
+2026-07-07 13:49:03 [http-nio-8082-exec-5] DEBUG c.e.music.mapper.NotificationMapper.queryByTo - <==      Total: 4
+2026-07-07 13:49:03 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==>  Preparing: SELECT id, user_id, content, music_id, parent_id, create_time, leaf FROM comment WHERE music_id = ?
+2026-07-07 13:49:03 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - ==> Parameters: 9(Integer)
+2026-07-07 13:49:03 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==>  Preparing: select * from user where id in ( ? ) ORDER BY FIELD(id, ? )
+2026-07-07 13:49:03 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.UserMapper.queryByIds - ==> Parameters: 5(Integer), 5(Integer)
+2026-07-07 13:49:03 [http-nio-8082-exec-9] DEBUG c.e.music.mapper.CommentMapper.queryByMusicId - <==      Total: 6
+2026-07-07 13:49:03 [http-nio-8082-exec-8] DEBUG com.example.music.mapper.UserMapper.queryByIds - <==      Total: 1

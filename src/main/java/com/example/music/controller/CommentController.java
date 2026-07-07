@@ -65,6 +65,26 @@ public class CommentController {
         }
     }
 
+    @GetMapping("/get")
+    public CommentVO getById(int id){
+        try {
+            Comment comment = commentService.queryById(id);
+            CommentVO vo = CommentVOConverter.convert(comment);
+            if (vo != null) {
+                try {
+                    User user = userService.queryById(vo.getUserId());
+                    vo.setUserName(user != null ? user.getName() : ("User #" + vo.getUserId()));
+                } catch (Exception e) {
+                    vo.setUserName("User #" + vo.getUserId());
+                }
+            }
+            return vo;
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return null;
+        }
+    }
+
     @PutMapping("/modify")
     public BaseVO modifyComment(int id, String content){
         long startTime = System.currentTimeMillis();
