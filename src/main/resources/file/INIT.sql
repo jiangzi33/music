@@ -30,3 +30,19 @@ CREATE TABLE user (
                       UNIQUE KEY uk_email (email),
                       UNIQUE KEY uk_name (name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+
+CREATE TABLE notification (
+                              id INT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
+
+                              `from` INT NOT NULL COMMENT '发送者用户ID',
+                              `to` INT NOT NULL COMMENT '接收者用户ID',
+
+                              target_type VARCHAR(50) NOT NULL COMMENT '目标类型（如post、comment）',
+                              target_id INT NOT NULL COMMENT '目标ID',
+
+                              operation VARCHAR(50) NOT NULL COMMENT '操作类型（如like、comment、follow）',
+
+                              content VARCHAR(255) DEFAULT NULL COMMENT '通知内容',
+
+                              operation_time DATETIME COMMENT '操作时间'
+);

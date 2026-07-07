@@ -468,32 +468,6 @@
             </div>
         </div>
 
-        <div id="result" class="result">
-            <div class="result-title" id="rName"></div>
-            <div class="result-author" id="rEmail"></div>
-
-            <div class="meta-grid">
-                <div class="meta-item">
-                    <div class="meta-label">ID</div>
-                    <div class="meta-value" id="rId"></div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Status</div>
-                    <div class="meta-value" id="rStatus"></div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Age</div>
-                    <div class="meta-value" id="rAge"></div>
-                </div>
-                <div class="meta-item">
-                    <div class="meta-label">Registered</div>
-                    <div class="meta-value" id="rRegister"></div>
-                </div>
-            </div>
-
-            <div class="meta-label" style="margin-bottom: 6px;">Interests</div>
-            <div class="meta-value" id="rInterests"></div>
-        </div>
     </div>
 </div>
 
@@ -565,6 +539,49 @@
     </div>
 </div>
 
+<div class="modal-backdrop" id="detailModal">
+    <div class="modal">
+        <div class="modal-header">
+            <div style="display:flex; align-items:center; gap:14px; min-width:0;">
+                <div class="list-item-thumb" id="dThumb" style="width:52px; height:52px; font-size:20px;"></div>
+                <div style="min-width:0;">
+                    <h3 id="dName" class="result-title" style="margin-bottom:2px;"></h3>
+                    <div id="dEmail" class="result-author" style="margin-bottom:0;"></div>
+                </div>
+            </div>
+            <button type="button" class="modal-close" id="closeDetailBtn" aria-label="Close">&times;</button>
+        </div>
+
+        <div class="meta-grid">
+            <div class="meta-item">
+                <div class="meta-label">ID</div>
+                <div class="meta-value" id="dId"></div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Status</div>
+                <div class="meta-value" id="dStatus"></div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Age</div>
+                <div class="meta-value" id="dAge"></div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Registered</div>
+                <div class="meta-value" id="dRegister"></div>
+            </div>
+        </div>
+
+        <div class="meta-label" style="margin-bottom: 6px;">Interests</div>
+        <div class="meta-value" id="dInterests"></div>
+
+        <div class="modal-actions">
+            <button type="button" class="btn-icon tags" id="detailTagsBtn">Manage tags</button>
+            <button type="button" class="btn-icon edit" id="detailEditBtn">Edit</button>
+            <button type="button" class="btn-cancel" id="cancelDetailBtn">Close</button>
+        </div>
+    </div>
+</div>
+
 <div class="modal-backdrop" id="addModal">
     <div class="modal">
         <div class="modal-header">
@@ -616,7 +633,6 @@
     const searchForm = document.getElementById('searchForm');
     const searchBtn = document.getElementById('searchBtn');
     const alertBox = document.getElementById('alert');
-    const resultBox = document.getElementById('result');
     const listBox = document.getElementById('list');
     const pagerBox = document.getElementById('pager');
     const pagerInfo = document.getElementById('pagerInfo');
@@ -658,7 +674,7 @@
                 : 'Enter a user ID (leave blank to browse all)';
             queryInput.type = mode === 'id' ? 'number' : 'text';
             alertBox.style.display = 'none';
-            resultBox.style.display = 'none';
+            closeDetailModal();
             currentPage = 1;
             loadPage();
         });
@@ -682,16 +698,57 @@
         return '<span class="badge ' + (status || '') + '">' + s + '</span>';
     }
 
-    function renderResult(user) {
-        document.getElementById('rName').textContent = user.name || 'Unknown';
-        document.getElementById('rEmail').textContent = user.email || '';
-        document.getElementById('rId').textContent = user.id != null ? user.id : '—';
-        document.getElementById('rStatus').innerHTML = statusBadge(user.status);
-        document.getElementById('rAge').textContent = user.age != null ? user.age : '—';
-        document.getElementById('rRegister').textContent = formatDate(user.registerTime);
-        document.getElementById('rInterests').textContent = user.interests || '—';
-        resultBox.style.display = 'block';
+    const detailModal = document.getElementById('detailModal');
+    let currentDetailUser = null;
+
+    function renderInterests(interests) {
+        const el = document.getElementById('dInterests');
+        el.innerHTML = '';
+        const tags = (interests || '').split(',').map(t => t.trim()).filter(Boolean);
+        if (!tags.length) {
+            el.textContent = '—';
+            return;
+        }
+        tags.forEach(t => {
+            const span = document.createElement('span');
+            span.className = 'tag';
+            span.textContent = t;
+            el.appendChild(span);
+        });
     }
+
+    function renderResult(user) {
+        currentDetailUser = user;
+        document.getElementById('dThumb').textContent = (user.name || '?').charAt(0).toUpperCase();
+        document.getElementById('dName').textContent = user.name || 'Unknown';
+        document.getElementById('dEmail').textContent = user.email || '';
+        document.getElementById('dId').textContent = user.id != null ? user.id : '—';
+        document.getElementById('dStatus').innerHTML = statusBadge(user.status);
+        document.getElementById('dAge').textContent = user.age != null ? user.age : '—';
+        document.getElementById('dRegister').textContent = formatDate(user.registerTime);
+        renderInterests(user.interests);
+        detailModal.classList.add('open');
+    }
+
+    function closeDetailModal() {
+        detailModal.classList.remove('open');
+    }
+
+    document.getElementById('closeDetailBtn').addEventListener('click', closeDetailModal);
+    document.getElementById('cancelDetailBtn').addEventListener('click', closeDetailModal);
+    detailModal.addEventListener('click', (e) => {
+        if (e.target === detailModal) closeDetailModal();
+    });
+    document.getElementById('detailEditBtn').addEventListener('click', () => {
+        if (!currentDetailUser) return;
+        closeDetailModal();
+        openEditModal(currentDetailUser);
+    });
+    document.getElementById('detailTagsBtn').addEventListener('click', () => {
+        if (!currentDetailUser) return;
+        closeDetailModal();
+        openTagsModal(currentDetailUser);
+    });
 
     function hideList() {
         listBox.innerHTML = '';
@@ -774,7 +831,6 @@
 
     async function loadPage() {
         alertBox.style.display = 'none';
-        resultBox.style.display = 'none';
         const start = (currentPage - 1) * PAGE_SIZE;
         try {
             const res = await fetch('/user/query-all?start=' + start + '&pageSize=' + PAGE_SIZE, { method: 'GET' });
@@ -813,7 +869,7 @@
 
     async function runSearch(value) {
         alertBox.style.display = 'none';
-        resultBox.style.display = 'none';
+        closeDetailModal();
 
         const endpoint = mode === 'id'
             ? '/user/id?id=' + encodeURIComponent(value)
@@ -1188,7 +1244,27 @@
         }
     });
 
+    async function openUserById(id) {
+        try {
+            const res = await fetch('/user/id?id=' + encodeURIComponent(id), { method: 'GET' });
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success && data.userVO) {
+                renderResult(data.userVO);
+            } else {
+                showAlert((data.baseVO && data.baseVO.message) || 'User not found.', 'error');
+            }
+        } catch (err) {
+            showAlert('Network error while loading user.', 'error');
+        }
+    }
+
     loadPage();
+
+    // Auto-open a user's detail when arriving from another page (e.g. music likers).
+    const viewUserId = params.get('viewUserId');
+    if (viewUserId) {
+        openUserById(viewUserId);
+    }
 </script>
 </body>
 </html>

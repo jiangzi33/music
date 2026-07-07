@@ -3,10 +3,13 @@ package com.example.music.service.impl;
 import com.example.music.controller.cmd.CommentCmd;
 import com.example.music.entity.Comment;
 import com.example.music.entity.Music;
+import com.example.music.entity.Notification;
 import com.example.music.exception.CommentNotExistException;
 import com.example.music.mapper.CommentMapper;
+import com.example.music.mapper.MusicMapper;
 import com.example.music.repository.MusicRankRepository;
 import com.example.music.service.CommentService;
+import com.example.music.service.NotificationService;
 import constant.MusicConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,10 @@ public class CommentServiceImpl implements CommentService {
     private CommentMapper commentMapper;
     @Autowired
     private MusicRankRepository musicRankRepository;
+    @Autowired
+    private NotificationService notificationService;
+    @Autowired
+    private MusicMapper musicMapper;
 
     @Transactional
     @Override
@@ -36,6 +43,8 @@ public class CommentServiceImpl implements CommentService {
         Comment parentComment = commentMapper.queryById(parentId);
         parentComment.setLeaf(false);
         commentMapper.modifyComment(parentComment);
+        Notification notification = buildNotification(cmd.getUserId(), parentComment.getUserId(), "COMMENT", parentId, "APPLY", cmd.getContent());
+        notificationService.addNotification(notification);
     }
 
     @Override
@@ -98,5 +107,18 @@ public class CommentServiceImpl implements CommentService {
         comment.setLeaf(true);
 
         return comment;
+    }
+
+    private Notification buildNotification(int from, int to, String targetType, int targetId, String operation,String content){
+        Notification notification = new Notification();
+
+        notification.setFrom(from);
+        notification.setTo(to);
+        notification.setTargetType(targetType);
+        notification.setTargetId(targetId);
+        notification.setOperation(operation);
+        notification.setContent(content);
+
+        return notification;
     }
 }
