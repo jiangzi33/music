@@ -359,6 +359,61 @@
         }
         .btn-icon.tags { color: #38a169; }
         .btn-icon.tags:hover { background: #f0fff4; border-color: #68d391; }
+        .btn-icon.records { color: #dd6b20; }
+        .btn-icon.records:hover { background: #fffaf0; border-color: #f6ad55; }
+        .records-presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .range-preset {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #dd6b20;
+            background: #fffaf0;
+            border: 1px solid #f6ad55;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+        .range-preset:hover { background: #dd6b20; color: #fff; border-color: #dd6b20; }
+        .range-preset.active { background: #dd6b20; color: #fff; border-color: #dd6b20; }
+        .records-filter {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .records-filter .field {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        .records-filter button {
+            padding: 10px 18px;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+        .record-item {
+            padding: 12px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .record-item .record-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 6px;
+        }
+        .record-item .record-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px 16px;
+            font-size: 12px;
+            color: #718096;
+        }
         .tag-chips {
             display: flex;
             flex-wrap: wrap;
@@ -582,6 +637,49 @@
     </div>
 </div>
 
+<div class="modal-backdrop" id="recordsModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 id="recordsTitle">Play records</h3>
+            <button type="button" class="modal-close" id="closeRecordsBtn" aria-label="Close">&times;</button>
+        </div>
+        <div id="recordsAlert" class="alert" style="margin-top:0;"></div>
+
+        <div class="records-presets" id="recordsPresets">
+            <button type="button" class="range-preset" data-range="today">Today</button>
+            <button type="button" class="range-preset" data-range="7d">Last 7 days</button>
+            <button type="button" class="range-preset" data-range="30d">Last 30 days</button>
+            <button type="button" class="range-preset" data-range="all">All time</button>
+        </div>
+
+        <div class="records-filter">
+            <div class="field">
+                <label for="recordsStart">Start time</label>
+                <input type="datetime-local" id="recordsStart" step="1">
+            </div>
+            <div class="field">
+                <label for="recordsEnd">End time</label>
+                <input type="datetime-local" id="recordsEnd" step="1">
+            </div>
+            <button type="button" id="recordsApplyBtn">Apply</button>
+        </div>
+
+        <div id="recordsList"></div>
+
+        <div id="recordsPager" class="pager" style="display:none;">
+            <div class="info" id="recordsPagerInfo"></div>
+            <div class="nav">
+                <button type="button" id="recordsPrevBtn">Prev</button>
+                <button type="button" id="recordsNextBtn">Next</button>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button type="button" class="btn-cancel" id="cancelRecordsBtn">Close</button>
+        </div>
+    </div>
+</div>
+
 <div class="modal-backdrop" id="addModal">
     <div class="modal">
         <div class="modal-header">
@@ -792,6 +890,15 @@
             const actions = document.createElement('div');
             actions.className = 'list-item-actions';
 
+            const recordsBtn = document.createElement('button');
+            recordsBtn.type = 'button';
+            recordsBtn.className = 'btn-icon records';
+            recordsBtn.textContent = 'Records';
+            recordsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openRecordsModal(u);
+            });
+
             const tagsBtn = document.createElement('button');
             tagsBtn.type = 'button';
             tagsBtn.className = 'btn-icon tags';
@@ -819,6 +926,7 @@
                 deleteUser(u, deleteBtn);
             });
 
+            actions.appendChild(recordsBtn);
             actions.appendChild(tagsBtn);
             actions.appendChild(editBtn);
             actions.appendChild(deleteBtn);
@@ -1243,6 +1351,224 @@
             saveTagsBtn.textContent = 'Save tags';
         }
     });
+
+    // ---- Play records modal (PlayRecordController: GET /play-record/query) ----
+    // PlayRecordController runs in the multi-stage-price service on port 8083.
+    const PLAY_RECORD_BASE = 'http://' + window.location.hostname + ':8083';
+    const RECORD_PAGE_SIZE = 5;
+    const recordsModal = document.getElementById('recordsModal');
+    const recordsTitle = document.getElementById('recordsTitle');
+    const recordsAlert = document.getElementById('recordsAlert');
+    const recordsList = document.getElementById('recordsList');
+    const recordsStartInput = document.getElementById('recordsStart');
+    const recordsEndInput = document.getElementById('recordsEnd');
+    const recordsApplyBtn = document.getElementById('recordsApplyBtn');
+    const recordsPresets = document.getElementById('recordsPresets');
+    const recordsPager = document.getElementById('recordsPager');
+    const recordsPagerInfo = document.getElementById('recordsPagerInfo');
+    const recordsPrevBtn = document.getElementById('recordsPrevBtn');
+    const recordsNextBtn = document.getElementById('recordsNextBtn');
+    const closeRecordsBtn = document.getElementById('closeRecordsBtn');
+    const cancelRecordsBtn = document.getElementById('cancelRecordsBtn');
+
+    let recordsUserId = null;
+    let recordsUserLabel = '';
+    let recordsPage = 1;
+    let recordsHadFullPage = false;
+
+    function showRecordsAlert(message, type) {
+        recordsAlert.textContent = message;
+        recordsAlert.className = 'alert ' + type;
+        recordsAlert.style.display = 'block';
+    }
+
+    // Pad a number to 2 digits.
+    function pad2(n) { return String(n).padStart(2, '0'); }
+
+    // Format a Date for a datetime-local input value: "YYYY-MM-DDTHH:mm:ss".
+    function toLocalInputValue(d) {
+        return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate())
+            + 'T' + pad2(d.getHours()) + ':' + pad2(d.getMinutes()) + ':' + pad2(d.getSeconds());
+    }
+
+    // Convert a datetime-local input value to the backend pattern "yyyy-MM-dd HH:mm:ss".
+    // Falls back to the supplied default when the field is empty.
+    function toBackendTime(value, fallback) {
+        const v = (value || '').trim();
+        if (!v) return fallback;
+        const withSeconds = v.length === 16 ? v + ':00' : v; // add seconds if omitted
+        return withSeconds.replace('T', ' ');
+    }
+
+    function formatDateTime(value) {
+        if (!value) return '—';
+        const d = new Date(value);
+        if (isNaN(d.getTime())) return value;
+        return d.toLocaleString('en-US', {
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+    }
+
+    function renderRecords(records) {
+        recordsList.innerHTML = '';
+        if (!records || records.length === 0) {
+            recordsList.innerHTML = '<div class="empty">No play records for this user.</div>';
+            return;
+        }
+        records.forEach(r => {
+            const item = document.createElement('div');
+            item.className = 'record-item';
+
+            const title = document.createElement('div');
+            title.className = 'record-title';
+            const soundLabel = r.soundName ? r.soundName : ('Sound #' + r.soundId);
+            title.textContent = soundLabel + ' · ' + (r.duration || 0) + 's';
+            item.appendChild(title);
+
+            const meta = document.createElement('div');
+            meta.className = 'record-meta';
+            meta.innerHTML =
+                '<div>Record ID: ' + r.id + '</div>' +
+                '<div>Synced: ' + formatDateTime(r.syncTime) + '</div>' +
+                '<div>Created: ' + formatDateTime(r.createTime) + '</div>' +
+                '<div>Updated: ' + formatDateTime(r.updateTime) + '</div>';
+            item.appendChild(meta);
+
+            recordsList.appendChild(item);
+        });
+    }
+
+    function closeRecordsModal() {
+        recordsModal.classList.remove('open');
+    }
+
+    // Load one page of the current user's records using the selected time window.
+    async function loadRecords() {
+        if (recordsUserId == null) return;
+        recordsAlert.style.display = 'none';
+        recordsList.innerHTML = '<div class="empty">Loading…</div>';
+        recordsPager.style.display = 'none';
+
+        // Backend requires a time window; empty fields fall back to a wide range.
+        const startTime = toBackendTime(recordsStartInput.value, '2000-01-01 00:00:00');
+        const endTime = toBackendTime(recordsEndInput.value, '2999-12-31 00:00:00');
+        const pageStart = (recordsPage - 1) * RECORD_PAGE_SIZE;
+
+        const url = PLAY_RECORD_BASE + '/play-record/query'
+            + '?userId=' + encodeURIComponent(recordsUserId)
+            + '&startTime=' + encodeURIComponent(startTime)
+            + '&endTime=' + encodeURIComponent(endTime)
+            + '&pageStart=' + pageStart
+            + '&pageSize=' + RECORD_PAGE_SIZE;
+
+        try {
+            const res = await fetch(url, { method: 'GET' });
+            const data = await res.json();
+            if (data.baseVO && data.baseVO.code === 200 && data.baseVO.success) {
+                const items = data.playRecordVOList || [];
+                recordsHadFullPage = items.length === RECORD_PAGE_SIZE;
+                renderRecords(items);
+                recordsPager.style.display = 'flex';
+                recordsPagerInfo.textContent = 'Page ' + recordsPage;
+                recordsPrevBtn.disabled = recordsPage === 1;
+                recordsNextBtn.disabled = !recordsHadFullPage;
+            } else {
+                recordsList.innerHTML = '';
+                showRecordsAlert((data.baseVO && data.baseVO.message) || 'Failed to load play records.', 'error');
+            }
+        } catch (err) {
+            recordsList.innerHTML = '';
+            showRecordsAlert('Could not reach the play-record service (port 8083). Is it running?', 'error');
+        }
+    }
+
+    // Highlight the active preset (or clear all when the user edits times manually).
+    function setActivePreset(range) {
+        recordsPresets.querySelectorAll('.range-preset').forEach(btn => {
+            btn.classList.toggle('active', range != null && btn.dataset.range === range);
+        });
+    }
+
+    // Compute [start, end] Dates for a named quick range.
+    function rangeForPreset(range) {
+        const now = new Date();
+        const end = now;
+        let start;
+        if (range === 'today') {
+            start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+        } else if (range === '7d') {
+            start = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+        } else if (range === '30d') {
+            start = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+        } else { // 'all'
+            start = new Date(2000, 0, 1, 0, 0, 0);
+        }
+        return [start, end];
+    }
+
+    function applyPreset(range) {
+        const [start, end] = rangeForPreset(range);
+        recordsStartInput.value = toLocalInputValue(start);
+        recordsEndInput.value = toLocalInputValue(end);
+        setActivePreset(range);
+        recordsPage = 1;
+        loadRecords();
+    }
+
+    recordsPresets.addEventListener('click', (e) => {
+        const btn = e.target.closest('.range-preset');
+        if (btn) applyPreset(btn.dataset.range);
+    });
+
+    // Manual edits break the "preset" association.
+    recordsStartInput.addEventListener('input', () => setActivePreset(null));
+    recordsEndInput.addEventListener('input', () => setActivePreset(null));
+
+    recordsApplyBtn.addEventListener('click', () => {
+        recordsPage = 1;
+        loadRecords();
+    });
+    recordsPrevBtn.addEventListener('click', () => {
+        if (recordsPage > 1) {
+            recordsPage--;
+            loadRecords();
+        }
+    });
+    recordsNextBtn.addEventListener('click', () => {
+        if (recordsHadFullPage) {
+            recordsPage++;
+            loadRecords();
+        }
+    });
+
+    closeRecordsBtn.addEventListener('click', closeRecordsModal);
+    cancelRecordsBtn.addEventListener('click', closeRecordsModal);
+    recordsModal.addEventListener('click', (e) => {
+        if (e.target === recordsModal) closeRecordsModal();
+    });
+
+    function openRecordsModal(user) {
+        if (user.id == null) {
+            showAlert('Cannot load records: missing user ID.', 'error');
+            return;
+        }
+        recordsUserId = user.id;
+        recordsUserLabel = user.name || '#' + user.id;
+        recordsPage = 1;
+        recordsHadFullPage = false;
+        recordsTitle.textContent = 'Play records — ' + recordsUserLabel;
+        recordsAlert.style.display = 'none';
+
+        // Default to the "Last 30 days" preset (editable by the user).
+        const [defStart, defEnd] = rangeForPreset('30d');
+        recordsStartInput.value = toLocalInputValue(defStart);
+        recordsEndInput.value = toLocalInputValue(defEnd);
+        setActivePreset('30d');
+
+        recordsModal.classList.add('open');
+        loadRecords();
+    }
 
     async function openUserById(id) {
         try {

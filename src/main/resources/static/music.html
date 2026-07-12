@@ -1116,6 +1116,70 @@
         loadComments(music.id);
     }
 
+    // ---- Periodic play-record sync (PlayController: POST /play/play) ----
+    // While audio is playing, sync a play record every 30s. Each sync inserts an
+    // incremental record on the server, so we report the 30s elapsed per tick.
+    const PLAY_SYNC_INTERVAL_MS = 30000;
+    const PLAY_SYNC_SECONDS = PLAY_SYNC_INTERVAL_MS / 1000;
+    let playSyncTimer = null;
+    // Timestamp of the last reported point while playing. Used to report the
+    // partial seconds elapsed since the last 30s tick when playback pauses/ends.
+    let lastSyncAt = null;
+
+    async function syncPlayRecord(duration) {
+        if (currentUserId == null || !currentDetailMusic || currentDetailMusic.id == null) return;
+        if (duration <= 0) return;
+        const payload = {
+            userId: currentUserId,
+            soundId: currentDetailMusic.id,
+            duration: duration,
+            bizScene: "PLAY_REWARD",
+            prizeCode: "COIN"
+        };
+        try {
+            await fetch('/play/play', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        } catch (err) {
+            // Non-fatal: a failed sync shouldn't interrupt playback.
+            console.warn('Play-record sync failed', err);
+        }
+    }
+
+    function startPlaySync() {
+        if (playSyncTimer != null) return;
+        lastSyncAt = Date.now();
+        playSyncTimer = setInterval(() => {
+            syncPlayRecord(PLAY_SYNC_SECONDS);
+            lastSyncAt = Date.now();
+        }, PLAY_SYNC_INTERVAL_MS);
+    }
+
+    function stopPlaySync() {
+        if (playSyncTimer != null) {
+            clearInterval(playSyncTimer);
+            playSyncTimer = null;
+        }
+        // On pause/ended, immediately report the seconds played since the last
+        // 30s tick — even if that partial span is under 30s, it must not be lost.
+        if (lastSyncAt != null) {
+            const partialSeconds = Math.round((Date.now() - lastSyncAt) / 1000);
+            syncPlayRecord(partialSeconds);
+            lastSyncAt = null;
+        }
+    }
+
+    (function bindPlaySync() {
+        const audio = document.getElementById('rAudio');
+        if (!audio) return;
+        // Timer only runs while actually playing, so each tick ≈ 30s of real playback.
+        audio.addEventListener('play', startPlaySync);
+        audio.addEventListener('pause', stopPlaySync);
+        audio.addEventListener('ended', stopPlaySync);
+    })();
+
     function hideList() {
         listBox.innerHTML = '';
         pagerBox.style.display = 'none';
