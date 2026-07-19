@@ -489,6 +489,7 @@
         <h1>User Management</h1>
         <div class="user">
             <span id="welcome"></span>
+            <a id="coinBtn">Prize Management</a>
             <a id="musicBtn">Music Management</a>
             <a id="logoutBtn">Sign out</a>
         </div>
@@ -757,6 +758,11 @@
     document.getElementById('musicBtn').addEventListener('click', () => {
         const target = '/music.html' + (username ? '?name=' + encodeURIComponent(username) : '');
         window.location.href = target;
+    });
+
+    // Prize Management runs in the coin_center service (port 8084)
+    document.getElementById('coinBtn').addEventListener('click', () => {
+        window.location.href = 'http://' + window.location.hostname + ':8084/coin.html';
     });
 
     let mode = 'name';

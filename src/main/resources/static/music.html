@@ -731,6 +731,8 @@
         <div class="user">
             <span id="welcome"></span>
             <a id="rankBtn">Leaderboard</a>
+            <a id="coinBtn">Prize Management</a>
+            <a id="coinRecordBtn">Coin Records</a>
             <a id="userBtn">User Management</a>
             <a id="logoutBtn">Sign out</a>
             <a class="icon-link bell-link" id="notifBtn" title="Notifications" aria-label="Notifications">
@@ -1015,6 +1017,15 @@
     document.getElementById('userBtn').addEventListener('click', () => {
         const target = '/user.html' + (username ? '?name=' + encodeURIComponent(username) : '');
         window.location.href = target;
+    });
+
+    // Prize Management runs in the coin_center service (port 8084)
+    document.getElementById('coinBtn').addEventListener('click', () => {
+        window.location.href = 'http://' + window.location.hostname + ':8084/coin.html';
+    });
+
+    document.getElementById('coinRecordBtn').addEventListener('click', () => {
+        window.location.href = 'http://' + window.location.hostname + ':8084/coin-record.html';
     });
 
     document.getElementById('notifBtn').addEventListener('click', () => {
